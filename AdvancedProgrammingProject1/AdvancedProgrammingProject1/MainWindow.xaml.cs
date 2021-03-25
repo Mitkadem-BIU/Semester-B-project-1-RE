@@ -20,24 +20,42 @@ namespace AdvancedProgrammingProject1
 {
 	public partial class MainWindow : Window
 	{
+		MainControllerViewModel vm;
 		public MainWindow()
 		{
 			InitializeComponent();
+			vm = new MainControllerViewModel(new MainControllerModel());
+			DataContext = vm;
 		}
 
-		private void btnUploadCSVFile_Click(object sender, RoutedEventArgs e)
+		private void BtnUploadCSVFile_Click(object sender, RoutedEventArgs e)
 		{
-			OpenFileDialog UploadCSVFileDialog = new OpenFileDialog();
-			if (UploadCSVFileDialog.ShowDialog() == true)
-				txtEditor1.Text = System.IO.Path.GetFileNameWithoutExtension(UploadCSVFileDialog.FileName);
-				
+            OpenFileDialog UploadCSVFileDialog = new OpenFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
+            };
+
+            if (UploadCSVFileDialog.ShowDialog() == true)
+				csvName.Text = UploadCSVFileDialog.FileName;
 		}
-		private void btnUploadXMLFile_Click(object sender, RoutedEventArgs e)
+		private void BtnUploadXMLFile_Click(object sender, RoutedEventArgs e)
 		{
-			OpenFileDialog UploadXMLFileDialog = new OpenFileDialog();
+            OpenFileDialog UploadXMLFileDialog = new OpenFileDialog
+            {
+                Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*"
+            };
+
 			if (UploadXMLFileDialog.ShowDialog() == true)
-				txtEditor2.Text = System.IO.Path.GetFileNameWithoutExtension(UploadXMLFileDialog.FileName);
-
+				xmlName.Text = UploadXMLFileDialog.FileName;
 		}
-	}
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+			/*
+			 * I wanted to make this button do the reading of both files, but couldn't manage to do it correctly so far.
+			 * You can go ahead and try if you wish, but as long as you load the XML first and then the CSV it shouldn't
+			 * be a problem right now.
+			 */
+		}
+    }
 }
