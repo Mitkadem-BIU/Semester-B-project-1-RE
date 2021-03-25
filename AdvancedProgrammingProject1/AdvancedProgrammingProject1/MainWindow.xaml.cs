@@ -55,7 +55,11 @@ namespace AdvancedProgrammingProject1
 			 * I wanted to make this button do the reading of both files, but couldn't manage to do it correctly so far.
 			 * You can go ahead and try if you wish, but as long as you load the XML first and then the CSV it shouldn't
 			 * be a problem right now.
-			 */
+			 */ 
+			NewWindow mnw = new NewWindow();
+			mnw.Owner = this;
+			this.Hide(); // not required if using the child events below
+			mnw.ShowDialog();
 		}
     }
 }
