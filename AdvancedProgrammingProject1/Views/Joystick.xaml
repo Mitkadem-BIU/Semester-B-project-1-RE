@@ -86,7 +86,7 @@
                     <Ellipse.Fill>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" />
-                            <GradientStop Color="DarkRed" Offset="1" />
+                            <GradientStop Color="DarkRed" Offset="0.3" />
                         </RadialGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>

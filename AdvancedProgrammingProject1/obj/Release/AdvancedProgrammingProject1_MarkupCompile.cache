@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\Project1\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Release\
+C:\Users\tagop\Source\Repos\Mitkadem-BIU\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Release\
 AdvancedProgrammingProject1
 none
 false
 TRACE
-C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\Project1\AdvancedProgrammingProject1\AdvancedProgrammingProject1\App.xaml
-11151548125
+C:\Users\tagop\Source\Repos\Mitkadem-BIU\Semester-B-project-1-RE\AdvancedProgrammingProject1\App.xaml
+2-374981784
 
-7-827094572
+7-1900676542
 13-1505183044
-MainWindow.xaml;
+Views\MainWindow.xaml;Views\Joystick.xaml;
 
 True
 
