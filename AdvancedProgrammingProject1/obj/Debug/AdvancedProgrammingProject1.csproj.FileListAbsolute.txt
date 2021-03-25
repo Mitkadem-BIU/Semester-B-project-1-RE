@@ -30,3 +30,12 @@ C:\Users\buein\Source\Repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\
 C:\Users\buein\Source\Repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\NewWindow.g.cs
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\NewWindow.baml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\NewWindow.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\MainWindow.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\App.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1_MarkupCompile.cache
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1_MarkupCompile.lref
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.exe
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
