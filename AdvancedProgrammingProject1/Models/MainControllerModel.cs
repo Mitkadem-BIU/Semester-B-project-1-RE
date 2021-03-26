@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.IO;
 using System.Xml;
+using LumenWorks.Framework.IO.Csv;
 
 namespace AdvancedProgrammingProject1
 {
@@ -19,6 +22,7 @@ namespace AdvancedProgrammingProject1
         string xmlName;
         XmlDocument doc;
         List<string> flightAttrNames;
+        DataTable csvTable;
 
         public string Csv
         {
@@ -41,6 +45,7 @@ namespace AdvancedProgrammingProject1
         {
             doc = new XmlDocument();
             flightAttrNames = new List<string>();
+            csvTable = new DataTable();
         }
 
         public void ReadXML(string xmlName)
@@ -54,8 +59,11 @@ namespace AdvancedProgrammingProject1
 
             // Add parts to the list.
             foreach (XmlNode node in outputNode)
-                if(node.Name == "chunk")
+                if (node.Name == "chunk")
+                {
                     flightAttrNames.Add(node.FirstChild.FirstChild.Value);
+                }
+
         }
 
         public void ReadCSV(string csvName)
@@ -64,7 +72,23 @@ namespace AdvancedProgrammingProject1
              * read CSV file to some kind of time series,
              * you can probably use what we did last semester.
              */
+            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), false))
+            {
+                csvTable.Load(csvReader);
+                // csvTable.co
+            }
 
+            for (int i = 0; i < csvTable.Columns.Count; i++)
+            {
+                try
+                {
+                    csvTable.Columns[i].ColumnName = flightAttrNames[i];
+                }
+                catch (DuplicateNameException)
+                {
+                    csvTable.Columns[i].ColumnName = flightAttrNames[i] + "_1";
+                }
+            }
         }
 
         public void NotifyPropertyChanged(string propertyName)
