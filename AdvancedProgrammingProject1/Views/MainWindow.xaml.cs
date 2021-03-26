@@ -35,7 +35,7 @@ namespace AdvancedProgrammingProject1
                 Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
             };
 
-            if (UploadCSVFileDialog.ShowDialog() == true)
+			if (UploadCSVFileDialog.ShowDialog() == true)
 				csvName.Text = UploadCSVFileDialog.FileName;
 		}
 		private void BtnUploadXMLFile_Click(object sender, RoutedEventArgs e)

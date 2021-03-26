@@ -1,11 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Xml;
-using LumenWorks.Framework.IO.Csv;
+using CsvHelper;
+using System.Globalization;
 
 namespace AdvancedProgrammingProject1
 {
@@ -63,7 +63,6 @@ namespace AdvancedProgrammingProject1
                 {
                     flightAttrNames.Add(node.FirstChild.FirstChild.Value);
                 }
-
         }
 
         public void ReadCSV(string csvName)
@@ -72,11 +71,11 @@ namespace AdvancedProgrammingProject1
              * read CSV file to some kind of time series,
              * you can probably use what we did last semester.
              */
-            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), false))
+            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), new CultureInfo(1))) 
             {
                 csvTable.Load(csvReader);
-                // csvTable.co
-            }
+            } 
+            // csvTable.co
 
             for (int i = 0; i < csvTable.Columns.Count; i++)
             {
