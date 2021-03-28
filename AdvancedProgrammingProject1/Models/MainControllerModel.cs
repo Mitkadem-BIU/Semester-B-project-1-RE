@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Xml;
-using CsvHelper;
 using System.Globalization;
+using LumenWorks.Framework.IO.Csv;
 
 namespace AdvancedProgrammingProject1
 {
@@ -71,7 +70,7 @@ namespace AdvancedProgrammingProject1
              * read CSV file to some kind of time series,
              * you can probably use what we did last semester.
              */
-            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), new CultureInfo(1))) 
+            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), false))
             {
                 csvTable.Load(csvReader);
             } 

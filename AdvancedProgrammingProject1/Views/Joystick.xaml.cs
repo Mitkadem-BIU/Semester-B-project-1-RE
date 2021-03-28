@@ -7,6 +7,37 @@ using System.Windows.Media.Animation;
 
 namespace AdvancedProgrammingProject1.Views
 {
+
+    /// <summary>
+    /// Interaction logic for Joystick.xaml
+    /// </summary>
+    public partial class Joystick : UserControl
+    {
+        public Joystick()
+        {
+            InitializeComponent();
+        }
+
+        private void Knob_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Knob_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void CenterKnob_Completed(object sender, EventArgs e)
+        {
+
+        }
+    }
     public class JoystickEventArgs
     {
         private double x;
