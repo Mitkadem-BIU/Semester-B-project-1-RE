@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace AdvancedProgrammingProject1
 {
     // Model View Class. Nothing special over here.
-    class MainControllerViewModel : INotifyPropertyChanged
+    public class MainControllerViewModel : INotifyPropertyChanged
     {
         private MainControllerModel model;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -19,6 +19,23 @@ namespace AdvancedProgrammingProject1
         {
             get { return model.Xml; }
             set { model.Xml = value; }
+        }
+
+        public bool VM_stop
+        {
+            get { return model.Stop; }
+            set { model.Stop = value; }
+        }
+
+        public float VM_altimeter
+        {
+            get { return model.Altimeter; }
+            set { model.Altimeter = value; }
+        }
+
+        public void Start()
+        {
+            model.Start();
         }
 
         public MainControllerViewModel(MainControllerModel model)

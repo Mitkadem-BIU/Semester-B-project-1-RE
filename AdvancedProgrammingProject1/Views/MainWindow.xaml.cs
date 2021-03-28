@@ -30,36 +30,38 @@ namespace AdvancedProgrammingProject1
 
 		private void BtnUploadCSVFile_Click(object sender, RoutedEventArgs e)
 		{
-            OpenFileDialog UploadCSVFileDialog = new OpenFileDialog
-            {
-                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
-            };
+			OpenFileDialog UploadCSVFileDialog = new OpenFileDialog
+			{
+				Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
+			};
 
 			if (UploadCSVFileDialog.ShowDialog() == true)
 				csvName.Text = UploadCSVFileDialog.FileName;
 		}
 		private void BtnUploadXMLFile_Click(object sender, RoutedEventArgs e)
 		{
-            OpenFileDialog UploadXMLFileDialog = new OpenFileDialog
-            {
-                Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*"
-            };
+			OpenFileDialog UploadXMLFileDialog = new OpenFileDialog
+			{
+				Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*"
+			};
 
 			if (UploadXMLFileDialog.ShowDialog() == true)
 				xmlName.Text = UploadXMLFileDialog.FileName;
 		}
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
-        {
+		private void BtnSave_Click(object sender, RoutedEventArgs e)
+		{
 			/*
 			 * I wanted to make this button do the reading of both files, but couldn't manage to do it correctly so far.
 			 * You can go ahead and try if you wish, but as long as you load the XML first and then the CSV it shouldn't
 			 * be a problem right now.
-			 */ 
-			NewWindow mnw = new NewWindow();
+			 */
+			vm.VM_stop = false;
+			NewWindow mnw = new NewWindow(vm);
 			mnw.Owner = this;
 			this.Hide(); // not required if using the child events below
 			mnw.ShowDialog();
+			
 		}
-    }
+	}
 }
