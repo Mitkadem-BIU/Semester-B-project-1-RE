@@ -5,25 +5,28 @@ using System.Net.Sockets;
 
 namespace AdvancedProgrammingProject1
 {
-    // Model View Class. Nothing special over here.
     public class MainControllerViewModel : INotifyPropertyChanged
     {
         private MainControllerModel model;
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string VM_csv
+        public MainControllerModel Model
+        {
+            get { return model; }
+        }
+        public string VM_Csv
         {
             get { return model.Csv; }
             set { model.Csv = value; }
         }
 
-        public string VM_xml
+        public string VM_Xml
         {
             get { return model.Xml; }
             set { model.Xml = value; }
         }
 
-        public bool VM_stop
+        public bool VM_Stop
         {
             get { return model.Stop; }
             set { model.Stop = value; }

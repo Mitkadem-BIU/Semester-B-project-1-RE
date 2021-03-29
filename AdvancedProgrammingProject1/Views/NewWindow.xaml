@@ -10,8 +10,8 @@
         <Button Content="HELLO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="315,130,0,0"/>
         <StackPanel VerticalAlignment="Center" Margin="10" Width="250" Orientation="Horizontal">
             <TextBlock Text="altimeter" Width="50"/>
-            <Slider Value="{Binding Path=VM_altimeter, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="altimeterSlider" IsEnabled="False"/>
-            <TextBox Text="{Binding Path=VM_altimeter, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="altimeterValue"/>
+            <Slider Value="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="altimeterSlider" IsEnabled="False"/>
+            <TextBox Text="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="altimeterValue"/>
 
         </StackPanel>
     </Grid>

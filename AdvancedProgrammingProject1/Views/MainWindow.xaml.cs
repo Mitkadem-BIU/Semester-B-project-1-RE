@@ -56,12 +56,13 @@ namespace AdvancedProgrammingProject1
 			 * You can go ahead and try if you wish, but as long as you load the XML first and then the CSV it shouldn't
 			 * be a problem right now.
 			 */
-			vm.VM_stop = false;
+			vm.VM_Stop = false;
 			NewWindow mnw = new NewWindow(vm);
 			mnw.Owner = this;
 			this.Hide(); // not required if using the child events below
 			mnw.ShowDialog();
-			
+			base.OnClosed(e);
+			Application.Current.Shutdown();
 		}
 	}
 }

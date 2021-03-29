@@ -11,11 +11,11 @@
             <StackPanel>
                 <WrapPanel>
                     <Button Margin="0,20" x:Name="BtnOpenXMLFile" Click="BtnUploadXMLFile_Click" Content="Upload XML"/>
-                    <TextBox Margin="20,20" Width="600" x:Name="xmlName" Text="{Binding VM_xml, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                    <TextBox Margin="20,20" Width="600" x:Name="xmlName" Text="{Binding VM_Xml, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
                 </WrapPanel>
                 <WrapPanel>
                     <Button Margin="0,20" x:Name="BtnUploadCSVFile" Click="BtnUploadCSVFile_Click" Content="Upload CSV"/>
-                    <TextBox Margin="20,20" Width="600" x:Name="csvName" Text="{Binding VM_csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                    <TextBox Margin="20,20" Width="600" x:Name="csvName" Text="{Binding VM_Csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                 </WrapPanel>
                 <Button Margin= "300,20" Width="60" Click="BtnSave_Click">Save</Button>
             </StackPanel>

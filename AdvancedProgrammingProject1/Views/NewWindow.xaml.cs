@@ -20,6 +20,7 @@ namespace AdvancedProgrammingProject1
 	public partial class NewWindow : Window
 	{
 		MainControllerViewModel vm;
+		FGModel fg;
 		public NewWindow() : this(new MainControllerViewModel(new MainControllerModel())) { }
 
 		public NewWindow(MainControllerViewModel viewModel)
@@ -27,7 +28,8 @@ namespace AdvancedProgrammingProject1
 			InitializeComponent();
 			vm = viewModel;
 			DataContext = vm;
-			vm.Start();
+			fg = new FGModel(vm.Model);
+			vm.Run();
 		}
 
 		protected override void OnClosed(EventArgs e)

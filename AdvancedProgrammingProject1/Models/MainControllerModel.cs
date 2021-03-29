@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Xml;
-using System.Globalization;
 using LumenWorks.Framework.IO.Csv;
 using System.Threading;
 using System;
@@ -132,10 +131,14 @@ namespace AdvancedProgrammingProject1
 		}
 
 
-		public DataRow Line
+		public DataRow Row
 		{
 			get { return currentLine; }
-			set { currentLine = value; }
+			set
+			{
+				currentLine = value;
+				NotifyPropertyChanged("Row");
+			}
 		}
 
 		public MainControllerModel()
@@ -191,11 +194,15 @@ namespace AdvancedProgrammingProject1
 
 		public void ReadLine()
 		{
-			currentLine = csvTable.Rows[lineCounter];
 			if (lineCounter < csvTable.Rows.Count)
+			{
+				Row = csvTable.Rows[lineCounter];
 				lineCounter += 1;
-			else StopMethod();
-			// Console.WriteLine(currentLine["aileron"]);
+			} else
+			{
+				StopMethod();
+			}
+
 			Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
 			Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
 			Altitude = Double.Parse((string)currentLine["altitude-ft"]);
@@ -219,7 +226,7 @@ namespace AdvancedProgrammingProject1
 				{
 					// read line and change all properties
 					ReadLine();
-					Thread.Sleep(100);// read the data in 4Hz
+					Thread.Sleep(100);// read the data in 10Hz
 				}
 			}).Start();
 		}
