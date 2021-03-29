@@ -27,8 +27,14 @@ namespace AdvancedProgrammingProject1
 		DataTable csvTable;
 		int lineCounter;
 		DataRow currentLine;
-		float altimeter;
-
+		double altimeter;
+		double airSpeed;
+		double altitude;
+		double roll;
+		double pitch;
+		double verticalSpeed;
+		double groundSpeed;
+		double heading;
 		public string Csv
 		{
 			get { return csvName; }
@@ -53,7 +59,7 @@ namespace AdvancedProgrammingProject1
 			set { stop = value; }
 		}
 
-		public float Altimeter
+		public double Altimeter
 		{
 			get { return altimeter; }
 			set {
@@ -61,48 +67,72 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("altimeter");
 			}
 		}
-
-		public float Aileron
+		public double Airspeed
 		{
-			get { return aileron; }
+			get { return airSpeed; }
 			set
 			{
-				altimeter = value;
-				NotifyPropertyChanged("aileron");
+				airSpeed = value;
+				NotifyPropertyChanged("airSpeed");
+			}
+		}
+		public double Altitude
+		{
+			get { return altitude; }
+			set
+			{
+				altitude = value;
+				NotifyPropertyChanged("altitude");
+			}
+		}
+		public double Roll
+		{
+			get { return roll; }
+			set
+			{
+				roll = value;
+				NotifyPropertyChanged("roll");
+			}
+		}
+		public double Pitch
+		{
+			get { return pitch; }
+			set
+			{
+				pitch = value;
+				NotifyPropertyChanged("pitch");
+			}
+		}
+		public double VerticalSpeed
+		{
+			get { return verticalSpeed; }
+			set
+			{
+				verticalSpeed = value;
+				NotifyPropertyChanged("verticalSpeed");
+			}
+		}
+		public double GroundSpeed
+		{
+			get { return groundSpeed; }
+			set
+			{
+				groundSpeed = value;
+				NotifyPropertyChanged("groundSpeed");
+			}
+		}
+		public double Heading
+		{
+			get { return heading; }
+			set
+			{
+				heading = value;
+				NotifyPropertyChanged("heading");
 			}
 		}
 
-		public float Elevator
-		{
-			get { return elevator; }
-			set
-			{
-				altimeter = value;
-				NotifyPropertyChanged("elevator");
-			}
-		}
 
-		public float Rudder
-		{
-			get { return rudder; }
-			set
-			{
-				altimeter = value;
-				NotifyPropertyChanged("rudder");
-			}
-		}
-
-		public float Flaps
-		{
-			get { return flaps; }
-			set
-			{
-				altimeter = value;
-				NotifyPropertyChanged("flaps");
-			}
-		}
-
-		public DataRow Row
+		public DataRow Line
 		{
 			get { return currentLine; }
 			set { currentLine = value; }
@@ -162,10 +192,18 @@ namespace AdvancedProgrammingProject1
 		public void ReadLine()
 		{
 			currentLine = csvTable.Rows[lineCounter];
-			if (lineCounter <= csvTable.Rows.Count)
+			if (lineCounter < csvTable.Rows.Count)
 				lineCounter += 1;
+			else StopMethod();
 			// Console.WriteLine(currentLine["aileron"]);
-			Altimeter = float.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
+			Altitude = Double.Parse((string)currentLine["altitude-ft"]);
+			Roll = Double.Parse((string)currentLine["attitude-indicator_indicated-roll-deg"]);
+			Pitch = Double.Parse((string)currentLine["attitude-indicator_indicated-pitch-deg"]);
+			VerticalSpeed = Double.Parse((string)currentLine["vertical-speed-indicator_indicated-speed-fpm"]);
+			GroundSpeed = Double.Parse((string)currentLine["gps_indicated-ground-speed-kt"]);
+			Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
 		}
 
 		public void NotifyPropertyChanged(string propertyName)
@@ -173,7 +211,7 @@ namespace AdvancedProgrammingProject1
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		public void Start()
+		public void Run()
 		{
 			new Thread(delegate ()
 			{
@@ -188,7 +226,7 @@ namespace AdvancedProgrammingProject1
 
 		public void StopMethod()
 		{
-			stop = true;
+			Stop = true;
 		}
 	}
 }
