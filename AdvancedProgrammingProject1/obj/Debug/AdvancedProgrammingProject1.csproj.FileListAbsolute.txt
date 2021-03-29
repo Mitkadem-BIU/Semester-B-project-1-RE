@@ -104,3 +104,5 @@ C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.baml
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.g.cs
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.baml

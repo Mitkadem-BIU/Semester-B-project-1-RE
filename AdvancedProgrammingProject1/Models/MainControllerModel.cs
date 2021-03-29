@@ -116,7 +116,7 @@ namespace AdvancedProgrammingProject1
 				{
 					csvTable.Columns[i].ColumnName = flightAttrNames[i] + "_1";
 				}
-				Console.WriteLine(csvTable.Columns[i].ColumnName);
+				//Console.WriteLine(csvTable.Columns[i].ColumnName);
 			}
 		}
 

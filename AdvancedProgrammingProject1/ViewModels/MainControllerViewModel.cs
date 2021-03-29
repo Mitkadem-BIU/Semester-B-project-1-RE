@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Net.Sockets;
 
 namespace AdvancedProgrammingProject1
 {
     // Model View Class. Nothing special over here.
     public class MainControllerViewModel : INotifyPropertyChanged
     {
+        TcpClient myClient;
+        public bool isConnected = false;
         private MainControllerModel model;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -48,7 +51,23 @@ namespace AdvancedProgrammingProject1
         }
 
         public void NotifyPropertyChanged(string propertyName) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            model.NotifyPropertyChanged(propertyName);
+        }
+
+        public void connect(string ip, int port)
+        {
+            myClient = new TcpClient(ip, port);
+            isConnected = true;
+        }
+
+        public void disconnect()
+        {
+            if (isConnected)
+            {
+                this.myClient.Close();
+                isConnected = false;
+            }
         }
     }
 }
