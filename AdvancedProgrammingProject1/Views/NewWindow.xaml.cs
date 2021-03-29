@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace AdvancedProgrammingProject1
 {
 	/// <summary>
-	/// Interaction logic for NewWindow.xaml. comment
+	/// Interaction logic for NewWindow.xaml
 	/// </summary>
 	public partial class NewWindow : Window
 	{
@@ -33,7 +33,6 @@ namespace AdvancedProgrammingProject1
 		protected override void OnClosed(EventArgs e)
 		{
 			base.OnClosed(e);
-
 			Application.Current.Shutdown();
 		}
 	}

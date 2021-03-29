@@ -18,7 +18,6 @@ using Microsoft.Win32;
 namespace AdvancedProgrammingProject1
 
 {
-	// comment
 	public partial class MainWindow : Window
 	{
 		MainControllerViewModel vm;

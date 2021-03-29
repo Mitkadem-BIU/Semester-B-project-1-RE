@@ -62,7 +62,47 @@ namespace AdvancedProgrammingProject1
 			}
 		}
 
-		public DataRow Line
+		public float Aileron
+		{
+			get { return aileron; }
+			set
+			{
+				altimeter = value;
+				NotifyPropertyChanged("aileron");
+			}
+		}
+
+		public float Elevator
+		{
+			get { return elevator; }
+			set
+			{
+				altimeter = value;
+				NotifyPropertyChanged("elevator");
+			}
+		}
+
+		public float Rudder
+		{
+			get { return rudder; }
+			set
+			{
+				altimeter = value;
+				NotifyPropertyChanged("rudder");
+			}
+		}
+
+		public float Flaps
+		{
+			get { return flaps; }
+			set
+			{
+				altimeter = value;
+				NotifyPropertyChanged("flaps");
+			}
+		}
+
+		public DataRow Row
 		{
 			get { return currentLine; }
 			set { currentLine = value; }
@@ -116,7 +156,6 @@ namespace AdvancedProgrammingProject1
 				{
 					csvTable.Columns[i].ColumnName = flightAttrNames[i] + "_1";
 				}
-				Console.WriteLine(csvTable.Columns[i].ColumnName);
 			}
 		}
 
@@ -142,7 +181,6 @@ namespace AdvancedProgrammingProject1
 				{
 					// read line and change all properties
 					ReadLine();
-					// Console.WriteLine("read line");
 					Thread.Sleep(100);// read the data in 4Hz
 				}
 			}).Start();
