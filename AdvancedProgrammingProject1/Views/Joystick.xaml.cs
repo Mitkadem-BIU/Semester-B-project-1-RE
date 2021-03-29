@@ -49,7 +49,7 @@ namespace AdvancedProgrammingProject1.Views
         }
         public double X
         {
-            get { return X; }
+            get { return x; }
             set
             {
                 x = value;

@@ -8,8 +8,6 @@ namespace AdvancedProgrammingProject1
     // Model View Class. Nothing special over here.
     public class MainControllerViewModel : INotifyPropertyChanged
     {
-        TcpClient myClient;
-        public bool isConnected = false;
         private MainControllerModel model;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -31,50 +29,50 @@ namespace AdvancedProgrammingProject1
             set { model.Stop = value; }
         }
 
-        public string VM_altimeter
+        public double VM_Altimeter
         {
             get { return model.Altimeter; }
             set { model.Altimeter = value; }
         }
-        public string VM_airspeed
+        public double VM_Airspeed
         {
             get { return model.Airspeed; }
             set { model.Airspeed = value; }
         }
-        public string VM_altitude
+        public double VM_Altitude
         {
             get { return model.Altitude; }
             set { model.Altitude = value; }
         }
-        public string VM_roll
+        public double VM_Roll
         {
             get { return model.Roll; }
             set { model.Roll = value; }
         }
-        public string VM_pitch
+        public double VM_Pitch
         {
             get { return model.Pitch; }
             set { model.Pitch = value; }
         }
-        public string VM_verticalSpeed
+        public double VM_VerticalSpeed
         {
             get { return model.VerticalSpeed; }
             set { model.VerticalSpeed = value; }
         }
-        public string VM_groundSpeed
+        public double VM_GroundSpeed
         {
             get { return model.GroundSpeed; }
             set { model.GroundSpeed = value; }
         }
-        public string VM_heading
+        public double VM_Heading
         {
             get { return model.Heading; }
             set { model.Heading = value; }
         }
 
-        public void Start()
+        public void Run()
         {
-            model.Start();
+            model.Run();
         }
 
         public MainControllerViewModel(MainControllerModel model)
@@ -86,41 +84,9 @@ namespace AdvancedProgrammingProject1
             };
         }
 
-        public void NotifyPropertyChanged(string propertyName) {
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            model.NotifyPropertyChanged(propertyName);
-        }
-
-        public void connect(string ip, int port)
+        public void NotifyPropertyChanged(string propertyName)
         {
-            //myClient = new TcpClient(ip, port);
-            //isConnected = true;
-
-         //   Socket fg = new Socket(ip, port);
-         //   BufferedReader in= new BufferedReader(new FileReader("reg_flight.csv"));
-         //   PrintWriter out= new PrintWriter(fg.getOutputStream());
-         //   String line;
-       //     while ((line =in.readLine())!= null) {
-        //    out.println(line);
-        //     out.flush();
-        //        Thread.sleep(100);
-        //    }
-        //    out.close();
-       //     in.close();
-      //      fg.close();
-
-
-
-
-        }
-
-        public void disconnect()
-        {
-            if (isConnected)
-            {
-                this.myClient.Close();
-                isConnected = false;
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

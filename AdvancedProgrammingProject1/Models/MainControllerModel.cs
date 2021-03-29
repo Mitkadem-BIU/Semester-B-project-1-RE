@@ -27,14 +27,14 @@ namespace AdvancedProgrammingProject1
 		DataTable csvTable;
 		int lineCounter;
 		DataRow currentLine;
-		string altimeter;
-		string airspeed;
-		string altitude;
-		string roll;
-		string pitch;
-		string verticalSpeed;
-		string groundSpeed;
-		string heading;
+		double altimeter;
+		double airSpeed;
+		double altitude;
+		double roll;
+		double pitch;
+		double verticalSpeed;
+		double groundSpeed;
+		double heading;
 		public string Csv
 		{
 			get { return csvName; }
@@ -59,7 +59,7 @@ namespace AdvancedProgrammingProject1
 			set { stop = value; }
 		}
 
-		public string Altimeter
+		public double Altimeter
 		{
 			get { return altimeter; }
 			set {
@@ -67,16 +67,16 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("altimeter");
 			}
 		}
-		public string Airspeed
+		public double Airspeed
 		{
-			get { return airspeed; }
+			get { return airSpeed; }
 			set
 			{
-				airspeed = value;
-				NotifyPropertyChanged("airspeed");
+				airSpeed = value;
+				NotifyPropertyChanged("airSpeed");
 			}
 		}
-		public string Altitude
+		public double Altitude
 		{
 			get { return altitude; }
 			set
@@ -85,7 +85,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("altitude");
 			}
 		}
-		public string Roll
+		public double Roll
 		{
 			get { return roll; }
 			set
@@ -94,7 +94,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("roll");
 			}
 		}
-		public string Pitch
+		public double Pitch
 		{
 			get { return pitch; }
 			set
@@ -103,7 +103,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("pitch");
 			}
 		}
-		public string VerticalSpeed
+		public double VerticalSpeed
 		{
 			get { return verticalSpeed; }
 			set
@@ -112,7 +112,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("verticalSpeed");
 			}
 		}
-		public string GroundSpeed
+		public double GroundSpeed
 		{
 			get { return groundSpeed; }
 			set
@@ -121,7 +121,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("groundSpeed");
 			}
 		}
-		public string Heading
+		public double Heading
 		{
 			get { return heading; }
 			set
@@ -193,18 +193,18 @@ namespace AdvancedProgrammingProject1
 		public void ReadLine()
 		{
 			currentLine = csvTable.Rows[lineCounter];
-			if (lineCounter <= csvTable.Rows.Count)
+			if (lineCounter < csvTable.Rows.Count)
 				lineCounter += 1;
+			else StopMethod();
 			// Console.WriteLine(currentLine["aileron"]);
-			Altimeter = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-
-			Airspeed = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-			Altitude = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-			Roll = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-			Pitch = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-			VerticalSpeed = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-			GroundSpeed = ((string)currentLine["altimeter_indicated-altitude-ft"]);
-			Heading = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
+			Altitude = Double.Parse((string)currentLine["altitude-ft"]);
+			Roll = Double.Parse((string)currentLine["attitude-indicator_indicated-roll-deg"]);
+			Pitch = Double.Parse((string)currentLine["attitude-indicator_indicated-pitch-deg"]);
+			VerticalSpeed = Double.Parse((string)currentLine["vertical-speed-indicator_indicated-speed-fpm"]);
+			GroundSpeed = Double.Parse((string)currentLine["gps_indicated-ground-speed-kt"]);
+			Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
 		}
 
 		public void NotifyPropertyChanged(string propertyName)
@@ -212,24 +212,23 @@ namespace AdvancedProgrammingProject1
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		public void Start()
+		public void Run()
 		{
-			new Thread(delegate ()
-			{
-				while (!stop)
-				{
-					// read line and change all properties
-					ReadLine();
-					// Console.WriteLine("read line");
-					Thread.Sleep(100);// read the data in 4Hz
-				}
-			}).Start();
-			//again
+            new Thread(delegate ()
+            {
+                while (!stop)
+                {
+                    // read line and change all properties
+                    ReadLine();
+                    // Console.WriteLine("read line");
+                    Thread.Sleep(100);// read the data in 4Hz
+                }
+            }).Start();
 		}
 
 		public void StopMethod()
 		{
-			stop = true;
+			Stop = true;
 		}
 	}
 }
