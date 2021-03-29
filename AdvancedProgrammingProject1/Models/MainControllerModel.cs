@@ -27,8 +27,14 @@ namespace AdvancedProgrammingProject1
 		DataTable csvTable;
 		int lineCounter;
 		DataRow currentLine;
-		float altimeter;
-
+		string altimeter;
+		string airspeed;
+		string altitude;
+		string roll;
+		string pitch;
+		string verticalSpeed;
+		string groundSpeed;
+		string heading;
 		public string Csv
 		{
 			get { return csvName; }
@@ -53,7 +59,7 @@ namespace AdvancedProgrammingProject1
 			set { stop = value; }
 		}
 
-		public float Altimeter
+		public string Altimeter
 		{
 			get { return altimeter; }
 			set {
@@ -61,6 +67,70 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("altimeter");
 			}
 		}
+		public string Airspeed
+		{
+			get { return airspeed; }
+			set
+			{
+				airspeed = value;
+				NotifyPropertyChanged("airspeed");
+			}
+		}
+		public string Altitude
+		{
+			get { return altitude; }
+			set
+			{
+				altitude = value;
+				NotifyPropertyChanged("altitude");
+			}
+		}
+		public string Roll
+		{
+			get { return roll; }
+			set
+			{
+				roll = value;
+				NotifyPropertyChanged("roll");
+			}
+		}
+		public string Pitch
+		{
+			get { return pitch; }
+			set
+			{
+				pitch = value;
+				NotifyPropertyChanged("pitch");
+			}
+		}
+		public string VerticalSpeed
+		{
+			get { return verticalSpeed; }
+			set
+			{
+				verticalSpeed = value;
+				NotifyPropertyChanged("verticalSpeed");
+			}
+		}
+		public string GroundSpeed
+		{
+			get { return groundSpeed; }
+			set
+			{
+				groundSpeed = value;
+				NotifyPropertyChanged("groundSpeed");
+			}
+		}
+		public string Heading
+		{
+			get { return heading; }
+			set
+			{
+				heading = value;
+				NotifyPropertyChanged("heading");
+			}
+		}
+
 
 		public DataRow Line
 		{
@@ -126,7 +196,15 @@ namespace AdvancedProgrammingProject1
 			if (lineCounter <= csvTable.Rows.Count)
 				lineCounter += 1;
 			// Console.WriteLine(currentLine["aileron"]);
-			Altimeter = float.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Altimeter = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+
+			Airspeed = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Altitude = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Roll = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Pitch = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			VerticalSpeed = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			GroundSpeed = ((string)currentLine["altimeter_indicated-altitude-ft"]);
+			Heading = ((string)currentLine["altimeter_indicated-altitude-ft"]);
 		}
 
 		public void NotifyPropertyChanged(string propertyName)

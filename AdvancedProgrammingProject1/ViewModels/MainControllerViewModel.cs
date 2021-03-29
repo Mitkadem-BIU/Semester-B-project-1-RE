@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Net.Sockets;
 
+
 namespace AdvancedProgrammingProject1
 {
     // Model View Class. Nothing special over here.
@@ -30,10 +31,45 @@ namespace AdvancedProgrammingProject1
             set { model.Stop = value; }
         }
 
-        public float VM_altimeter
+        public string VM_altimeter
         {
             get { return model.Altimeter; }
             set { model.Altimeter = value; }
+        }
+        public string VM_airspeed
+        {
+            get { return model.Airspeed; }
+            set { model.Airspeed = value; }
+        }
+        public string VM_altitude
+        {
+            get { return model.Altitude; }
+            set { model.Altitude = value; }
+        }
+        public string VM_roll
+        {
+            get { return model.Roll; }
+            set { model.Roll = value; }
+        }
+        public string VM_pitch
+        {
+            get { return model.Pitch; }
+            set { model.Pitch = value; }
+        }
+        public string VM_verticalSpeed
+        {
+            get { return model.VerticalSpeed; }
+            set { model.VerticalSpeed = value; }
+        }
+        public string VM_groundSpeed
+        {
+            get { return model.GroundSpeed; }
+            set { model.GroundSpeed = value; }
+        }
+        public string VM_heading
+        {
+            get { return model.Heading; }
+            set { model.Heading = value; }
         }
 
         public void Start()
@@ -57,8 +93,25 @@ namespace AdvancedProgrammingProject1
 
         public void connect(string ip, int port)
         {
-            myClient = new TcpClient(ip, port);
-            isConnected = true;
+            //myClient = new TcpClient(ip, port);
+            //isConnected = true;
+
+         //   Socket fg = new Socket(ip, port);
+         //   BufferedReader in= new BufferedReader(new FileReader("reg_flight.csv"));
+         //   PrintWriter out= new PrintWriter(fg.getOutputStream());
+         //   String line;
+       //     while ((line =in.readLine())!= null) {
+        //    out.println(line);
+        //     out.flush();
+        //        Thread.sleep(100);
+        //    }
+        //    out.close();
+       //     in.close();
+      //      fg.close();
+
+
+
+
         }
 
         public void disconnect()
