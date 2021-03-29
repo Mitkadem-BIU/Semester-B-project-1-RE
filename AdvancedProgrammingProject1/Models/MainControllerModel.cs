@@ -146,6 +146,7 @@ namespace AdvancedProgrammingProject1
 					Thread.Sleep(100);// read the data in 4Hz
 				}
 			}).Start();
+			//again
 		}
 
 		public void StopMethod()
