@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace AdvancedProgrammingProject1
 {
 	/// <summary>
-	/// Interaction logic for NewWindow.xaml
+	/// Interaction logic for NewWindow.xaml. comment
 	/// </summary>
 	public partial class NewWindow : Window
 	{
