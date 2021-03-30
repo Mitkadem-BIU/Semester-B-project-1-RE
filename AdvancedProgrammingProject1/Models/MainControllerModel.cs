@@ -66,7 +66,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("altimeter");
 			}
 		}
-		public double Airspeed
+		public double AirSpeed
 		{
 			get { return airSpeed; }
 			set
@@ -204,7 +204,7 @@ namespace AdvancedProgrammingProject1
 			}
 
 			Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
-			Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
+			AirSpeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
 			Altitude = Double.Parse((string)currentLine["altitude-ft"]);
 			Roll = Double.Parse((string)currentLine["attitude-indicator_indicated-roll-deg"]);
 			Pitch = Double.Parse((string)currentLine["attitude-indicator_indicated-pitch-deg"]);

@@ -70,7 +70,6 @@ C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\�
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\NewWindow.g.cs
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\MainWindow.g.cs
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\App.g.cs

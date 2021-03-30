@@ -9,10 +9,13 @@
     <Grid>
         <Button Content="HELLO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="315,130,0,0"/>
         <StackPanel VerticalAlignment="Center" Margin="10" Width="250" Orientation="Horizontal">
-            <TextBlock Text="altimeter" Width="50"/>
-            <Slider Value="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="altimeterSlider" IsEnabled="False"/>
-            <TextBox Text="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="altimeterValue"/>
-
+            <TextBlock Text="altimeter" Width="50" RenderTransformOrigin="0.412,-1.409"/>
+            <Slider Value="{Binding VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="700" Minimum="-100" x:Name="altimeterSlider" IsEnabled="False"/>
+            <TextBox Text="{Binding VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="66" IsReadOnly="True" x:Name="altimeterValue"/>
         </StackPanel>
+        <StackPanel VerticalAlignment="Center" Margin="272,258,271.6,144" Width="250" Orientation="Horizontal"/>
+            <TextBlock Text="air speed" RenderTransformOrigin="0.412,-1.409" Margin="272,260,466.6,142"/>
+            <Slider Value="{Binding VM_AirSpeed, UpdateSourceTrigger=PropertyChanged}" Maximum="700" Minimum="-100" x:Name="airSpeedSlider" IsEnabled="False" Margin="318,258,320.6,141"/>
+            <TextBox Text="{Binding VM_AirSpeed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" x:Name="airSpeedValue" Margin="473,258,260.6,144"/>
     </Grid>
 </Window>
