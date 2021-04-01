@@ -83,7 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\FGModel.cs" />
+    <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="Views\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
@@ -91,6 +93,10 @@
       <DependentUpon>NewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainControllerViewModel.cs" />
+    <Page Include="Views\ControlBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Joystick.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
