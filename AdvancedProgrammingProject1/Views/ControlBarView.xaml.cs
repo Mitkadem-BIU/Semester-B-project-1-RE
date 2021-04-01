@@ -22,7 +22,7 @@ namespace AdvancedProgrammingProject1
     {
         public ControlBarView()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
