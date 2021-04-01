@@ -28,7 +28,6 @@ namespace AdvancedProgrammingProject1
 			InitializeComponent();
 			vm = viewModel;
 			DataContext = vm;
-			// fg = new FGModel(vm.Model);
 			vm.Run();
 		}
 

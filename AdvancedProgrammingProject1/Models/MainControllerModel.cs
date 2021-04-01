@@ -78,6 +78,11 @@ namespace AdvancedProgrammingProject1
 			get { return fg; }
 		}
 
+		public List<string> FlightAttrNames
+        {
+			get { return flightAttrNames; }
+        }
+
 		public double Altimeter
 		{
 			get { return altimeter; }
