@@ -86,7 +86,7 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("altimeter");
 			}
 		}
-		public double Airspeed
+		public double AirSpeed
 		{
 			get { return airSpeed; }
 			set
@@ -222,7 +222,7 @@ namespace AdvancedProgrammingProject1
 				lineCounter += 1;
 
 				Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
-				Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
+				AirSpeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
 				Altitude = Double.Parse((string)currentLine["altitude-ft"]);
 				Roll = Double.Parse((string)currentLine["attitude-indicator_indicated-roll-deg"]);
 				Pitch = Double.Parse((string)currentLine["attitude-indicator_indicated-pitch-deg"]);
@@ -248,7 +248,7 @@ namespace AdvancedProgrammingProject1
 				{
 					// read line and change all properties
 					ReadLine();
-					Thread.Sleep(10);// read the data in 10Hz
+					Thread.Sleep(100);// read the data in 10Hz
 				}
 			}).Start();
 		}

@@ -1,3 +1,4 @@
 - [ ] make the loading files interface be able to show only the file's name without its full path
 - [ ] close the app when clicking on new windows' x
 - [ ] make some parimary analysis of the data in order to know best which way to represent it (for example, if it is shown as a slider, what are the maximal and minimal values)
+- [ ] make everything more user friendly and block unwanted behaviors

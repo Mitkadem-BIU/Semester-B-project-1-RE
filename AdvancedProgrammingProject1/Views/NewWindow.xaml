@@ -9,16 +9,16 @@
     <Grid>
         <Button Content="HELLO" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="315,130,0,0"/>
         <StackPanel Orientation="Vertical">
-        <StackPanel VerticalAlignment="Center" Margin="10" Width="250" Orientation="Horizontal">
-            <TextBlock Text="altimeter" Width="50"/>
-            <Slider Value="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="altimeterSlider" IsEnabled="False"/>
-            <TextBox Text="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="altimeterValue"/>
-        </StackPanel>
-        <StackPanel VerticalAlignment="Center" Margin="10" Width="250" Orientation="Horizontal">
-            <TextBlock Text="roll" Width="50"/>
-            <Slider Value="{Binding Path=VM_Roll, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="rollSlider" IsEnabled="False"/>
-            <TextBox Text="{Binding Path=VM_Roll, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="rollValue"/>
-        </StackPanel>
+            <StackPanel VerticalAlignment="Center" Margin="10" Width="250" Orientation="Horizontal">
+                <TextBlock Text="altimeter" Width="50"/>
+                <Slider Value="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="altimeterSlider" IsEnabled="False"/>
+                <TextBox Text="{Binding Path=VM_Altimeter, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="altimeterValue"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Margin="10" Width="250" Orientation="Horizontal">
+                <TextBlock Text="roll" Width="50"/>
+                <Slider Value="{Binding Path=VM_Roll, UpdateSourceTrigger=PropertyChanged}" Width="150" Maximum="100" Minimum="-100" Name="rollSlider" IsEnabled="False"/>
+                <TextBox Text="{Binding Path=VM_Roll, UpdateSourceTrigger=PropertyChanged}" Width="45" IsReadOnly="True" Name="rollValue"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

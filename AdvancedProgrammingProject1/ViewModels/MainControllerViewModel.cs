@@ -50,10 +50,10 @@ namespace AdvancedProgrammingProject1
             get { return model.Altimeter; }
             set { model.Altimeter = value; }
         }
-        public double VM_Airspeed
+        public double VM_AirSpeed
         {
-            get { return model.Airspeed; }
-            set { model.Airspeed = value; }
+            get { return model.AirSpeed; }
+            set { model.AirSpeed = value; }
         }
         public double VM_Altitude
         {
