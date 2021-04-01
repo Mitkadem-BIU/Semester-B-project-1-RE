@@ -11,7 +11,7 @@ namespace AdvancedProgrammingProject1.Views
     {
         public ControlBarView()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
