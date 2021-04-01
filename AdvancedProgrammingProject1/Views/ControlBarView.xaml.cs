@@ -22,7 +22,12 @@ namespace AdvancedProgrammingProject1
     {
         public ControlBarView()
         {
-            //InitializeComponent();
+            InitializeComponent();
+        }
+
+        private void timeScroller_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
         }
     }
 }
