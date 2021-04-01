@@ -18,9 +18,12 @@ namespace AdvancedProgrammingProject1
 	public class MainControllerModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
+		FGModel fg;
 		string csvName;
 		string xmlName;
 		bool stop;
+		string ip;
+		int port;
 		XmlDocument doc;
 		List<string> flightAttrNames;
 		DataTable csvTable;
@@ -56,6 +59,23 @@ namespace AdvancedProgrammingProject1
 		{
 			get { return stop; }
 			set { stop = value; }
+		}
+
+		public string IP
+		{
+			get { return ip; }
+			set { ip = value; }
+		}
+
+		public int Port
+		{
+			get { return port; }
+			set { port = value; }
+		}
+
+		public FGModel Client
+		{
+			get { return fg; }
 		}
 
 		public double Altimeter
@@ -138,6 +158,7 @@ namespace AdvancedProgrammingProject1
 			{
 				currentLine = value;
 				NotifyPropertyChanged("Row");
+				// NotifyPropertyChanged("row");
 			}
 		}
 
@@ -149,6 +170,7 @@ namespace AdvancedProgrammingProject1
 			stop = true;
 			lineCounter = 0;
 			currentLine = null;
+			fg = new FGModel(this);
 		}
 
 		public void ReadXML(string xmlName)
@@ -198,19 +220,19 @@ namespace AdvancedProgrammingProject1
 			{
 				Row = csvTable.Rows[lineCounter];
 				lineCounter += 1;
+
+				Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
+				Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
+				Altitude = Double.Parse((string)currentLine["altitude-ft"]);
+				Roll = Double.Parse((string)currentLine["attitude-indicator_indicated-roll-deg"]);
+				Pitch = Double.Parse((string)currentLine["attitude-indicator_indicated-pitch-deg"]);
+				VerticalSpeed = Double.Parse((string)currentLine["vertical-speed-indicator_indicated-speed-fpm"]);
+				GroundSpeed = Double.Parse((string)currentLine["gps_indicated-ground-speed-kt"]);
+				Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
 			} else
 			{
 				StopMethod();
 			}
-
-			Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
-			Airspeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);
-			Altitude = Double.Parse((string)currentLine["altitude-ft"]);
-			Roll = Double.Parse((string)currentLine["attitude-indicator_indicated-roll-deg"]);
-			Pitch = Double.Parse((string)currentLine["attitude-indicator_indicated-pitch-deg"]);
-			VerticalSpeed = Double.Parse((string)currentLine["vertical-speed-indicator_indicated-speed-fpm"]);
-			GroundSpeed = Double.Parse((string)currentLine["gps_indicated-ground-speed-kt"]);
-			Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
 		}
 
 		public void NotifyPropertyChanged(string propertyName)
@@ -226,7 +248,7 @@ namespace AdvancedProgrammingProject1
 				{
 					// read line and change all properties
 					ReadLine();
-					Thread.Sleep(100);// read the data in 10Hz
+					Thread.Sleep(10);// read the data in 10Hz
 				}
 			}).Start();
 		}
@@ -234,6 +256,8 @@ namespace AdvancedProgrammingProject1
 		public void StopMethod()
 		{
 			Stop = true;
+			// stop = true;
+			fg.Disconnect();
 		}
 	}
 }

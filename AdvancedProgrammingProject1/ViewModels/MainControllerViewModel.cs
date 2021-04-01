@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data;
 using System.Net.Sockets;
 
 
@@ -24,6 +25,18 @@ namespace AdvancedProgrammingProject1
         {
             get { return model.Xml; }
             set { model.Xml = value; }
+        }
+
+        public string VM_IP
+        {
+            get { return model.IP; }
+            set { model.IP = value; }
+        }
+
+        public int VM_Port
+        {
+            get { return model.Port; }
+            set { model.Port = value; }
         }
 
         public bool VM_Stop
@@ -73,8 +86,16 @@ namespace AdvancedProgrammingProject1
             set { model.Heading = value; }
         }
 
+        public DataRow VM_Row
+        {
+            get { return model.Row; }
+            set { model.Row = value; }
+        }
+
         public void Run()
         {
+            // model.fg
+            model.Client.Connect(VM_IP, VM_Port);
             model.Run();
         }
 

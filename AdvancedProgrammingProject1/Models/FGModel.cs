@@ -15,26 +15,17 @@ namespace AdvancedProgrammingProject1
 		public event PropertyChangedEventHandler PropertyChanged;
 		TcpClient myClient;
 		public bool isConnected = false;
-		DataRow row;
 
 		public DataRow FG_Row
 		{
 			get { return mainControllerModel.Row; }
-			set
-			{
-				mainControllerModel.Row = value;
-				RowToCommand(FG_Row);
-			}
+			set { mainControllerModel.Row = value; }
 		}
 
-		private void RowToCommand(DataRow row)
+		private void WriteRow(DataRow row)
 		{
-			Console.WriteLine(row.ToString());
-			//string command = "";
-   //         foreach (var item in row)
-   //         {
-
-   //         }
+			string command = string.Join(",", row.ItemArray);
+			Write(command);
 		}
 
 		public FGModel(MainControllerModel model)
@@ -68,7 +59,6 @@ namespace AdvancedProgrammingProject1
 			}
 		}
 
-
 		public void Disconnect()
 		{
 			if (isConnected)
@@ -80,6 +70,8 @@ namespace AdvancedProgrammingProject1
 
 		public void NotifyPropertyChanged(string propertyName)
 		{
+			if (propertyName == "FG_Row")
+				WriteRow(FG_Row);
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
