@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
-namespace AdvancedProgrammingProject1.Views
+namespace AdvancedProgrammingProject1
 {
 
     /// <summary>
