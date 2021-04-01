@@ -86,6 +86,9 @@
     <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\FGModel.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
+    <Compile Include="Views\ControlBarView.xaml.cs">
+      <DependentUpon>ControlBarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
