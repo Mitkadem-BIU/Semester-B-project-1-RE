@@ -20,14 +20,26 @@ namespace AdvancedProgrammingProject1
     /// </summary>
     public partial class ControlBarView : UserControl
     {
-        public ControlBarView()
+        MainControllerViewModel vm;
+
+        public ControlBarView() : this(new MainControllerViewModel(new MainControllerModel())) { }
+
+        public ControlBarView(MainControllerViewModel viewModel)
         {
             InitializeComponent();
-        }
+            vm = viewModel;
+            DataContext = vm;
 
+
+        }
         private void timeScroller_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
+        }
+        private void BtnPause_Click(object sender, RoutedEventArgs e)
+        {
+            if (vm.VM_Stop == false)
+            { vm.VM_Stop = true; }
         }
     }
 }

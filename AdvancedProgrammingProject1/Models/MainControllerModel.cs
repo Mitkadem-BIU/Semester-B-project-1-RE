@@ -167,6 +167,12 @@ namespace AdvancedProgrammingProject1
 			}
 		}
 
+		public int LineCounter
+		{
+			get { return lineCounter; }
+			set { lineCounter = value; }
+		}
+
 		public MainControllerModel()
 		{
 			doc = new XmlDocument();

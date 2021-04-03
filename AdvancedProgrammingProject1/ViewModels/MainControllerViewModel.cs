@@ -92,6 +92,12 @@ namespace AdvancedProgrammingProject1
             set { model.Row = value; }
         }
 
+        public int VM_LineCounter
+        {
+            get { return model.LineCounter; }
+            set { model.LineCounter = value; }
+        }
+
         public void Run()
         {
             // model.fg
