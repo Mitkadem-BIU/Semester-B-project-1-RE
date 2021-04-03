@@ -29,13 +29,13 @@ namespace AdvancedProgrammingProject1
             InitializeComponent();
             vm = viewModel;
             DataContext = vm;
-
-
         }
+
         private void timeScroller_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
+
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
             if (vm.VM_Stop == false)

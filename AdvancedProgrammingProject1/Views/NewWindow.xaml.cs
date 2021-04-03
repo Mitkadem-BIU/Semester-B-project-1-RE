@@ -19,7 +19,8 @@ namespace AdvancedProgrammingProject1
 	/// </summary>
 	public partial class NewWindow : Window
 	{
-		MainControllerViewModel vm;
+        MainControllerViewModel vm;
+		UserControl controlBarView;
 		// FGModel fg;
 		public NewWindow() : this(new MainControllerViewModel(new MainControllerModel())) { }
 
@@ -28,6 +29,7 @@ namespace AdvancedProgrammingProject1
 			InitializeComponent();
 			vm = viewModel;
 			DataContext = vm;
+			controlBarView = new ControlBarView(vm);
 			vm.Run();
 		}
 

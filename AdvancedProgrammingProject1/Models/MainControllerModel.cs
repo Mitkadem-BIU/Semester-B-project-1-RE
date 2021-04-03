@@ -170,7 +170,11 @@ namespace AdvancedProgrammingProject1
 		public int LineCounter
 		{
 			get { return lineCounter; }
-			set { lineCounter = value; }
+			set 
+			{
+				lineCounter = value;
+				NotifyPropertyChanged("LineCounter");
+			}
 		}
 
 		public MainControllerModel()

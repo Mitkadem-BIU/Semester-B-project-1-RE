@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AdvancedProgrammingProject1"
+             xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="1000">
     <Grid>
@@ -21,7 +21,7 @@
             <Button Content="decrease speed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="10,10,0,0"/>
         </StackPanel>
         <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">
-            <Slider x:Name="timeShowcase" Value="{Binding VM_LineCounter, UpdateSourceTrigger=PropertyChanged}" Maximum="1000" Minimum="0"  IsEnabled="True" Margin="0,20,0,0" Width="1000"/>
+            <Slider Value="{Binding VM_LineCounter, UpdateSourceTrigger=PropertyChanged}" Maximum="1000" Minimum="0"  IsEnabled="True" Margin="0,20,0,0" Width="1000"/>
         </StackPanel>
     </Grid>
 </UserControl>
