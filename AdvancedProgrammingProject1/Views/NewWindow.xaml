@@ -16,13 +16,13 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="plots" FontSize="20"/>
-        </StackPanel>
+        <DockPanel Grid.RowSpan="2" Grid.Column="0">
+            <local:AttrPlot/>
+        </DockPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="184" Margin="32.2,-16,22.6,0" Width="210">
             <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,0,57.6,0" Height="181" Width="97"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="dashboard" FontSize="20"/>
         </DockPanel>
         <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
