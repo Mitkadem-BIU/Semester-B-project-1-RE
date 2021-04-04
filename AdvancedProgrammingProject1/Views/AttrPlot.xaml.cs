@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OxyPlot.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,34 +16,33 @@ using System.Windows.Shapes;
 
 namespace AdvancedProgrammingProject1
 {
-    /// <summary>
-    /// Interaction logic for AttrPlot.xaml
-    /// </summary>
-    public partial class AttrPlot : UserControl
-    {
-        AttrPlotViewModel vm;
+	/// <summary>
+	/// Interaction logic for AttrPlot.xaml
+	/// </summary>
+	public partial class AttrPlot : UserControl
+	{
+		AttrPlotViewModel vm;
+		public AttrPlot()
+		{
+			vm = (Application.Current as App).APVM;
+			InitializeComponent();
+			DataContext = vm;
 
-        public AttrPlot()
-        {
-            InitializeComponent();
-            vm = new AttrPlotViewModel(new AttrPlotModel());
-            DataContext = vm;
-            
-            /* List<SingleAttr> items = new List<SingleAttr>();
-            //foreach (var item in )
-            //{
+			List<AttrItem> items = new List<AttrItem>();
+			foreach (var item in vm.Model.FlightAttrNames)
+				items.Add(new AttrItem() { Title = item, Completion = 15 });
+			lbAttrList.ItemsSource = items;
+		}
 
-            //}
-            items.Add(new SingleAttr() { Title = "Complete this WPF tutorial", Completion = 0 });
-            items.Add(new SingleAttr() { Title = "Learn C#", Completion = 0 });
-            items.Add(new SingleAttr() { Title = "Wash the car", Completion = 0 });
+		private void LbAttrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+		   // Console.WriteLine($"current selection: {(lbAttrList.SelectedItem as AttrItem).Title}");
+		}
+	}
 
-            AttributesList.ItemsSource = items; */
-        }
-    }
-    public class SingleAttr
-    {
-        public string Title { get; set; }
-        public int Completion { get; set; }
-    }
+	public class AttrItem
+	{
+		public string Title { get; set; }
+		public int Completion { get; set; }
+	}
 }

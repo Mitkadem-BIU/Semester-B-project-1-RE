@@ -11,7 +11,7 @@ namespace AdvancedProgrammingProject1
 {
 	public class FGModel : INotifyPropertyChanged
 	{
-		MainControllerModel mainControllerModel;
+        readonly MainControllerModel mainControllerModel;
 		public event PropertyChangedEventHandler PropertyChanged;
 		TcpClient myClient;
 		public bool isConnected = false;
@@ -51,7 +51,6 @@ namespace AdvancedProgrammingProject1
 				NetworkStream stream = this.myClient.GetStream();
 				stream.Flush();
 				stream.Write(buffer, 0, buffer.Length);
-				Console.WriteLine("enter write scope");
 			}
 			catch
 			{

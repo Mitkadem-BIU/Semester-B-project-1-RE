@@ -20,8 +20,6 @@ namespace AdvancedProgrammingProject1
 	public partial class NewWindow : Window
 	{
         MainControllerViewModel vm;
-		// FGModel fg;
-		public NewWindow() : this(new MainControllerViewModel(new MainControllerModel())) { }
 
 		public NewWindow(MainControllerViewModel viewModel)
 		{

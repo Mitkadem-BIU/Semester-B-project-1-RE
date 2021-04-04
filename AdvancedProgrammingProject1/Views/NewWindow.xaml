@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AdvancedProgrammingProject1"
+        xmlns:local="clr-namespace:AdvancedProgrammingProject1" xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="NewWindow" Height="450" Width="800">
     <Grid>
@@ -16,20 +16,20 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="plots" FontSize="20"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="184" Margin="32.2,-16,22.6,0" Width="210">
+        <DockPanel Grid.RowSpan="2" Grid.Column="0">
+            <local:AttrPlot/>
+        </DockPanel>
+        <DockPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="184" Margin="32.2,-16,22.6,0" Width="210">
             <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,0,54.6,0" Height="181"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        </DockPanel>
+        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="dashboard" FontSize="20"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+        </DockPanel>
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <local:ControlBarView HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,-0.4,0" Width="794"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        </DockPanel>
+        <DockPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="extra stuff" FontSize="20"/>
-        </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>

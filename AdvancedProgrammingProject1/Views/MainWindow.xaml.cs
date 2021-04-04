@@ -20,11 +20,14 @@ namespace AdvancedProgrammingProject1
 {
 	public partial class MainWindow : Window
 	{
-		MainControllerViewModel vm;
-		public MainWindow()
+		public MainControllerViewModel vm;
+
+        public MainControllerViewModel VM { get; set; }
+        public MainWindow()
 		{
 			InitializeComponent();
-			vm = new MainControllerViewModel(new MainControllerModel());
+			// vm = new MainControllerViewModel(new MainControllerModel());
+			vm = (Application.Current as App).MainVM;
 			DataContext = vm;
 		}
 
