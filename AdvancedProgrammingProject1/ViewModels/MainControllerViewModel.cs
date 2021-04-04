@@ -100,7 +100,6 @@ namespace AdvancedProgrammingProject1
 
         public void Run()
         {
-            // model.fg
             model.Client.Connect(VM_IP, VM_Port);
             model.Run();
         }

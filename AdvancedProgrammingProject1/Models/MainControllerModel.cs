@@ -79,9 +79,9 @@ namespace AdvancedProgrammingProject1
 		}
 
 		public List<string> FlightAttrNames
-        {
+		{
 			get { return flightAttrNames; }
-        }
+		}
 
 		public double Altimeter
 		{
@@ -163,7 +163,6 @@ namespace AdvancedProgrammingProject1
 			{
 				currentLine = value;
 				NotifyPropertyChanged("Row");
-				// NotifyPropertyChanged("row");
 			}
 		}
 
@@ -271,7 +270,6 @@ namespace AdvancedProgrammingProject1
 		public void StopMethod()
 		{
 			Stop = true;
-			// stop = true;
 			fg.Disconnect();
 		}
 	}
