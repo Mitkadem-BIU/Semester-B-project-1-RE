@@ -39,7 +39,48 @@ namespace AdvancedProgrammingProject1
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
             if (vm.VM_Stop == false)
-            { vm.VM_Stop = true; }
+                vm.VM_Stop = true;
+        }
+
+        private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            if (vm.VM_Stop == true)
+                vm.VM_Stop = false;
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveForward_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnMoveWayForward_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnIncreaseSpeed_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDecreaseSpeed_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
