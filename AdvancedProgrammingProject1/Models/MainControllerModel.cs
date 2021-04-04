@@ -233,7 +233,7 @@ namespace AdvancedProgrammingProject1
 			if (lineCounter < csvTable.Rows.Count)
 			{
 				Row = csvTable.Rows[lineCounter];
-				lineCounter += 1;
+				lineCounter++;
 
 				Altimeter = Double.Parse((string)currentLine["altimeter_indicated-altitude-ft"]);
 				AirSpeed = Double.Parse((string)currentLine["airspeed-indicator_indicated-speed-kt"]);

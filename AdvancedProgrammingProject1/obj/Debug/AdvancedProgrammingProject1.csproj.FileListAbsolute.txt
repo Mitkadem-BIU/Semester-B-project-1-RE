@@ -30,6 +30,25 @@ C:\Users\buein\Source\Repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\
 C:\Users\buein\Source\Repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\NewWindow.g.cs
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\NewWindow.baml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe.config
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.pdb
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\LumenWorks.Framework.IO.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\LumenWorks.Framework.IO.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\NewWindow.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\MainWindow.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\App.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1_MarkupCompile.cache
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1_MarkupCompile.lref
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\NewWindow.baml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\MainWindow.baml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.g.resources
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.Properties.Resources.resources
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.GenerateResource.cache
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.CoreCompileInputs.cache
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.CopyComplete
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.exe
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe.config
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.pdb
@@ -65,6 +84,25 @@ C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\�
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.CopyComplete
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.exe
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\CsvHelper.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Buffers.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Memory.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\CsvHelper.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Buffers.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Memory.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.baml
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.g.cs
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.baml
 C:\Users\dudid\OneDrive\שולחן העבודה\a\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe.config
@@ -106,53 +144,13 @@ C:\Users\dudid\OneDrive\שולחן העבודה\a\AdvancedProgrammingProject1\ob
 C:\Users\dudid\OneDrive\שולחן העבודה\a\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.exe
 C:\Users\dudid\OneDrive\שולחן העבודה\a\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\ControlBarView.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\ControlBarView.baml
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\ControlBarView.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\AttrPlot.g.cs
+C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\AttrPlot.baml
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\AttrPlot.g.cs
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\AttrPlot.baml
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\ControlBarView.baml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe.config
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.pdb
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\CsvHelper.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\LumenWorks.Framework.IO.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.HashCode.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\OxyPlot.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\OxyPlot.Wpf.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Buffers.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Memory.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\CsvHelper.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\LumenWorks.Framework.IO.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\Microsoft.Bcl.HashCode.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\OxyPlot.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\OxyPlot.Wpf.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Buffers.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Memory.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\AttrPlot.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\ControlBarView.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\NewWindow.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\MainWindow.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\App.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1_MarkupCompile.cache
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1_MarkupCompile.lref
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\AttrPlot.baml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\ControlBarView.baml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\Joystick.baml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\NewWindow.baml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\MainWindow.baml
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.g.resources
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.Properties.Resources.resources
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.GenerateResource.cache
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.CoreCompileInputs.cache
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.CopyComplete
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.exe
-C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
