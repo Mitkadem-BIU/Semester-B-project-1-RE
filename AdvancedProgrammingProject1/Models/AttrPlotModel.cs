@@ -94,5 +94,28 @@ namespace AdvancedProgrammingProject1
 			}
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+		
+		public double Variance(List<double> x)
+        {
+			double sqsum = 0;
+            foreach (double val in x)
+            {
+				sqsum += val * val;
+            }
+			return sqsum / x.Count() - x.Average() * x.Average();
+		}
+
+		public double Covariance(List<double> x, List<double> y)
+        {
+			List<double> covarr = new List<double>();
+			for (int i = 0; i < x.Count(); i++)
+				covarr[i] = (x[i] - x.Average()) * (y[i] - y.Average());
+			return covarr.Average();
+		}
+
+		public double Pearson(List<double> x, List<double> y)
+		{
+			return Covariance(x, y) / Math.Sqrt(Variance(x) * Variance(y));
+		}
 	}
 }
