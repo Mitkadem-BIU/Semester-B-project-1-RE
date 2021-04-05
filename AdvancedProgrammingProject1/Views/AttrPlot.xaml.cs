@@ -22,7 +22,8 @@ namespace AdvancedProgrammingProject1
 	public partial class AttrPlot : UserControl
 	{
 		AttrPlotViewModel vm;
-		public AttrPlot()
+        
+        public AttrPlot()
 		{
 			vm = (Application.Current as App).APVM;
 			InitializeComponent();
@@ -36,6 +37,8 @@ namespace AdvancedProgrammingProject1
 
 		private void LbAttrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			vm.AttrToPlot = (lbAttrList.SelectedItem as AttrItem).Title;
+			vm.PlotModel.Axes[1].Title = vm.AttrToPlot;
 		   // Console.WriteLine($"current selection: {(lbAttrList.SelectedItem as AttrItem).Title}");
 		}
 	}

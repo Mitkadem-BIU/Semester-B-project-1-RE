@@ -6,6 +6,9 @@ using System.Xml;
 using LumenWorks.Framework.IO.Csv;
 using System.Threading;
 using System;
+using OxyPlot;
+using OxyPlot.Series;
+using OxyPlot.Axes;
 
 namespace AdvancedProgrammingProject1
 {
@@ -29,6 +32,7 @@ namespace AdvancedProgrammingProject1
 		DataTable csvTable;
 		int lineCounter;
 		DataRow currentLine;
+
 		double altimeter;
 		double airSpeed;
 		double altitude;
@@ -37,6 +41,14 @@ namespace AdvancedProgrammingProject1
 		double verticalSpeed;
 		double groundSpeed;
 		double heading;
+
+		public PlotModel PlotModel { get; private set; }
+
+		public float Time
+        {
+			get { return (float)LineCounter / 10; }
+			set { LineCounter = (int)(value * 10); }
+        }
 		public string Csv
 		{
 			get { return csvName; }
@@ -185,6 +197,24 @@ namespace AdvancedProgrammingProject1
 			lineCounter = 0;
 			currentLine = null;
 			fg = new FGModel(this);
+
+			PlotModel = new PlotModel { };
+			PlotModel.Series.Add(new LineSeries());
+			PlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Bottom,
+				Maximum = 30,
+				Minimum = 0,
+				Title = "time [s]",
+				MajorStep = 10,
+			});
+			PlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Left,
+				// Maximum = 10,
+				// Minimum = -10,
+				// MajorStep = 10,
+			});
 		}
 
 		public void ReadXML(string xmlName)
@@ -272,5 +302,5 @@ namespace AdvancedProgrammingProject1
 			Stop = true;
 			fg.Disconnect();
 		}
-	}
+    }
 }

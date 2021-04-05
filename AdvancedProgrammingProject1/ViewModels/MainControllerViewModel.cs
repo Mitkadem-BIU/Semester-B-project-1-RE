@@ -1,6 +1,4 @@
-﻿using OxyPlot;
-using OxyPlot.Series;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Data;
 using System.Net.Sockets;
@@ -10,7 +8,6 @@ namespace AdvancedProgrammingProject1
 {
 	public class MainControllerViewModel : INotifyPropertyChanged
 	{
-		public PlotModel MyModel { get; private set; }
 		private MainControllerModel model;
 		public event PropertyChangedEventHandler PropertyChanged;
 
@@ -114,8 +111,6 @@ namespace AdvancedProgrammingProject1
 			delegate (Object sender, PropertyChangedEventArgs e) {
 				NotifyPropertyChanged("VM_" + e.PropertyName);
 			};
-			MyModel = new PlotModel { Title = "Example 1" };
-			MyModel.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
 		}
 
 		public void NotifyPropertyChanged(string propertyName)

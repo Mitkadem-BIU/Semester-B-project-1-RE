@@ -61,11 +61,13 @@ namespace AdvancedProgrammingProject1
 			 */
 			vm.VM_Stop = false;
 			NewWindow mnw = new NewWindow(vm);
-			mnw.Owner = this;
-			this.Hide(); // not required if using the child events below
-			mnw.ShowDialog();
-			base.OnClosed(e);
-			Application.Current.Shutdown();
+			mnw.Show();
+			this.Close();
+			// mnw.Owner = this;
+			// this.Hide(); // not required if using the child events below
+			// mnw.ShowDialog();
+			// base.OnClosed(e);
+			// Application.Current.Shutdown();
 		}
 	}
 }
