@@ -91,6 +91,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\AttrPlotModel.cs" />
     <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\FGModel.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />

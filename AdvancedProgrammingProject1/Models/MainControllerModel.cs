@@ -21,8 +21,8 @@ namespace AdvancedProgrammingProject1
 	public class MainControllerModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		FGModel fg;
-		string csvName;
+
+        string csvName;
 		string xmlName;
 		bool stop;
 		string ip;
@@ -42,9 +42,8 @@ namespace AdvancedProgrammingProject1
 		double groundSpeed;
 		double heading;
 
-		public PlotModel PlotModel { get; private set; }
-
-		public float Time
+        public AttrPlotModel AP { get; }
+        public float Time
         {
 			get { return (float)LineCounter / 10; }
 			set { LineCounter = (int)(value * 10); }
@@ -85,12 +84,9 @@ namespace AdvancedProgrammingProject1
 			set { port = value; }
 		}
 
-		public FGModel Client
-		{
-			get { return fg; }
-		}
+        public FGModel Client { get; }
 
-		public List<string> FlightAttrNames
+        public List<string> FlightAttrNames
 		{
 			get { return flightAttrNames; }
 		}
@@ -196,25 +192,8 @@ namespace AdvancedProgrammingProject1
 			stop = true;
 			lineCounter = 0;
 			currentLine = null;
-			fg = new FGModel(this);
-
-			PlotModel = new PlotModel { };
-			PlotModel.Series.Add(new LineSeries());
-			PlotModel.Axes.Add(new LinearAxis
-			{
-				Position = AxisPosition.Bottom,
-				Maximum = 30,
-				Minimum = 0,
-				Title = "time [s]",
-				MajorStep = 10,
-			});
-			PlotModel.Axes.Add(new LinearAxis
-			{
-				Position = AxisPosition.Left,
-				// Maximum = 10,
-				// Minimum = -10,
-				// MajorStep = 10,
-			});
+			Client = new FGModel(this);
+			AP = new AttrPlotModel(this);
 		}
 
 		public void ReadXML(string xmlName)
@@ -300,7 +279,7 @@ namespace AdvancedProgrammingProject1
 		public void StopMethod()
 		{
 			Stop = true;
-			fg.Disconnect();
+			Client.Disconnect();
 		}
     }
 }
