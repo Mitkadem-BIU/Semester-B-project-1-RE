@@ -25,7 +25,7 @@ namespace AdvancedProgrammingProject1
             Model = new MainControllerModel();
             MainVM = new MainControllerViewModel(Model);
             APVM = new AttrPlotViewModel(Model.AP);
-            CBVM = new ControlBarViewModel(Model);
+            CBVM = new ControlBarViewModel(Model.CB);
             // Create main application window
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

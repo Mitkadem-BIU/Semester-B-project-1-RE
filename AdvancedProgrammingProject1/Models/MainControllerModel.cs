@@ -21,7 +21,6 @@ namespace AdvancedProgrammingProject1
 	public class MainControllerModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		//FGModel fg;
 		string csvName;
 		string xmlName;
 		bool stop;
@@ -45,24 +44,26 @@ namespace AdvancedProgrammingProject1
 		public double Speed
 		{
 			get { return speed; }
-			set { speed=value ; }
+			set { speed = value; }
 		}
 		public PlotModel PlotModel { get; private set; }
 		public AttrPlotModel AP { get; }
+		public ControlBarModel CB { get; }
 		public float Time
-        {
+		{
 			get { return (float)LineCounter / 10; }
 			set { LineCounter = (int)(value * 10); }
-        }
+		}
 		public DataTable CSVTable
-        {
+		{
 			get { return csvTable; }
 			set { csvTable = value; }
 		}
 		public string Csv
 		{
 			get { return csvName; }
-			set {
+			set
+			{
 				csvName = value;
 				ReadCSV(csvName);
 			}
@@ -71,7 +72,8 @@ namespace AdvancedProgrammingProject1
 		public string Xml
 		{
 			get { return xmlName; }
-			set {
+			set
+			{
 				xmlName = value;
 				ReadXML(xmlName);
 			}
@@ -86,7 +88,9 @@ namespace AdvancedProgrammingProject1
 		public bool Pause
 		{
 			get { return pause; }
-			set { pause = value;
+			set
+			{
+				pause = value;
 				NotifyPropertyChanged("pause");
 			}
 		}
@@ -112,7 +116,8 @@ namespace AdvancedProgrammingProject1
 		public double Altimeter
 		{
 			get { return altimeter; }
-			set {
+			set
+			{
 				altimeter = value;
 				NotifyPropertyChanged("altimeter");
 			}
@@ -195,13 +200,13 @@ namespace AdvancedProgrammingProject1
 		public int LineCounter
 		{
 			get { return lineCounter; }
-			set 
+			set
 			{
 				lineCounter = value;
 				NotifyPropertyChanged("lineCounter");
 			}
 		}
-	
+
 
 		public MainControllerModel()
 		{
@@ -214,6 +219,7 @@ namespace AdvancedProgrammingProject1
 			currentLine = null;
 			Client = new FGModel(this);
 			AP = new AttrPlotModel(this);
+			CB = new ControlBarModel(this);
 		}
 
 		public void ReadXML(string xmlName)
@@ -242,7 +248,7 @@ namespace AdvancedProgrammingProject1
 			using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), false))
 			{
 				csvTable.Load(csvReader);
-			} 
+			}
 
 			for (int i = 0; i < csvTable.Columns.Count; i++)
 			{
@@ -272,7 +278,8 @@ namespace AdvancedProgrammingProject1
 				VerticalSpeed = Double.Parse((string)currentLine["vertical-speed-indicator_indicated-speed-fpm"]);
 				GroundSpeed = Double.Parse((string)currentLine["gps_indicated-ground-speed-kt"]);
 				Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
-			} else
+			}
+			else
 			{
 				//StopMethod();
 				pause = true;
@@ -295,8 +302,8 @@ namespace AdvancedProgrammingProject1
 						LineCounter = LineCounter;
 						// read line and change all properties
 						ReadLine();
-						Thread.Sleep((int)(100/ speed));// read the data in 10Hz
-						
+						Thread.Sleep((int)(100 / speed));// read the data in 10Hz
+
 					}
 				}
 			}).Start();
@@ -307,5 +314,5 @@ namespace AdvancedProgrammingProject1
 			Stop = true;
 			Client.Disconnect();
 		}
-    }
+	}
 }
