@@ -58,7 +58,26 @@ namespace AdvancedProgrammingProject1
 
             }
         }
+        public bool VM_ValueChanged
+        {
 
+            get { return Model.ValueChanged; }
+            set
+            {
+                Model.ValueChanged = value;
+
+            }
+        }
+        public int VM_Minutes
+        {
+            get { return Model.Minutes; }
+            set { Model.Minutes = value; }
+        }
+        public int VM_Seconds
+        {
+            get { return Model.Seconds; }
+            set { Model.Seconds = value; }
+        }
         public ControlBarViewModel(ControlBarModel model)
         {
             this.Model = model;

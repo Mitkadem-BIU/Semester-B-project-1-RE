@@ -40,30 +40,28 @@ namespace AdvancedProgrammingProject1
 
 
          
-         bool dragStarted = false;
+       
    
 
         private void Slider_DragCompleted(object sender, DragCompletedEventArgs e)
         {
             vm.VM_LineCounter = vm.VM_SlideValue;
-            dragStarted = false;
+            vm.VM_ValueChanged = false;
         }
 
-      //  private void Slider_DragStarted(object sender, DragStartedEventArgs e)
-       // {
-       //     vm.VM_LineCounter = slideValue;
-       //     originalValue = slideValue;
-        //    dragStarted = true;
-        //}
+        private void Slider_DragStarted(object sender, DragStartedEventArgs e)
+        {
+            vm.VM_ValueChanged = true;
+        }
 
-        //private void Slider_ValueChanged(
-        //    object sender,
-        //    RoutedPropertyChangedEventArgs<double> e)
-       // {
-       //     if (dragStarted)
-       //         vm.VM_LineCounter = originalValue;
+        private void Slider_ValueChanged(
+            object sender,
+            RoutedPropertyChangedEventArgs<double> e)
+        {
+         
+            //   vm.VM_ValueChanged=true;
 
-      //  }
+        }
 
 
 

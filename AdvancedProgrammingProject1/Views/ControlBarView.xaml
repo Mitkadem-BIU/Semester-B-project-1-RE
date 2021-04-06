@@ -32,11 +32,15 @@
             <Button Background="Gray" Content="{StaticResource decreaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="30,10,0,0" Click="BtnDecreaseSpeed_Click"/>
             <TextBox Background="Gray" Margin="5,10" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
             <Button Background="Gray" Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="4,10,0,0" Click="BtnIncreaseSpeed_Click"/>
-            <TextBox Background="Gray"  Margin="25,10" Width="40" TextAlignment="Center" Height="30"  x:Name="time" Text="{Binding VM_Time, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBox Background="Gray"  Margin="40,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeMinutes" Text="{Binding VM_Minutes, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBlock Background="Gray"  Margin="0,0,0,0" Width="5" TextAlignment="Center" Height="30">:</TextBlock>
+            <TextBox Background="Gray"  Margin="0,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeSeconds" Text="{Binding VM_Seconds, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
 
         </StackPanel>
         <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">
             <Slider Value="{Binding VM_SlideValue, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" 
+    ValueChanged="Slider_ValueChanged"
+    Thumb.DragStarted="Slider_DragStarted"
     Thumb.DragCompleted="Slider_DragCompleted"/>
         </StackPanel>
     </Grid>

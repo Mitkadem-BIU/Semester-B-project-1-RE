@@ -18,6 +18,16 @@ namespace AdvancedProgrammingProject1
 
         public MainControllerModel Model { get; }
 
+        public int Minutes
+        {
+            get { return Model.Minutes; }
+            set { Model.Minutes = value; }
+        }
+        public int Seconds
+        {
+            get { return Model.Seconds; }
+            set { Model.Seconds = value; }
+        }
         public int SlideValue
         {
 
@@ -37,7 +47,8 @@ namespace AdvancedProgrammingProject1
         {
             get { return Model.LineCounter; }
             set { Model.LineCounter = value;
-                Model.SlideValue = value;
+                if (Model.ValueChanged == false)
+                { Model.SlideValue = value; }
             }
         }
 
@@ -59,6 +70,11 @@ namespace AdvancedProgrammingProject1
         {
             get { return Model.Speed; }
             set { Model.Speed = value; }
+        }
+        public bool ValueChanged
+        {
+            get { return Model.ValueChanged; }
+            set { Model.ValueChanged = value; }
         }
 
 

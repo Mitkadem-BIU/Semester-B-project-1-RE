@@ -46,7 +46,27 @@ namespace AdvancedProgrammingProject1
 		double elevator;
 		double speed;
 		int slideValue;
+		bool valueChanged;
 		
+		public int Minutes
+		{
+			get { return (int)(Time / 60); }
+		    set {  ;}
+		}
+		public int Seconds
+		{
+			get { return (int)((Time - 60 * ((int)(Time / 60)))); }
+			set {  ; }
+		}
+
+		public bool ValueChanged
+		{
+			get { return valueChanged; }
+			set { valueChanged = value;
+				NotifyPropertyChanged("valueChanged");
+			}
+		}
+
 		public double Speed
 		{
 			get { return speed; }
@@ -60,7 +80,7 @@ namespace AdvancedProgrammingProject1
 		{
 			get { return (float)LineCounter / 10; }
 			set { LineCounter = (int)(value * 10);
-			//	NotifyPropertyChanged("time");
+		
 			}
 		}
 		public DataTable CSVTable
@@ -256,14 +276,21 @@ namespace AdvancedProgrammingProject1
 				lineCounter = value;
 				NotifyPropertyChanged("lineCounter");
 				NotifyPropertyChanged("time");
+				NotifyPropertyChanged("seconds");
+				NotifyPropertyChanged("minutes");
 				slideValue = value;
-				NotifyPropertyChanged("slideValue");
+				if (valueChanged == false)
+				{
+					NotifyPropertyChanged("slideValue");
+				}
 			}
 		}
 
 
 		public MainControllerModel()
 		{
+	
+			valueChanged = false;
 			speed = 1;
 			doc = new XmlDocument();
 			flightAttrNames = new List<string>();
