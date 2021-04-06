@@ -24,7 +24,7 @@ namespace AdvancedProgrammingProject1
     public partial class ControlBarView : UserControl
     {
         ControlBarViewModel vm;
-        int slideValue;
+   
         public ControlBarView()
         {
             vm = (Application.Current as App).CBVM;
@@ -34,37 +34,36 @@ namespace AdvancedProgrammingProject1
             slide.Width = 500;
             //slide.TickFrequency = 50;
             //slide.IsSnapToTickEnabled = true;
-            slideValue = vm.VM_LineCounter;
+           
         }
 
 
 
          
          bool dragStarted = false;
-        int originalValue = 0;
-        int finalValue = 0;
+   
 
         private void Slider_DragCompleted(object sender, DragCompletedEventArgs e)
         {
-            vm.VM_LineCounter = slideValue;
+            vm.VM_LineCounter = vm.VM_SlideValue;
             dragStarted = false;
         }
 
-        private void Slider_DragStarted(object sender, DragStartedEventArgs e)
-        {
-            vm.VM_LineCounter = slideValue;
-            originalValue = slideValue;
-            dragStarted = true;
-        }
+      //  private void Slider_DragStarted(object sender, DragStartedEventArgs e)
+       // {
+       //     vm.VM_LineCounter = slideValue;
+       //     originalValue = slideValue;
+        //    dragStarted = true;
+        //}
 
-        private void Slider_ValueChanged(
-            object sender,
-            RoutedPropertyChangedEventArgs<double> e)
-        {
-            if (dragStarted)
-                vm.VM_LineCounter = originalValue;
+        //private void Slider_ValueChanged(
+        //    object sender,
+        //    RoutedPropertyChangedEventArgs<double> e)
+       // {
+       //     if (dragStarted)
+       //         vm.VM_LineCounter = originalValue;
 
-        }
+      //  }
 
 
 

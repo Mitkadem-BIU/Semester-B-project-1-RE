@@ -18,6 +18,16 @@ namespace AdvancedProgrammingProject1
 
         public MainControllerModel Model { get; }
 
+        public int SlideValue
+        {
+
+            get { return Model.SlideValue; }
+            set
+            {
+                Model.SlideValue = value;
+             
+            }
+        }
         public float Time
         {
             get { return Model.Time; }
@@ -26,7 +36,9 @@ namespace AdvancedProgrammingProject1
         public int LineCounter
         {
             get { return Model.LineCounter; }
-            set { Model.LineCounter = value; }
+            set { Model.LineCounter = value;
+                Model.SlideValue = value;
+            }
         }
 
         public bool Stop

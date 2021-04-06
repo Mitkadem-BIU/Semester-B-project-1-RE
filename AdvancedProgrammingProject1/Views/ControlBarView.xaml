@@ -36,8 +36,7 @@
 
         </StackPanel>
         <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">
-            <Slider Value="{Binding slideValue, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" ValueChanged="Slider_ValueChanged"
-    Thumb.DragStarted="Slider_DragStarted"
+            <Slider Value="{Binding VM_SlideValue, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" 
     Thumb.DragCompleted="Slider_DragCompleted"/>
         </StackPanel>
     </Grid>

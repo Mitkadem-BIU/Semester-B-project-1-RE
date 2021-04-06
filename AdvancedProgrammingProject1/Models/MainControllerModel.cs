@@ -41,6 +41,7 @@ namespace AdvancedProgrammingProject1
 		double groundSpeed;
 		double heading;
 		double speed;
+		int slideValue;
 		
 		public double Speed
 		{
@@ -83,6 +84,14 @@ namespace AdvancedProgrammingProject1
 			}
 		}
 
+		public int SlideValue
+        {
+
+			get { return slideValue; }
+			set { slideValue = value;
+				NotifyPropertyChanged("slideValue");
+			}
+		}
 		public bool Stop
 		{
 			get { return stop; }
@@ -209,6 +218,8 @@ namespace AdvancedProgrammingProject1
 				lineCounter = value;
 				NotifyPropertyChanged("lineCounter");
 				NotifyPropertyChanged("time");
+				slideValue = value;
+				NotifyPropertyChanged("slideValue");
 			}
 		}
 
@@ -221,6 +232,7 @@ namespace AdvancedProgrammingProject1
 			csvTable = new DataTable();
 			stop = true;
 			lineCounter = 0;
+			slideValue = 0;
 			currentLine = null;
 			Client = new FGModel(this);
 			AP = new AttrPlotModel(this);
