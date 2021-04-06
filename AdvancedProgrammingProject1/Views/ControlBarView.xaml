@@ -17,7 +17,7 @@
             <Button Content="move forward" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveForward_Click"/>
             <Button Content="move way forward" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveWayForward_Click"/>
             <Button Content="increase speed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnIncreaseSpeed_Click"/>
-            <TextBox Margin="5,5" Width="40" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBox Margin="5,5" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
             <Button Content="decrease speed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="0,10,0,0" Click="BtnDecreaseSpeed_Click"/>
            
         </StackPanel>

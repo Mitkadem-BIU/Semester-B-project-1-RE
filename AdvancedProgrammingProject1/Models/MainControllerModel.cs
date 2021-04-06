@@ -21,7 +21,7 @@ namespace AdvancedProgrammingProject1
 	public class MainControllerModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		FGModel fg;
+		//FGModel fg;
 		string csvName;
 		string xmlName;
 		bool stop;
