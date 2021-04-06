@@ -42,6 +42,23 @@ namespace AdvancedProgrammingProject1
             set { Model.Speed = value; }
         }
 
+        public float VM_Time
+        {
+            get { return Model.Time; }
+            set { Model.Time = value; }
+        }
+
+        public int VM_SlideValue
+        {
+
+            get { return Model.SlideValue; }
+            set
+            {
+                Model.SlideValue = value;
+
+            }
+        }
+
         public ControlBarViewModel(ControlBarModel model)
         {
             this.Model = model;

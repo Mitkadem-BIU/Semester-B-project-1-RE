@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -23,7 +24,7 @@ namespace AdvancedProgrammingProject1
     public partial class ControlBarView : UserControl
     {
         ControlBarViewModel vm;
-        //int lenght;
+   
         public ControlBarView()
         {
             vm = (Application.Current as App).CBVM;
@@ -31,14 +32,47 @@ namespace AdvancedProgrammingProject1
             DataContext = vm;
             slide.Maximum = vm.VM_CSVTable.Rows.Count;
             slide.Width = 500;
-            slide.TickFrequency = 50;
-            slide.IsSnapToTickEnabled = true;
+            //slide.TickFrequency = 50;
+            //slide.IsSnapToTickEnabled = true;
+           
         }
 
-        private void TimeScroller_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+
+
+         
+         bool dragStarted = false;
+   
+
+        private void Slider_DragCompleted(object sender, DragCompletedEventArgs e)
         {
-
+            vm.VM_LineCounter = vm.VM_SlideValue;
+            dragStarted = false;
         }
+
+      //  private void Slider_DragStarted(object sender, DragStartedEventArgs e)
+       // {
+       //     vm.VM_LineCounter = slideValue;
+       //     originalValue = slideValue;
+        //    dragStarted = true;
+        //}
+
+        //private void Slider_ValueChanged(
+        //    object sender,
+        //    RoutedPropertyChangedEventArgs<double> e)
+       // {
+       //     if (dragStarted)
+       //         vm.VM_LineCounter = originalValue;
+
+      //  }
+
+
+
+
+
+       // private void TimeScroller_ValueChanged(object sender, DragCompletedEventArgs e)
+       // {
+      //      vm.VM_LineCounter = (int)slide.Value;
+       // }
 
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
         {
