@@ -32,16 +32,10 @@ namespace AdvancedProgrammingProject1
             DataContext = vm;
             slide.Maximum = vm.VM_CSVTable.Rows.Count;
             slide.Width = 500;
-            //slide.TickFrequency = 50;
-            //slide.IsSnapToTickEnabled = true;
+            // slide.TickFrequency = 50;
+            // slide.IsSnapToTickEnabled = true;
            
         }
-
-
-
-         
-       
-   
 
         private void Slider_DragCompleted(object sender, DragCompletedEventArgs e)
         {
@@ -54,46 +48,24 @@ namespace AdvancedProgrammingProject1
             vm.VM_ValueChanged = true;
         }
 
-        private void Slider_ValueChanged(
-            object sender,
-            RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-         
             //   vm.VM_ValueChanged=true;
-
         }
-
-
-
-
 
        // private void TimeScroller_ValueChanged(object sender, DragCompletedEventArgs e)
        // {
-      //      vm.VM_LineCounter = (int)slide.Value;
+       //      vm.VM_LineCounter = (int)slide.Value;
        // }
 
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
         {
-            if (vm.VM_LineCounter - 500 > 0)
-            {
-                    vm.VM_LineCounter -= 500;
-            }
-            else
-            {
-                vm.VM_LineCounter = 0;
-            }
+            vm.VM_LineCounter = Math.Max(0, vm.VM_LineCounter - 500);
         }
 
         private void BtnMoveBack_Click(object sender, RoutedEventArgs e)
         {
-            if (vm.VM_LineCounter - 100 > 0)
-            {
-                vm.VM_LineCounter -= 100;
-            }
-            else
-            {
-                vm.VM_LineCounter = 0;
-            }
+            vm.VM_LineCounter = Math.Max(0, vm.VM_LineCounter - 100);
         }
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
@@ -116,39 +88,25 @@ namespace AdvancedProgrammingProject1
 
         private void BtnMoveForward_Click(object sender, RoutedEventArgs e)
         {
-            if (vm.VM_LineCounter + 100 < vm.VM_CSVTable.Rows.Count)
-            {
-                vm.VM_LineCounter += 100;
-            }
-            else
-            {
-                vm.VM_LineCounter = vm.VM_CSVTable.Rows.Count-1;
-            }
+            vm.VM_LineCounter = Math.Min(vm.VM_CSVTable.Rows.Count, vm.VM_LineCounter + 100);
         }
 
         private void BtnMoveWayForward_Click(object sender, RoutedEventArgs e)
         {
-            if (vm.VM_LineCounter + 500 < vm.VM_CSVTable.Rows.Count)
-            {
-                vm.VM_LineCounter += 500;
-            }
-            else
-            {
-                vm.VM_LineCounter = vm.VM_CSVTable.Rows.Count-1;
-            }
+            vm.VM_LineCounter = Math.Min(vm.VM_CSVTable.Rows.Count, vm.VM_LineCounter + 500);
         }
 
         private void BtnIncreaseSpeed_Click(object sender, RoutedEventArgs e)
         {
             if (100 / vm.VM_Speed > 40)
-            { vm.VM_Speed = (vm.VM_Speed * 2); }
+                vm.VM_Speed *= 2;
             speed.Text = vm.VM_Speed.ToString();
         }
 
         private void BtnDecreaseSpeed_Click(object sender, RoutedEventArgs e)
         {
             if (100 / vm.VM_Speed < 250)
-            { vm.VM_Speed = (vm.VM_Speed / 2); }
+                vm.VM_Speed /= 2;
             speed.Text = vm.VM_Speed.ToString();
         }
     }

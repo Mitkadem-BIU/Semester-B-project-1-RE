@@ -27,6 +27,15 @@ namespace AdvancedProgrammingProject1
 		public PlotModel SelfPlotModel { get; private set; }
 		public PlotModel PearsonPlotModel { get; private set; }
 		public PlotModel LinearRegPlotModel { get; private set; }
+		public bool AP_ValueChanged
+        {
+			get { return Model.ValueChanged; }
+			set
+            {
+				if (!value)
+					TimeJump();
+            }
+        }
 		public List<string> AP_FlightAttrNames
 		{
 			get { return Model.FlightAttrNames; }
@@ -36,6 +45,11 @@ namespace AdvancedProgrammingProject1
 		{
 			get { return Model.Row; }
 		}
+
+		public DataTable AP_CSVTable
+        {
+			get { return Model.CSVTable; }
+        }
 
 		public double AP_Time
 		{
@@ -71,6 +85,7 @@ namespace AdvancedProgrammingProject1
 			SelfPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Bottom,
+				IsZoomEnabled = false,
 				Maximum = 30,
 				Minimum = 0,
 				Title = "time [s]",
@@ -79,6 +94,7 @@ namespace AdvancedProgrammingProject1
 			SelfPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Left,
+				IsZoomEnabled = false,
 			});
 
 			PearsonPlotModel = new PlotModel { };
@@ -86,6 +102,7 @@ namespace AdvancedProgrammingProject1
 			PearsonPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Bottom,
+				IsZoomEnabled = false,
 				Maximum = 30,
 				Minimum = 0,
 				Title = "time [s]",
@@ -94,6 +111,7 @@ namespace AdvancedProgrammingProject1
 			PearsonPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Left,
+				IsZoomEnabled = false,
 			});
 
 			LinearRegPlotModel = new PlotModel { };
@@ -101,11 +119,62 @@ namespace AdvancedProgrammingProject1
 			LinearRegPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Bottom,
+				IsZoomEnabled = false,
 			});
 			LinearRegPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Left,
+				IsZoomEnabled = false,
 			});
+		}
+
+		public void TimeJump()
+        {
+			// if the jump is forward - add all missing rows
+			if (AP_Time > attrData[attr].Keys.Max())
+            {
+                for (double iTime = attrData[attr].Keys.Max(); iTime < AP_Time; iTime += 0.1)
+					foreach (string attrName in AP_FlightAttrNames)
+					{
+						object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
+						attrData[attrName].Add(iTime, Double.Parse((string)val));
+					}
+            }
+
+			// if the jump is backwards - remove all excess ones
+			if (AP_Time < attrData[attr].Keys.Max())
+			{
+				for (double iTime = attrData[attr].Keys.Max(); iTime > AP_Time; iTime -= 0.1)
+					foreach (string attrName in AP_FlightAttrNames)
+						attrData[attrName].Remove(iTime);
+			}
+
+			// take all points up to 30 seconds backwards
+			DataPoint newPoint;
+				foreach (string attrName in AP_FlightAttrNames)
+				{
+					attrLinePoints[attrName] = new LineSeries();
+					for (double iTime = Math.Max(0, AP_Time - 30); iTime < AP_Time; iTime += 0.1)
+						{
+							object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
+							newPoint = new DataPoint(iTime, Double.Parse((string)val));
+						}	
+				}
+
+			foreach (string attrName in AP_FlightAttrNames)
+			{
+				newPoint = new DataPoint(AP_Time, Double.Parse((string)AP_Row[attrName]));
+				if (!attrLinePoints[attrName].Points.Contains(newPoint))
+					attrLinePoints[attrName].Points.Add(newPoint);
+				if (!attrData[attrName].ContainsKey(AP_Time))
+					attrData[attrName].Add(AP_Time, Double.Parse((string)AP_Row[attrName]));
+				/* while (AP_Time - minTime > 30)
+				{
+					attrLinePoints[attrName].Points.RemoveAt(0);
+					// attrData[attrName].Remove(minTime);
+					minTime = attrLinePoints[attrName].Points[0].X;
+				} */
+			}
 		}
 		private void AttrChanged()
 		{
@@ -168,12 +237,6 @@ namespace AdvancedProgrammingProject1
 					attrLinePoints[attrName].Points.Add(newPoint);
 				if (!attrData[attrName].ContainsKey(AP_Time))
 					attrData[attrName].Add(AP_Time, Double.Parse((string)AP_Row[attrName]));
-				/* while (AP_Time - minTime > 30)
-				{
-					attrLinePoints[attrName].Points.RemoveAt(0);
-					// attrData[attrName].Remove(minTime);
-					minTime = attrLinePoints[attrName].Points[0].X;
-				} */
 			}
 
 			// Set Plots

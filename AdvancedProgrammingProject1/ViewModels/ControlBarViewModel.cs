@@ -50,23 +50,13 @@ namespace AdvancedProgrammingProject1
 
         public int VM_SlideValue
         {
-
             get { return Model.SlideValue; }
-            set
-            {
-                Model.SlideValue = value;
-
-            }
+            set { Model.SlideValue = value; }
         }
         public bool VM_ValueChanged
         {
-
             get { return Model.ValueChanged; }
-            set
-            {
-                Model.ValueChanged = value;
-
-            }
+            set { Model.ValueChanged = value; }
         }
         public int VM_Minutes
         {

@@ -51,18 +51,20 @@ namespace AdvancedProgrammingProject1
 		public int Minutes
 		{
 			get { return (int)(Time / 60); }
-		    set {  ;}
+		    set { }
 		}
 		public int Seconds
 		{
 			get { return (int)((Time - 60 * ((int)(Time / 60)))); }
-			set {  ; }
+			set { }
 		}
 
 		public bool ValueChanged
 		{
 			get { return valueChanged; }
-			set { valueChanged = value;
+			set
+			{
+				valueChanged = value;
 				NotifyPropertyChanged("valueChanged");
 			}
 		}
