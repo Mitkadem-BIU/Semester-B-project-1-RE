@@ -31,8 +31,8 @@ namespace AdvancedProgrammingProject1
             DataContext = vm;
             slide.Maximum = vm.VM_CSVTable.Rows.Count;
             slide.Width = 500;
-            slide.TickFrequency = 50;
-            slide.IsSnapToTickEnabled = true;
+            //slide.TickFrequency = 50;
+            //slide.IsSnapToTickEnabled = true;
         }
 
         private void TimeScroller_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

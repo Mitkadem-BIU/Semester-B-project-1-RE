@@ -18,7 +18,11 @@ namespace AdvancedProgrammingProject1
 
         public MainControllerModel Model { get; }
 
-
+        public float Time
+        {
+            get { return Model.Time; }
+            set { Model.Time = value; }
+        }
         public int LineCounter
         {
             get { return Model.LineCounter; }

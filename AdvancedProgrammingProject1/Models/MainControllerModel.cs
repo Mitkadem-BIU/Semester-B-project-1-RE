@@ -41,6 +41,7 @@ namespace AdvancedProgrammingProject1
 		double groundSpeed;
 		double heading;
 		double speed;
+		
 		public double Speed
 		{
 			get { return speed; }
@@ -49,10 +50,13 @@ namespace AdvancedProgrammingProject1
 		public PlotModel PlotModel { get; private set; }
 		public AttrPlotModel AP { get; }
 		public ControlBarModel CB { get; }
+	
 		public float Time
 		{
 			get { return (float)LineCounter / 10; }
-			set { LineCounter = (int)(value * 10); }
+			set { LineCounter = (int)(value * 10);
+			//	NotifyPropertyChanged("time");
+			}
 		}
 		public DataTable CSVTable
 		{
@@ -204,6 +208,7 @@ namespace AdvancedProgrammingProject1
 			{
 				lineCounter = value;
 				NotifyPropertyChanged("lineCounter");
+				NotifyPropertyChanged("time");
 			}
 		}
 
@@ -299,6 +304,7 @@ namespace AdvancedProgrammingProject1
 				{
 					if (!pause)
 					{
+						
 						LineCounter = LineCounter;
 						// read line and change all properties
 						ReadLine();
