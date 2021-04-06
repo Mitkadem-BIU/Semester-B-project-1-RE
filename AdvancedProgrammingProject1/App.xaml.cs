@@ -17,7 +17,6 @@ namespace AdvancedProgrammingProject1
         public MainControllerModel Model { get; internal set; }
         public MainControllerViewModel MainVM { get; internal set; }
         public AttrPlotViewModel APVM { get; internal set; }
-
         public ControlBarViewModel CBVM { get; internal set; }
 
         private void Application_Startup(object sender, StartupEventArgs e)
