@@ -8,15 +8,15 @@
              d:DesignHeight="100" d:DesignWidth="800">
     
     <UserControl.Resources>
-        <Image x:Key="play" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\play.png"> </Image>
-        <Image x:Key="pause" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\pause.png"> </Image>
-        <Image x:Key="stop" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\stop.png"> </Image>
-        <Image x:Key="moveForward" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\forward.png"> </Image>
-        <Image x:Key="moveBack" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\back.png"> </Image>
-        <Image x:Key="moveWayForward" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\wayforward.png"> </Image>
-        <Image x:Key="moveWayBackward" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\waybackward.png"> </Image>
-        <Image x:Key="increaseSpeed" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\increaseSpeed.png"></Image>
-        <Image x:Key="decreaseSpeed" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\decreaseSpeed.png"></Image>
+        <Image x:Key="play" Source="images/play.png"/>
+        <Image x:Key="pause" Source="images/pause.png"/>
+        <Image x:Key="stop" Source="images/stop.png"/>
+        <Image x:Key="moveForward" Source="images/forward.png"/>
+        <Image x:Key="moveBack" Source="images/back.png"/>
+        <Image x:Key="moveWayForward" Source="images/wayforward.png"/>
+        <Image x:Key="moveWayBackward" Source="images/waybackward.png"/>
+        <Image x:Key="increaseSpeed" Source="images\increaseSpeed.png"/>
+        <Image x:Key="decreaseSpeed" Source="images\decreaseSpeed.png"/>
     </UserControl.Resources>
     
     <Grid>
