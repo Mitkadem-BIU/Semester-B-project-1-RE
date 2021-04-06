@@ -204,3 +204,4 @@ C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\ob
 C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csproj.CopyComplete
 C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.exe
 C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.pdb
+C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
