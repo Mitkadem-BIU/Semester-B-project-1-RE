@@ -15,8 +15,8 @@
         <Image x:Key="moveBack" Source="images/back.png"/>
         <Image x:Key="moveWayForward" Source="images/wayforward.png"/>
         <Image x:Key="moveWayBackward" Source="images/waybackward.png"/>
-        <Image x:Key="increaseSpeed" Source="images\increaseSpeed.png"/>
-        <Image x:Key="decreaseSpeed" Source="images\decreaseSpeed.png"/>
+        <Image x:Key="increaseSpeed" Source="images/increasespeed.png"/>
+        <Image x:Key="decreaseSpeed" Source="images/decreasespeed.png"/>
     </UserControl.Resources>
     
     <Grid>
