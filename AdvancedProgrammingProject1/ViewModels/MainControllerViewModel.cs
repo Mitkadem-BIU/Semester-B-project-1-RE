@@ -86,6 +86,26 @@ namespace AdvancedProgrammingProject1
 			set { model.Heading = value; }
 		}
 
+		public double VM_Throttle
+        {
+            get { return model.Throttle; }
+            set { model.Throttle = value; }
+        }
+		public double VM_Rudder
+		{
+			get { return model.Rudder; }
+			set { model.Rudder = value; }
+		}
+		public double VM_Aileron
+		{
+			get { return model.Aileron; }
+			set { model.Aileron = value; }
+		}
+		public double VM_Elevator
+		{
+			get { return model.Elevator; }
+			set { model.Elevator = value; }
+		}
 		public DataRow VM_Row
 		{
 			get { return model.Row; }
