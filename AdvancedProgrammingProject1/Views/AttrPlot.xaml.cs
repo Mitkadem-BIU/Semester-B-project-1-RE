@@ -38,7 +38,7 @@ namespace AdvancedProgrammingProject1
 		private void LbAttrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			vm.VM_AttrToPlot = (lbAttrList.SelectedItem as AttrItem).Title;
-			vm.PlotModel.Axes[1].Title = vm.VM_AttrToPlot;
+			vm.VM_SelfPlotModel.Axes[1].Title = vm.VM_AttrToPlot;
 			// Console.WriteLine($"current selection: {(lbAttrList.SelectedItem as AttrItem).Title}");
 		}
 	}

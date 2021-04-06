@@ -26,9 +26,14 @@ namespace AdvancedProgrammingProject1
 			get { return Model.LS; }
 		}
 
-		public PlotModel PlotModel
+		public PlotModel VM_SelfPlotModel
 		{
-			get { return Model.PlotModel; }
+			get { return Model.SelfPlotModel; }
+		}
+
+		public PlotModel VM_PearsonPlotModel
+		{
+			get { return Model.PearsonPlotModel; }
 		}
 		public DataRow VM_Row
 		{

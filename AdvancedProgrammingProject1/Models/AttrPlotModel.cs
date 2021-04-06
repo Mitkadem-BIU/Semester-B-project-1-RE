@@ -15,8 +15,13 @@ namespace AdvancedProgrammingProject1
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		string attr;
+		string pearAttr;
+		Dictionary<string, LineSeries> attrLinePoints;
+		Dictionary<string, Dictionary<double, double>> attrData;
+		
 		public MainControllerModel Model { get; }
-		public PlotModel PlotModel { get; private set; }
+		public PlotModel SelfPlotModel { get; private set; }
+		public PlotModel PearsonPlotModel { get; private set; }
 		public List<string> AP_FlightAttrNames
 		{
 			get { return Model.FlightAttrNames; }
@@ -44,7 +49,7 @@ namespace AdvancedProgrammingProject1
 
 		public LineSeries LS
 		{
-			get { return PlotModel.Series[0] as LineSeries; }
+			get { return SelfPlotModel.Series[0] as LineSeries; }
 		}
 		public AttrPlotModel(MainControllerModel model)
 		{
@@ -53,9 +58,12 @@ namespace AdvancedProgrammingProject1
 			delegate (Object sender, PropertyChangedEventArgs e) {
 				NotifyPropertyChanged("AP_" + e.PropertyName);
 			};
-			PlotModel = new PlotModel { };
-			PlotModel.Series.Add(new LineSeries());
-			PlotModel.Axes.Add(new LinearAxis
+			attrLinePoints = new Dictionary<string, LineSeries>();
+			attrData = new Dictionary<string, Dictionary<double, double>>();
+
+			SelfPlotModel = new PlotModel { };
+			SelfPlotModel.Series.Add(new LineSeries());
+			SelfPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Bottom,
 				Maximum = 30,
@@ -63,15 +71,32 @@ namespace AdvancedProgrammingProject1
 				Title = "time [s]",
 				MajorStep = 10,
 			});
-			PlotModel.Axes.Add(new LinearAxis
+			SelfPlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Left,
+			});
+
+			PearsonPlotModel = new PlotModel { };
+			PearsonPlotModel.Series.Add(new LineSeries());
+			PearsonPlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Bottom,
+				Maximum = 30,
+				Minimum = 0,
+				Title = "time [s]",
+				MajorStep = 10,
+			});
+			PearsonPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Left,
 			});
 		}
 		private void AttrChanged()
 		{
-			PlotModel.Series.Clear();
-			PlotModel.Series.Add(new LineSeries());
+			SelfPlotModel.Series.Clear();
+			SelfPlotModel.Series.Add(new LineSeries());
+			PearsonPlotModel.Series.Clear();
+			PearsonPlotModel.Series.Add(new LineSeries());
 		}
 
 		public void NotifyPropertyChanged(string propertyName)
@@ -80,20 +105,78 @@ namespace AdvancedProgrammingProject1
 			{
 				try
 				{
-					Console.WriteLine(AP_Row[attr]);
-					DataPoint newPoint = new DataPoint(AP_Time, Double.Parse((string)AP_Row[attr]));
-					LS.Points.Add(newPoint); // (time, data)
-					double minTime = LS.Points[0].X;
-					if (newPoint.X - minTime > 30)
-						LS.Points.RemoveAt(0);
-					PlotModel.Axes[0].Minimum = minTime;
-					PlotModel.Axes[0].Maximum = Math.Max(minTime + 30, newPoint.X);
-					PlotModel.InvalidatePlot(true);
+					// Console.WriteLine(AP_Row[attr]);
+					DataPoint newPoint;
+					double minTime;
+					try
+                    {
+						minTime = attrLinePoints[attr].Points[0].X;
+					} catch (KeyNotFoundException e)
+                    {
+						minTime = 0;
+						foreach (string attrName in AP_FlightAttrNames)
+						{
+							attrLinePoints[attrName] = new LineSeries();
+							attrData[attrName] = new Dictionary<double, double>();
+						}
+					}
+					
+					foreach (string attrName in AP_FlightAttrNames)
+                    {
+						newPoint = new DataPoint(AP_Time, Double.Parse((string)AP_Row[attrName]));
+						if (!attrLinePoints[attrName].Points.Contains(newPoint))
+							attrLinePoints[attrName].Points.Add(newPoint);
+						if (!attrData[attrName].ContainsKey(AP_Time))
+							attrData[attrName].Add(AP_Time, Double.Parse((string)AP_Row[attrName]));
+						while (AP_Time - minTime > 30)
+						{
+							attrLinePoints[attrName].Points.RemoveAt(0);
+							// attrData[attrName].Remove(minTime);
+							minTime = attrLinePoints[attrName].Points[0].X;
+						}
+					}
+					SelfPlotModel.Axes[0].Minimum = minTime;
+					SelfPlotModel.Axes[0].Maximum = Math.Max(minTime + 30, attrLinePoints[attr].Points[0].X);
+					SelfPlotModel.Series.Clear();
+					SelfPlotModel.Series.Add(attrLinePoints[attr]);
+					SelfPlotModel.InvalidatePlot(true);
+
+					pearAttr = GetMostSimilar();
+					PearsonPlotModel.Axes[0].Minimum = minTime;
+					PearsonPlotModel.Axes[0].Maximum = Math.Max(minTime + 30, attrLinePoints[pearAttr].Points[0].X);
+					PearsonPlotModel.Series.Clear();
+					PearsonPlotModel.Series.Add(attrLinePoints[pearAttr]);
+					PearsonPlotModel.Axes[1].Title = pearAttr;
+					PearsonPlotModel.InvalidatePlot(true);
 				}
 				catch (ArgumentNullException) { }
 			}
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+
+		public string GetMostSimilar()
+        {
+			// attrData[attr]
+			Dictionary<string, double> pvals = new Dictionary<string, double>();
+            foreach(string attrName in attrData.Keys)
+            {
+				if (attrName != attr)
+				{
+					pvals[attrName] = Math.Abs(Pearson(attrData[attr].Values.ToList(), attrData[attrName].Values.ToList()));
+					if (Double.IsNaN(pvals[attrName]))
+						pvals[attrName] = 0;
+				}
+            }
+			return pvals.Aggregate((x, y) => x.Value > y.Value ? x : y).Key; // key of max value
+        }
+
+		public Dictionary<double, double> DPtoDict(DataPoint[] arr)
+        {
+			Dictionary<double,double> dp = new Dictionary<double, double>();
+			for (int i = 0; i < arr.Length; i++)
+				dp.Add(arr[i].X, arr[i].Y);
+			return dp;
+        }
 
 		public double Variance(List<double> x)
 		{
@@ -109,7 +192,7 @@ namespace AdvancedProgrammingProject1
 		{
 			List<double> covarr = new List<double>();
 			for (int i = 0; i < x.Count(); i++)
-				covarr[i] = (x[i] - x.Average()) * (y[i] - y.Average());
+				covarr.Add((x[i] - x.Average()) * (y[i] - y.Average()));
 			return covarr.Average();
 		}
 
