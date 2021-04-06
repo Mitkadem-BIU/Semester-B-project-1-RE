@@ -17,7 +17,7 @@ namespace AdvancedProgrammingProject1
 		string attr;
 		public MainControllerModel Model { get; }
         public PlotModel PlotModel { get; private set; }
-		public List<string> AP_FlightAttrNames
+		public List<string> AP_FlightAttrNames//
         {
 			get { return Model.FlightAttrNames; }
         }
