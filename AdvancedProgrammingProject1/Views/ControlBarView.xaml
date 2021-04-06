@@ -22,17 +22,17 @@
     <Grid>
         <Border Background="Gray" Margin="6,0,0,0"/>
         <StackPanel  Margin="25.6,0,49,50" Orientation="Horizontal" Grid.Column="2">
-            <Button Content="{StaticResource moveWayBackward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnMoveWayBack_Click"/>
-            <Button Content="{StaticResource moveBack}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveBack_Click"/>
-            <Button Content="{StaticResource play}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPlay_Click"/>
-            <Button Content="{StaticResource pause}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPause_Click"/>
-            <Button Content="{StaticResource stop}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnStop_Click"/>
-            <Button Content="{StaticResource moveForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveForward_Click"/>
-            <Button Content="{StaticResource moveWayForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveWayForward_Click"/>
-            <Button Content="{StaticResource decreaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="30,10,0,0" Click="BtnDecreaseSpeed_Click"/>
-            <TextBox Margin="5,10" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <Button Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="4,10,0,0" Click="BtnIncreaseSpeed_Click"/>
-            <TextBox Margin="25,10" Width="40" TextAlignment="Center" Height="30"  x:Name="time" Text="{Binding VM_Time, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <Button Background="Gray" Content="{StaticResource moveWayBackward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnMoveWayBack_Click"/>
+            <Button Background="Gray" Content="{StaticResource moveBack}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveBack_Click"/>
+            <Button Background="Gray" Content="{StaticResource play}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPlay_Click"/>
+            <Button Background="Gray" Content="{StaticResource pause}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPause_Click"/>
+            <Button Background="Gray" Content="{StaticResource stop}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnStop_Click"/>
+            <Button Background="Gray" Content="{StaticResource moveForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveForward_Click"/>
+            <Button Background="Gray" Content="{StaticResource moveWayForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveWayForward_Click"/>
+            <Button Background="Gray" Content="{StaticResource decreaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="30,10,0,0" Click="BtnDecreaseSpeed_Click"/>
+            <TextBox Background="Gray" Margin="5,10" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <Button Background="Gray" Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="4,10,0,0" Click="BtnIncreaseSpeed_Click"/>
+            <TextBox Background="Gray"  Margin="25,10" Width="40" TextAlignment="Center" Height="30"  x:Name="time" Text="{Binding VM_Time, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
         </StackPanel>
         <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">
             <Slider Value="{Binding VM_LineCounter, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" ValueChanged="TimeScroller_ValueChanged"/>
