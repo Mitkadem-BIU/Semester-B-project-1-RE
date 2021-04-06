@@ -40,6 +40,10 @@ namespace AdvancedProgrammingProject1
 		double verticalSpeed;
 		double groundSpeed;
 		double heading;
+        double throttle;
+        double rudder;
+        double aileron;
+		double elevator;
 		double speed;
 		int slideValue;
 		
@@ -198,8 +202,42 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("heading");
 			}
 		}
-
-
+		public double Throttle
+        {
+            get { return throttle; }
+            set
+            {
+				throttle = value;
+				NotifyPropertyChanged("throttle");
+            }
+        }
+		public double Rudder
+		{
+			get { return rudder; }
+			set
+			{
+				rudder = value;
+				NotifyPropertyChanged("rudder");
+			}
+		}
+		public double Aileron
+		{
+			get { return aileron; }
+			set
+			{
+				aileron = value;
+				NotifyPropertyChanged("aileron");
+			}
+		}
+		public double Elevator
+		{
+			get { return elevator; }
+			set
+			{
+				elevator = value;
+				NotifyPropertyChanged("elevator");
+			}
+		}
 		public DataRow Row
 		{
 			get { return currentLine; }
@@ -295,6 +333,10 @@ namespace AdvancedProgrammingProject1
 				VerticalSpeed = Double.Parse((string)currentLine["vertical-speed-indicator_indicated-speed-fpm"]);
 				GroundSpeed = Double.Parse((string)currentLine["gps_indicated-ground-speed-kt"]);
 				Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
+				Throttle = Double.Parse((string)currentLine["throttle"]);
+                Rudder = Double.Parse((string)currentLine["rudder"]);
+				Aileron = Double.Parse((string)currentLine["aileron"]);
+				Elevator = Double.Parse((string)currentLine["elevator"]);
 			}
 			else
 			{

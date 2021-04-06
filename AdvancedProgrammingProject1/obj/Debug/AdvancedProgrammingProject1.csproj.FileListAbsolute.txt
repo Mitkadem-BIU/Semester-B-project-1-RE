@@ -160,7 +160,6 @@ C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\�
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\OxyPlot.Wpf.dll
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\OxyPlot.xml
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\bin\Debug\OxyPlot.Wpf.xml
-C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe.config
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.exe
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\bin\Debug\AdvancedProgrammingProject1.pdb
