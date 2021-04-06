@@ -1,55 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.IO;
+using System.Xml;
+using LumenWorks.Framework.IO.Csv;
+using System.Threading;
+using System;
 using OxyPlot;
 using OxyPlot.Series;
+using OxyPlot.Axes;
 
 namespace AdvancedProgrammingProject1
 {
-    public class ControlBarViewModel : INotifyPropertyChanged
+    public class ControlBarModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ControlBarModel Model { get; }
+        public MainControllerModel Model { get; }
 
-        public int VM_LineCounter
+
+        public int LineCounter
         {
             get { return Model.LineCounter; }
             set { Model.LineCounter = value; }
         }
-        public bool VM_Stop
+
+        public bool Stop
         {
             get { return Model.Stop; }
             set { Model.Stop = value; }
         }
-        public bool VM_Pause
+        public bool Pause
         {
             get { return Model.Pause; }
             set { Model.Pause = value; }
         }
-        public DataTable VM_CSVTable
+        public DataTable CSVTable
         {
             get { return Model.CSVTable; }
         }
-        public double VM_Speed
+        public double Speed
         {
             get { return Model.Speed; }
             set { Model.Speed = value; }
         }
 
-        public ControlBarViewModel(ControlBarModel model)
+
+
+        public ControlBarModel(MainControllerModel model)
         {
-            this.Model = model;
+            Model = model;
             model.PropertyChanged +=
             delegate (Object sender, PropertyChangedEventArgs e) {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
+                NotifyPropertyChanged(e.PropertyName);
             };
         }
+
 
         public void NotifyPropertyChanged(string propertyName)
         {

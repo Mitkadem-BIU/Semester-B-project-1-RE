@@ -92,6 +92,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\AttrPlotModel.cs" />
+    <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\FGModel.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="Views\AttrPlot.xaml.cs">
@@ -164,6 +165,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\images\back.png" />
+    <Resource Include="Views\images\decreasespeed.png" />
+    <Resource Include="Views\images\forward.png" />
+    <Resource Include="Views\images\increasespeed.png" />
+    <Resource Include="Views\images\pause.png" />
+    <Resource Include="Views\images\stop.png" />
+    <Resource Include="Views\images\waybackward.png" />
+    <Resource Include="Views\images\wayforward.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

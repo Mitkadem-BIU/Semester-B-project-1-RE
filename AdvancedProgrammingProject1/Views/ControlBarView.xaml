@@ -6,19 +6,32 @@
              xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <Image x:Key="play" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\play.png"> </Image>
+        <Image x:Key="pause" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\pause.png"> </Image>
+        <Image x:Key="stop" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\stop.png"> </Image>
+        <Image x:Key="moveForward" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\forward.png"> </Image>
+        <Image x:Key="moveBack" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\back.png"> </Image>
+        <Image x:Key="moveWayForward" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\wayforward.png"> </Image>
+        <Image x:Key="moveWayBackward" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\waybackward.png"> </Image>
+        <Image x:Key="increaseSpeed" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\increaseSpeed.png"></Image>
+        <Image x:Key="decreaseSpeed" Source="C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\Views\images\decreaseSpeed.png"></Image>
+    </UserControl.Resources>
+    
     <Grid>
         <Border Background="Gray" Margin="6,0,0,0"/>
         <StackPanel  Margin="25.6,0,49,50" Orientation="Horizontal" Grid.Column="2">
-            <Button Content="move way back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnMoveWayBack_Click"/>
-            <Button Content="move back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveBack_Click"/>
-            <Button Content="play" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPlay_Click"/>
-            <Button Content="pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPause_Click"/>
-            <Button Content="close" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnClose_Click"/>
-            <Button Content="move forward" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveForward_Click"/>
-            <Button Content="move way forward" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveWayForward_Click"/>
-            <Button Content="increase speed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnIncreaseSpeed_Click"/>
-            <TextBox Margin="5,5" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <Button Content="decrease speed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="0,10,0,0" Click="BtnDecreaseSpeed_Click"/>
+            <Button Content="{StaticResource moveWayBackward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnMoveWayBack_Click"/>
+            <Button Content="{StaticResource moveBack}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveBack_Click"/>
+            <Button Content="{StaticResource play}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPlay_Click"/>
+            <Button Content="{StaticResource pause}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPause_Click"/>
+            <Button Content="{StaticResource stop}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnStop_Click"/>
+            <Button Content="{StaticResource moveForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveForward_Click"/>
+            <Button Content="{StaticResource moveWayForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveWayForward_Click"/>
+            <Button Content="{StaticResource decreaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="30,10,0,0" Click="BtnDecreaseSpeed_Click"/>
+            <TextBox Margin="5,10" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <Button Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="4,10,0,0" Click="BtnIncreaseSpeed_Click"/>
            
         </StackPanel>
         <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">

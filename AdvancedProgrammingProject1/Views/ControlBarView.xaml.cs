@@ -34,14 +34,11 @@ namespace AdvancedProgrammingProject1
             slide.TickFrequency = 50;
             slide.IsSnapToTickEnabled = true;
         }
-  
 
         private void TimeScroller_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
         }
-
-     
 
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
         {
@@ -77,7 +74,7 @@ namespace AdvancedProgrammingProject1
                 vm.VM_Pause = false;
         }
 
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        private void BtnStop_Click(object sender, RoutedEventArgs e)
         {
 
             vm.VM_Stop = true;
@@ -123,5 +120,4 @@ namespace AdvancedProgrammingProject1
             speed.Text = vm.VM_Speed.ToString();
         }
     }
- 
 }
