@@ -35,6 +35,10 @@ namespace AdvancedProgrammingProject1
 		{
 			get { return Model.PearsonPlotModel; }
 		}
+		public PlotModel VM_LinearRegPlotModel
+		{
+			get { return Model.LinearRegPlotModel; }
+		}
 		public DataRow VM_Row
 		{
 			get { return Model.AP_Row; }

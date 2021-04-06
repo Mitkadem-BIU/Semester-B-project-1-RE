@@ -22,6 +22,7 @@ namespace AdvancedProgrammingProject1
 		public MainControllerModel Model { get; }
 		public PlotModel SelfPlotModel { get; private set; }
 		public PlotModel PearsonPlotModel { get; private set; }
+		public PlotModel LinearRegPlotModel { get; private set; }
 		public List<string> AP_FlightAttrNames
 		{
 			get { return Model.FlightAttrNames; }
@@ -90,6 +91,17 @@ namespace AdvancedProgrammingProject1
 			{
 				Position = AxisPosition.Left,
 			});
+
+			LinearRegPlotModel = new PlotModel { };
+			LinearRegPlotModel.Series.Add(new LineSeries());
+			LinearRegPlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Bottom,
+			});
+			LinearRegPlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Left,
+			});
 		}
 		private void AttrChanged()
 		{
@@ -97,6 +109,8 @@ namespace AdvancedProgrammingProject1
 			SelfPlotModel.Series.Add(new LineSeries());
 			PearsonPlotModel.Series.Clear();
 			PearsonPlotModel.Series.Add(new LineSeries());
+			LinearRegPlotModel.Series.Clear();
+			LinearRegPlotModel.Series.Add(new LineSeries());
 		}
 
 		public void NotifyPropertyChanged(string propertyName)
@@ -148,6 +162,12 @@ namespace AdvancedProgrammingProject1
 					PearsonPlotModel.Series.Add(attrLinePoints[pearAttr]);
 					PearsonPlotModel.Axes[1].Title = pearAttr;
 					PearsonPlotModel.InvalidatePlot(true);
+
+					LinearRegPlotModel.Series.Clear();
+					LinearRegPlotModel.Series.Add(LinearReg(attrData[attr].Values.ToList(), attrData[pearAttr].Values.ToList()));
+					LinearRegPlotModel.Axes[0].Title = attr;
+					LinearRegPlotModel.Axes[1].Title = pearAttr;
+					LinearRegPlotModel.InvalidatePlot(true);
 				}
 				catch (ArgumentNullException) { }
 			}
@@ -199,6 +219,16 @@ namespace AdvancedProgrammingProject1
 		public double Pearson(List<double> x, List<double> y)
 		{
 			return Covariance(x, y) / Math.Sqrt(Variance(x) * Variance(y));
+		}
+
+		public LineSeries LinearReg(List<double> x, List<double> y)
+		{
+			double a = Covariance(x, y) / Variance(x);
+			double b = y.Average() - a * x.Average();
+			LineSeries LS = new LineSeries();
+			for (double i = x.Min(); i < x.Max(); i++)
+				LS.Points.Add(new DataPoint(i, a * i + b));
+			return LS;
 		}
 	}
 }
