@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace AdvancedProgrammingProject1
 {
-	public class AttrPlotModel : INotifyPropertyChanged
+    public class AttrPlotModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		string attr;
 		public MainControllerModel Model { get; }
-		public PlotModel PlotModel { get; private set; }
+        public PlotModel PlotModel { get; private set; }
 		public List<string> AP_FlightAttrNames
-		{
+        {
 			get { return Model.FlightAttrNames; }
-		}
+        }
 
 		public DataRow AP_Row
 		{
@@ -28,9 +28,9 @@ namespace AdvancedProgrammingProject1
 		}
 
 		public double AP_Time
-		{
+        {
 			get { return Model.Time; }
-		}
+        }
 
 		public string AttrToPlot
 		{
@@ -47,8 +47,8 @@ namespace AdvancedProgrammingProject1
 			get { return PlotModel.Series[0] as LineSeries; }
 		}
 		public AttrPlotModel(MainControllerModel model)
-		{
-			Model = model;
+        {
+            Model = model;
 			model.PropertyChanged +=
 			delegate (Object sender, PropertyChangedEventArgs e) {
 				NotifyPropertyChanged("AP_" + e.PropertyName);
@@ -94,19 +94,19 @@ namespace AdvancedProgrammingProject1
 			}
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-
+		
 		public double Variance(List<double> x)
-		{
+        {
 			double sqsum = 0;
-			foreach (double val in x)
-			{
+            foreach (double val in x)
+            {
 				sqsum += val * val;
-			}
+            }
 			return sqsum / x.Count() - x.Average() * x.Average();
 		}
 
 		public double Covariance(List<double> x, List<double> y)
-		{
+        {
 			List<double> covarr = new List<double>();
 			for (int i = 0; i < x.Count(); i++)
 				covarr[i] = (x[i] - x.Average()) * (y[i] - y.Average());

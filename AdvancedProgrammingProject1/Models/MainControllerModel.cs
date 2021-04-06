@@ -21,7 +21,7 @@ namespace AdvancedProgrammingProject1
 	public class MainControllerModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		
+		FGModel fg;
 		string csvName;
 		string xmlName;
 		bool stop;
@@ -43,20 +43,8 @@ namespace AdvancedProgrammingProject1
 		double heading;
 		double speed;
 
-		public double Speed
-		{
-			get { return speed; }
-			set
-			{
-				speed = value;;
-			}
-		}
-		public DataTable CSVTable
-        {
-			get { return csvTable; }
-		}
 		public PlotModel PlotModel { get; private set; }
-		public AttrPlotModel AP { get; }
+
 		public float Time
         {
 			get { return (float)LineCounter / 10; }
@@ -107,11 +95,11 @@ namespace AdvancedProgrammingProject1
 		}
 
 		public FGModel Client
-		
-			{ get;}
-		
+		{
+			get { return fg; }
+		}
 
-		public List<string> FlightAttrNames
+        public List<string> FlightAttrNames
 		{
 			get { return flightAttrNames; }
 		}
