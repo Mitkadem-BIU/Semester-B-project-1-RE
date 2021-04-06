@@ -23,7 +23,7 @@ namespace AdvancedProgrammingProject1
     public partial class ControlBarView : UserControl
     {
         ControlBarViewModel vm;
-        int lenght;
+        //int lenght;
         public ControlBarView()
         {
             vm = (Application.Current as App).CBVM;
