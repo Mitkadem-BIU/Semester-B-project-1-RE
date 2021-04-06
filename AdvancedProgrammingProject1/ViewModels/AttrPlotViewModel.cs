@@ -14,27 +14,16 @@ namespace AdvancedProgrammingProject1
 	public class AttrPlotViewModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		string attr;
 
-		public MainControllerModel Model { get; }
-		public string AttrToPlot
+		public AttrPlotModel Model { get; }
+		public string VM_AttrToPlot
 		{
-			get { return attr; }
-			set
-			{
-				attr = value;
-				AttrChanged();
-			}
+			get { return Model.AttrToPlot; }
+			set { Model.AttrToPlot = value; }
 		}
-		public LineSeries LS
-        {
-			get { return Model.PlotModel.Series[0] as LineSeries; }
-        }
-
-		private void AttrChanged()
+		public LineSeries VM_LS
 		{
-			Model.PlotModel.Series.Clear();
-			Model.PlotModel.Series.Add(new LineSeries());
+			get { return Model.LS; }
 		}
 
 		public PlotModel PlotModel
@@ -43,10 +32,15 @@ namespace AdvancedProgrammingProject1
 		}
 		public DataRow VM_Row
 		{
-			get { return Model.Row; }
+			get { return Model.AP_Row; }
 		}
 
-		public AttrPlotViewModel(MainControllerModel model)
+		public List<string> VM_FlightAttrNames
+		{
+			get { return Model.AP_FlightAttrNames; }
+		}
+
+		public AttrPlotViewModel(AttrPlotModel model)
 		{
 			this.Model = model;
 			model.PropertyChanged +=
@@ -57,22 +51,6 @@ namespace AdvancedProgrammingProject1
 
 		public void NotifyPropertyChanged(string propertyName)
 		{
-			if (propertyName == "VM_Row")
-            {
-				try
-				{
-					Console.WriteLine(Model.Row[attr]);
-					DataPoint newPoint = new DataPoint(Model.Time, Double.Parse((string)Model.Row[attr]));
-					LS.Points.Add(newPoint); // (time, data)
-					double minTime = LS.Points[0].X;
-					if (newPoint.X - minTime > 30)
-						LS.Points.RemoveAt(0);
-					Model.PlotModel.Axes[0].Minimum = minTime;
-					Model.PlotModel.Axes[0].Maximum = Math.Max(minTime + 30, newPoint.X);
-					Model.PlotModel.InvalidatePlot(true);
-				}
-				catch (ArgumentNullException) { }
-			}
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 

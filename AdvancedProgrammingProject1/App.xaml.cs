@@ -18,11 +18,14 @@ namespace AdvancedProgrammingProject1
         public MainControllerViewModel MainVM { get; internal set; }
         public AttrPlotViewModel APVM { get; internal set; }
 
+        public ControlBarViewModel CBVM { get; internal set; }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             Model = new MainControllerModel();
             MainVM = new MainControllerViewModel(Model);
-            APVM = new AttrPlotViewModel(Model);
+            APVM = new AttrPlotViewModel(Model.AP);
+            CBVM = new ControlBarViewModel(Model);
             // Create main application window
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

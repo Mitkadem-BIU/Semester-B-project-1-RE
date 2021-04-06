@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdvancedProgrammingProject1" xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="NewWindow" Height="450" Width="800">
+        Title="NewWindow" Height="750" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using System.Diagnostics;
 
 namespace AdvancedProgrammingProject1
 
@@ -41,6 +42,8 @@ namespace AdvancedProgrammingProject1
 			if (UploadCSVFileDialog.ShowDialog() == true)
 				csvName.Text = UploadCSVFileDialog.FileName;
 		}
+
+	
 		private void BtnUploadXMLFile_Click(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog UploadXMLFileDialog = new OpenFileDialog

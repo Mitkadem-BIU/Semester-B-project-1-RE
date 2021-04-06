@@ -21,7 +21,7 @@ namespace AdvancedProgrammingProject1
 	public class MainControllerModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		FGModel fg;
+		
 		string csvName;
 		string xmlName;
 		bool stop;
@@ -32,7 +32,7 @@ namespace AdvancedProgrammingProject1
 		DataTable csvTable;
 		int lineCounter;
 		DataRow currentLine;
-
+		bool pause;
 		double altimeter;
 		double airSpeed;
 		double altitude;
@@ -41,9 +41,22 @@ namespace AdvancedProgrammingProject1
 		double verticalSpeed;
 		double groundSpeed;
 		double heading;
+		double speed;
 
+		public double Speed
+		{
+			get { return speed; }
+			set
+			{
+				speed = value;;
+			}
+		}
+		public DataTable CSVTable
+        {
+			get { return csvTable; }
+		}
 		public PlotModel PlotModel { get; private set; }
-
+		public AttrPlotModel AP { get; }
 		public float Time
         {
 			get { return (float)LineCounter / 10; }
@@ -73,6 +86,14 @@ namespace AdvancedProgrammingProject1
 			set { stop = value; }
 		}
 
+		public bool Pause
+		{
+			get { return pause; }
+			set { pause = value;
+				NotifyPropertyChanged("pause");
+			}
+		}
+
 		public string IP
 		{
 			get { return ip; }
@@ -86,9 +107,9 @@ namespace AdvancedProgrammingProject1
 		}
 
 		public FGModel Client
-		{
-			get { return fg; }
-		}
+		
+			{ get;}
+		
 
 		public List<string> FlightAttrNames
 		{
@@ -184,37 +205,22 @@ namespace AdvancedProgrammingProject1
 			set 
 			{
 				lineCounter = value;
-				NotifyPropertyChanged("LineCounter");
+				NotifyPropertyChanged("lineCounter");
 			}
 		}
+	
 
 		public MainControllerModel()
 		{
+			speed = 1;
 			doc = new XmlDocument();
 			flightAttrNames = new List<string>();
 			csvTable = new DataTable();
 			stop = true;
 			lineCounter = 0;
 			currentLine = null;
-			fg = new FGModel(this);
-
-			PlotModel = new PlotModel { };
-			PlotModel.Series.Add(new LineSeries());
-			PlotModel.Axes.Add(new LinearAxis
-			{
-				Position = AxisPosition.Bottom,
-				Maximum = 30,
-				Minimum = 0,
-				Title = "time [s]",
-				MajorStep = 10,
-			});
-			PlotModel.Axes.Add(new LinearAxis
-			{
-				Position = AxisPosition.Left,
-				// Maximum = 10,
-				// Minimum = -10,
-				// MajorStep = 10,
-			});
+			Client = new FGModel(this);
+			AP = new AttrPlotModel(this);
 		}
 
 		public void ReadXML(string xmlName)
@@ -275,7 +281,8 @@ namespace AdvancedProgrammingProject1
 				Heading = Double.Parse((string)currentLine["indicated-heading-deg"]);
 			} else
 			{
-				StopMethod();
+				//StopMethod();
+				pause = true;
 			}
 		}
 
@@ -290,9 +297,14 @@ namespace AdvancedProgrammingProject1
 			{
 				while (!stop)
 				{
-					// read line and change all properties
-					ReadLine();
-					Thread.Sleep(100);// read the data in 10Hz
+					if (!pause)
+					{
+						LineCounter = LineCounter;
+						// read line and change all properties
+						ReadLine();
+						Thread.Sleep((int)(100/ speed));// read the data in 10Hz
+						
+					}
 				}
 			}).Start();
 		}
@@ -300,7 +312,7 @@ namespace AdvancedProgrammingProject1
 		public void StopMethod()
 		{
 			Stop = true;
-			fg.Disconnect();
+			Client.Disconnect();
 		}
     }
 }

@@ -22,24 +22,24 @@ namespace AdvancedProgrammingProject1
 	public partial class AttrPlot : UserControl
 	{
 		AttrPlotViewModel vm;
-        
-        public AttrPlot()
+
+		public AttrPlot()
 		{
 			vm = (Application.Current as App).APVM;
 			InitializeComponent();
 			DataContext = vm;
 
 			List<AttrItem> items = new List<AttrItem>();
-			foreach (var item in vm.Model.FlightAttrNames)
+			foreach (var item in vm.VM_FlightAttrNames)
 				items.Add(new AttrItem() { Title = item, Completion = 15 });
 			lbAttrList.ItemsSource = items;
 		}
 
 		private void LbAttrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			vm.AttrToPlot = (lbAttrList.SelectedItem as AttrItem).Title;
-			vm.PlotModel.Axes[1].Title = vm.AttrToPlot;
-		   // Console.WriteLine($"current selection: {(lbAttrList.SelectedItem as AttrItem).Title}");
+			vm.VM_AttrToPlot = (lbAttrList.SelectedItem as AttrItem).Title;
+			vm.PlotModel.Axes[1].Title = vm.VM_AttrToPlot;
+			// Console.WriteLine($"current selection: {(lbAttrList.SelectedItem as AttrItem).Title}");
 		}
 	}
 
