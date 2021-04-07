@@ -41,39 +41,42 @@ namespace AdvancedProgrammingProject1
         {
             vm.VM_LineCounter = vm.VM_SlideValue;
             vm.VM_ValueChanged = false;
+            vm.VM_JumpFlag = true;
         }
 
         private void Slider_DragStarted(object sender, DragStartedEventArgs e)
         {
+         
             vm.VM_ValueChanged = true;
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //   vm.VM_ValueChanged=true;
+          
         }
 
-       // private void TimeScroller_ValueChanged(object sender, DragCompletedEventArgs e)
-       // {
-       //      vm.VM_LineCounter = (int)slide.Value;
-       // }
+      
 
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
         {
+            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Max(0, vm.VM_LineCounter - 500);
         }
 
         private void BtnMoveBack_Click(object sender, RoutedEventArgs e)
         {
+            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Max(0, vm.VM_LineCounter - 100);
         }
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
+            
             if (vm.VM_Pause == false)
                 vm.VM_Pause = true;
         }
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
+            
             if (vm.VM_Pause == true)
                 vm.VM_Pause = false;
         }
@@ -88,11 +91,13 @@ namespace AdvancedProgrammingProject1
 
         private void BtnMoveForward_Click(object sender, RoutedEventArgs e)
         {
+            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Min(vm.VM_CSVTable.Rows.Count, vm.VM_LineCounter + 100);
         }
 
         private void BtnMoveWayForward_Click(object sender, RoutedEventArgs e)
         {
+            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Min(vm.VM_CSVTable.Rows.Count, vm.VM_LineCounter + 500);
         }
 
