@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -113,6 +114,16 @@ namespace AdvancedProgrammingProject1
             if (100 / vm.VM_Speed < 250)
                 vm.VM_Speed /= 2;
             speed.Text = vm.VM_Speed.ToString();
+        }
+        private void BtnUploadCSVFile_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog UploadCSVFileDialog = new OpenFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*"
+            };
+
+            if (UploadCSVFileDialog.ShowDialog() == true)
+                csvName.Text = UploadCSVFileDialog.FileName;
         }
     }
 }

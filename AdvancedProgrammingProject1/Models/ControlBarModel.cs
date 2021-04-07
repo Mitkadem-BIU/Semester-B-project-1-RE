@@ -18,6 +18,11 @@ namespace AdvancedProgrammingProject1
 
         public MainControllerModel Model { get; }
 
+        public string Csv
+        {
+            get { return Model.Csv; }
+            set { Model.Csv = value; }
+        }
         public bool JumpFlag
         {
             get { return Model.JumpFlag; }
