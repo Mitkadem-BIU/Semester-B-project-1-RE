@@ -342,6 +342,7 @@ namespace AdvancedProgrammingProject1
 			 */
 			using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(csvName)), false))
 			{
+				csvTable = new DataTable();
 				csvTable.Load(csvReader);
 			}
 
