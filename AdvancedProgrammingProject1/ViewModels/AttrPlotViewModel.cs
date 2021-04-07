@@ -21,6 +21,15 @@ namespace AdvancedProgrammingProject1
 			get { return Model.AttrToPlot; }
 			set { Model.AttrToPlot = value; }
 		}
+		public string VM_PearsonAttrToPlot
+		{
+			get { return Model.PearsonAttrToPlot; }
+		}
+
+		public double VM_PearVal
+		{
+			get { return Model.PearVal; }
+		}
 		public LineSeries VM_LS
 		{
 			get { return Model.LS; }
