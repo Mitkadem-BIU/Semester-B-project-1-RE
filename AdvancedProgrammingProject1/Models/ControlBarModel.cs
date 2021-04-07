@@ -32,11 +32,7 @@ namespace AdvancedProgrammingProject1
         {
 
             get { return Model.SlideValue; }
-            set
-            {
-                Model.SlideValue = value;
-             
-            }
+            set { Model.SlideValue = value; }
         }
         public float Time
         {

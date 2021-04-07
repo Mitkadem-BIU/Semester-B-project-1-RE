@@ -6,22 +6,35 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdvancedProgrammingProject1
 {
 	public class AttrPlotModel : INotifyPropertyChanged
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
-		string attr;
-		string pearAttr;
-		Dictionary<string, LineSeries> attrLinePoints;
-		Dictionary<string, Dictionary<double, double>> attrData;
-		
+
+		private string attr;
+		private string pearAttr;
+		private double pearVal;
+		private Dictionary<string, LineSeries> attrLinePoints;
+		private Dictionary<string, Dictionary<double, double>> attrData;
+
 		public MainControllerModel Model { get; }
 		public PlotModel SelfPlotModel { get; private set; }
 		public PlotModel PearsonPlotModel { get; private set; }
+		public PlotModel LinearRegPlotModel { get; private set; }
+
+		public bool AP_ValueChanged
+		{
+			get { return Model.ValueChanged; }
+			set
+			{
+				value = Model.ValueChanged;
+				if (!value)
+					TimeJump();
+			}
+		}
+
 		public List<string> AP_FlightAttrNames
 		{
 			get { return Model.FlightAttrNames; }
@@ -30,6 +43,11 @@ namespace AdvancedProgrammingProject1
 		public DataRow AP_Row
 		{
 			get { return Model.Row; }
+		}
+
+		public DataTable AP_CSVTable
+		{
+			get { return Model.CSVTable; }
 		}
 
 		public double AP_Time
@@ -47,15 +65,26 @@ namespace AdvancedProgrammingProject1
 			}
 		}
 
+		public string PearsonAttrToPlot
+		{
+			get { return pearAttr; }
+		}
+		public double PearVal
+        {
+			get { return pearVal; }
+        }
+
 		public LineSeries LS
 		{
 			get { return SelfPlotModel.Series[0] as LineSeries; }
 		}
+
 		public AttrPlotModel(MainControllerModel model)
 		{
 			Model = model;
 			model.PropertyChanged +=
-			delegate (Object sender, PropertyChangedEventArgs e) {
+			delegate (Object sender, PropertyChangedEventArgs e)
+			{
 				NotifyPropertyChanged("AP_" + e.PropertyName);
 			};
 			attrLinePoints = new Dictionary<string, LineSeries>();
@@ -66,6 +95,7 @@ namespace AdvancedProgrammingProject1
 			SelfPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Bottom,
+				IsZoomEnabled = false,
 				Maximum = 30,
 				Minimum = 0,
 				Title = "time [s]",
@@ -74,6 +104,7 @@ namespace AdvancedProgrammingProject1
 			SelfPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Left,
+				IsZoomEnabled = false,
 			});
 
 			PearsonPlotModel = new PlotModel { };
@@ -81,6 +112,7 @@ namespace AdvancedProgrammingProject1
 			PearsonPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Bottom,
+				IsZoomEnabled = false,
 				Maximum = 30,
 				Minimum = 0,
 				Title = "time [s]",
@@ -89,94 +121,149 @@ namespace AdvancedProgrammingProject1
 			PearsonPlotModel.Axes.Add(new LinearAxis
 			{
 				Position = AxisPosition.Left,
+				IsZoomEnabled = false,
+			});
+
+			LinearRegPlotModel = new PlotModel { };
+			LinearRegPlotModel.Series.Add(new LineSeries());
+			LinearRegPlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Bottom,
+				IsZoomEnabled = false,
+			});
+			LinearRegPlotModel.Axes.Add(new LinearAxis
+			{
+				Position = AxisPosition.Left,
+				IsZoomEnabled = false,
 			});
 		}
+
+		public void TimeJump()
+		{
+			// if the jump is forward - add all missing rows
+			if (AP_Time > attrData[attr].Keys.Max())
+			{
+				for (double iTime = attrData[attr].Keys.Max(); iTime < AP_Time; iTime += 0.1)
+					foreach (string attrName in AP_FlightAttrNames)
+					{
+						object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
+						attrData[attrName].Add(iTime, Double.Parse((string)val));
+					}
+			}
+
+			// if the jump is backwards - remove all excess ones
+			if (AP_Time < attrData[attr].Keys.Max())
+			{
+				for (double iTime = attrData[attr].Keys.Max(); iTime > AP_Time; iTime -= 0.1)
+					foreach (string attrName in AP_FlightAttrNames)
+						attrData[attrName].Remove(iTime);
+			}
+
+			// take all points up to 30 seconds backwards
+			DataPoint newPoint;
+			foreach (string attrName in AP_FlightAttrNames)
+			{
+				attrLinePoints[attrName] = new LineSeries();
+				for (double iTime = Math.Max(0, AP_Time - 30); iTime < AP_Time; iTime += 0.1)
+				{
+					object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
+					newPoint = new DataPoint(iTime, Double.Parse((string)val));
+				}
+			}
+
+			UpdatePlots();
+		}
+
 		private void AttrChanged()
 		{
 			SelfPlotModel.Series.Clear();
 			SelfPlotModel.Series.Add(new LineSeries());
 			PearsonPlotModel.Series.Clear();
 			PearsonPlotModel.Series.Add(new LineSeries());
+			LinearRegPlotModel.Series.Clear();
+			LinearRegPlotModel.Series.Add(new LineSeries());
 		}
 
 		public void NotifyPropertyChanged(string propertyName)
 		{
 			if (propertyName == "AP_Row")
 			{
-				try
-				{
-					// Console.WriteLine(AP_Row[attr]);
-					DataPoint newPoint;
-					double minTime;
-					try
-                    {
-						minTime = attrLinePoints[attr].Points[0].X;
-					} catch (KeyNotFoundException e)
-                    {
-						minTime = 0;
-						foreach (string attrName in AP_FlightAttrNames)
-						{
-							attrLinePoints[attrName] = new LineSeries();
-							attrData[attrName] = new Dictionary<double, double>();
-						}
-					}
-					
-					foreach (string attrName in AP_FlightAttrNames)
-                    {
-						newPoint = new DataPoint(AP_Time, Double.Parse((string)AP_Row[attrName]));
-						if (!attrLinePoints[attrName].Points.Contains(newPoint))
-							attrLinePoints[attrName].Points.Add(newPoint);
-						if (!attrData[attrName].ContainsKey(AP_Time))
-							attrData[attrName].Add(AP_Time, Double.Parse((string)AP_Row[attrName]));
-						while (AP_Time - minTime > 30)
-						{
-							attrLinePoints[attrName].Points.RemoveAt(0);
-							// attrData[attrName].Remove(minTime);
-							minTime = attrLinePoints[attrName].Points[0].X;
-						}
-					}
-					SelfPlotModel.Axes[0].Minimum = minTime;
-					SelfPlotModel.Axes[0].Maximum = Math.Max(minTime + 30, attrLinePoints[attr].Points[0].X);
-					SelfPlotModel.Series.Clear();
-					SelfPlotModel.Series.Add(attrLinePoints[attr]);
-					SelfPlotModel.InvalidatePlot(true);
-
-					pearAttr = GetMostSimilar();
-					PearsonPlotModel.Axes[0].Minimum = minTime;
-					PearsonPlotModel.Axes[0].Maximum = Math.Max(minTime + 30, attrLinePoints[pearAttr].Points[0].X);
-					PearsonPlotModel.Series.Clear();
-					PearsonPlotModel.Series.Add(attrLinePoints[pearAttr]);
-					PearsonPlotModel.Axes[1].Title = pearAttr;
-					PearsonPlotModel.InvalidatePlot(true);
-				}
+				try { Row_Changed(); }
 				catch (ArgumentNullException) { }
 			}
+			if (propertyName == "AP_ValueChanged")
+				AP_ValueChanged = !AP_ValueChanged;
+
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
 		public string GetMostSimilar()
-        {
+		{
 			// attrData[attr]
 			Dictionary<string, double> pvals = new Dictionary<string, double>();
-            foreach(string attrName in attrData.Keys)
-            {
+			foreach (string attrName in attrData.Keys)
+			{
 				if (attrName != attr)
 				{
 					pvals[attrName] = Math.Abs(Pearson(attrData[attr].Values.ToList(), attrData[attrName].Values.ToList()));
 					if (Double.IsNaN(pvals[attrName]))
 						pvals[attrName] = 0;
 				}
-            }
+			}
+			pearVal = pvals.Values.Max();
 			return pvals.Aggregate((x, y) => x.Value > y.Value ? x : y).Key; // key of max value
-        }
+		}
 
-		public Dictionary<double, double> DPtoDict(DataPoint[] arr)
-        {
-			Dictionary<double,double> dp = new Dictionary<double, double>();
-			for (int i = 0; i < arr.Length; i++)
-				dp.Add(arr[i].X, arr[i].Y);
-			return dp;
-        }
+		public void Row_Changed()
+		{
+			DataPoint newPoint;
+			double minTime;
+			try { minTime = attrLinePoints[attr].Points[0].X; }
+			catch (KeyNotFoundException)
+			{
+				// initialize
+				foreach (string attrName in AP_FlightAttrNames)
+				{
+					attrLinePoints[attrName] = new LineSeries();
+					attrData[attrName] = new Dictionary<double, double>();
+				}
+			}
+
+			// add DataPoints
+			foreach (string attrName in AP_FlightAttrNames)
+			{
+				newPoint = new DataPoint(AP_Time, Double.Parse((string)AP_Row[attrName]));
+				if (!attrLinePoints[attrName].Points.Contains(newPoint))
+					attrLinePoints[attrName].Points.Add(newPoint);
+				if (!attrData[attrName].ContainsKey(AP_Time))
+					attrData[attrName].Add(AP_Time, Double.Parse((string)AP_Row[attrName]));
+			}
+
+			UpdatePlots();
+		}
+
+		public void UpdatePlots()
+		{
+			SelfPlotModel.Axes[0].Minimum = Math.Max(0, AP_Time - 30);
+			SelfPlotModel.Axes[0].Maximum = Math.Max(30, AP_Time);
+			SelfPlotModel.Series.Clear();
+			SelfPlotModel.Series.Add(attrLinePoints[attr]);
+			SelfPlotModel.InvalidatePlot(true);
+
+			pearAttr = GetMostSimilar();
+			PearsonPlotModel.Axes[0].Minimum = Math.Max(0, AP_Time - 30);
+			PearsonPlotModel.Axes[0].Maximum = Math.Max(30, AP_Time);
+			PearsonPlotModel.Series.Clear();
+			PearsonPlotModel.Series.Add(attrLinePoints[pearAttr]);
+			PearsonPlotModel.Axes[1].Title = pearAttr;
+			PearsonPlotModel.InvalidatePlot(true);
+
+			LinearRegPlotModel.Series.Clear();
+			LinearRegPlotModel.Series.Add(LinearReg(attrData[attr].Values.ToList(), attrData[pearAttr].Values.ToList()));
+			LinearRegPlotModel.Axes[0].Title = attr;
+			LinearRegPlotModel.Axes[1].Title = pearAttr;
+			LinearRegPlotModel.InvalidatePlot(true);
+		}
 
 		public double Variance(List<double> x)
 		{
@@ -199,6 +286,20 @@ namespace AdvancedProgrammingProject1
 		public double Pearson(List<double> x, List<double> y)
 		{
 			return Covariance(x, y) / Math.Sqrt(Variance(x) * Variance(y));
+		}
+		public double Pearson(string x, string y)
+		{
+			return Pearson(attrData[x].Values.ToList(), attrData[y].Values.ToList());
+		}
+
+		public LineSeries LinearReg(List<double> x, List<double> y)
+		{
+			double a = Covariance(x, y) / Variance(x);
+			double b = y.Average() - a * x.Average();
+			LineSeries LS = new LineSeries();
+			for (double i = x.Min(); i < x.Max(); i++)
+				LS.Points.Add(new DataPoint(i, a * i + b));
+			return LS;
 		}
 	}
 }
