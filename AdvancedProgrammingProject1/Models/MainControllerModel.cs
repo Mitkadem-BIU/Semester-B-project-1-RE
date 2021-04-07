@@ -54,7 +54,7 @@ namespace AdvancedProgrammingProject1
 			set
 			{
 				jumpFlag = value;
-				
+				NotifyPropertyChanged("JumpFlag");
 			}
 		}
 

@@ -39,7 +39,10 @@ namespace AdvancedProgrammingProject1
 		{
 			vm.VM_AttrToPlot = (lbAttrList.SelectedItem as AttrItem).Title;
 			vm.VM_SelfPlotModel.Axes[1].Title = vm.VM_AttrToPlot;
-			// Console.WriteLine($"current selection: {(lbAttrList.SelectedItem as AttrItem).Title}");
+
+			// fix this
+			testBox.Text = vm.VM_AttrToPlot;
+
 		}
 	}
 
