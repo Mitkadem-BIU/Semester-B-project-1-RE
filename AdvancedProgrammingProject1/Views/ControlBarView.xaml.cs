@@ -55,8 +55,6 @@ namespace AdvancedProgrammingProject1
           
         }
 
-      
-
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
         {
             vm.VM_JumpFlag = true;

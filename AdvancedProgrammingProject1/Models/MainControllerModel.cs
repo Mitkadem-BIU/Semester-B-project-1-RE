@@ -87,6 +87,7 @@ namespace AdvancedProgrammingProject1
 		public PlotModel PlotModel { get; private set; }
 		public AttrPlotModel AP { get; }
 		public ControlBarModel CB { get; }
+		public JoystickModel J { get; }
 	
 		public float Time
 		{
@@ -315,6 +316,7 @@ namespace AdvancedProgrammingProject1
 			Client = new FGModel(this);
 			AP = new AttrPlotModel(this);
 			CB = new ControlBarModel(this);
+			J = new JoystickModel(this);
 		}
 
 		public void ReadXML(string xmlName)
