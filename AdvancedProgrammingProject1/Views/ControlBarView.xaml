@@ -35,6 +35,10 @@
             <TextBox Background="Gray"  Margin="40,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeMinutes" Text="{Binding VM_Minutes, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
             <TextBlock Background="Gray"  Margin="0,0,0,0" Width="5" TextAlignment="Center" Height="30">:</TextBlock>
             <TextBox Background="Gray"  Margin="0,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeSeconds" Text="{Binding VM_Seconds, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <WrapPanel>
+                <Button Margin="0,10" x:Name="BtnUploadCSVFile" Click="BtnUploadCSVFile_Click" Content="Upload CSV"/>
+                <TextBox Margin="0,20" Width="600" x:Name="csvName" Text="{Binding VM_Csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            </WrapPanel>
 
         </StackPanel>
         <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">

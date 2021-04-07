@@ -24,16 +24,27 @@ namespace AdvancedProgrammingProject1
 		public PlotModel PearsonPlotModel { get; private set; }
 		public PlotModel LinearRegPlotModel { get; private set; }
 
-		public bool AP_ValueChanged
+		/* public bool AP_ValueChanged
 		{
 			get { return Model.ValueChanged; }
 			set
 			{
-				value = Model.ValueChanged;
+				Model.ValueChanged = value;
 				if (!value)
 					TimeJump();
 			}
-		}
+		} */
+
+		public bool AP_JumpFlag
+		{
+			get { return Model.JumpFlag; }
+			/* set
+            {
+				Model.JumpFlag = value;
+				if (!value)
+					TimeJump();
+            } */
+        }
 
 		public List<string> AP_FlightAttrNames
 		{
@@ -62,16 +73,27 @@ namespace AdvancedProgrammingProject1
 			{
 				attr = value;
 				AttrChanged();
+				NotifyPropertyChanged("AttrToPlot");
 			}
 		}
 
 		public string PearsonAttrToPlot
 		{
 			get { return pearAttr; }
+			set
+            {
+				pearAttr = value;
+				NotifyPropertyChanged("PearsonAttrToPlot");
+			}
 		}
 		public double PearVal
         {
 			get { return pearVal; }
+			set
+            {
+				pearVal = value;
+				NotifyPropertyChanged("PearVal");
+			}
         }
 
 		public LineSeries LS
@@ -191,8 +213,11 @@ namespace AdvancedProgrammingProject1
 				try { Row_Changed(); }
 				catch (ArgumentNullException) { }
 			}
-			if (propertyName == "AP_ValueChanged")
-				AP_ValueChanged = !AP_ValueChanged;
+			// TODO: Fix TimeJump
+			// if (propertyName == "AP_JumpFlag")
+			//	TimeJump();
+			/* if (propertyName == "AP_ValueChanged")
+				AP_ValueChanged = !AP_ValueChanged; */
 
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
@@ -210,8 +235,9 @@ namespace AdvancedProgrammingProject1
 						pvals[attrName] = 0;
 				}
 			}
-			pearVal = pvals.Values.Max();
-			return pvals.Aggregate((x, y) => x.Value > y.Value ? x : y).Key; // key of max value
+			string keyMax = pvals.Aggregate((x, y) => x.Value > y.Value ? x : y).Key; // key of max value
+			PearVal = Pearson(attrData[attr].Values.ToList(), attrData[keyMax].Values.ToList());
+			return keyMax;
 		}
 
 		public void Row_Changed()
@@ -244,14 +270,15 @@ namespace AdvancedProgrammingProject1
 
 		public void UpdatePlots()
 		{
-			SelfPlotModel.Axes[0].Minimum = Math.Max(0, AP_Time - 30);
+			double minTime = attrLinePoints[attr].Points[0].X;
+			SelfPlotModel.Axes[0].Minimum = Math.Max(minTime, AP_Time - 30);
 			SelfPlotModel.Axes[0].Maximum = Math.Max(30, AP_Time);
 			SelfPlotModel.Series.Clear();
 			SelfPlotModel.Series.Add(attrLinePoints[attr]);
 			SelfPlotModel.InvalidatePlot(true);
 
-			pearAttr = GetMostSimilar();
-			PearsonPlotModel.Axes[0].Minimum = Math.Max(0, AP_Time - 30);
+			PearsonAttrToPlot = GetMostSimilar();
+			PearsonPlotModel.Axes[0].Minimum = Math.Max(minTime, AP_Time - 30);
 			PearsonPlotModel.Axes[0].Maximum = Math.Max(30, AP_Time);
 			PearsonPlotModel.Series.Clear();
 			PearsonPlotModel.Series.Add(attrLinePoints[pearAttr]);
