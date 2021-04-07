@@ -68,6 +68,11 @@ namespace AdvancedProgrammingProject1
             get { return Model.Seconds; }
             set { Model.Seconds = value; }
         }
+        public bool VM_JumpFlag
+        {
+            get { return Model.JumpFlag; }
+            set { Model.JumpFlag = value; }
+        }
         public ControlBarViewModel(ControlBarModel model)
         {
             this.Model = model;

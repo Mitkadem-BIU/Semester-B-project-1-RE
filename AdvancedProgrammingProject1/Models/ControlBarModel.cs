@@ -18,6 +18,11 @@ namespace AdvancedProgrammingProject1
 
         public MainControllerModel Model { get; }
 
+        public bool JumpFlag
+        {
+            get { return Model.JumpFlag; }
+            set { Model.JumpFlag = value; }
+        }
         public int Minutes
         {
             get { return Model.Minutes; }

@@ -47,7 +47,17 @@ namespace AdvancedProgrammingProject1
 		double speed;
 		int slideValue;
 		bool valueChanged;
-		
+		bool jumpFlag;
+		public bool JumpFlag
+		{
+			get { return jumpFlag; }
+			set
+			{
+				jumpFlag = value;
+				
+			}
+		}
+
 		public int Minutes
 		{
 			get { return (int)(Time / 60); }
@@ -116,6 +126,7 @@ namespace AdvancedProgrammingProject1
 			get { return slideValue; }
 			set { slideValue = value;
 				NotifyPropertyChanged("slideValue");
+			
 			}
 		}
 		public bool Stop
@@ -291,7 +302,7 @@ namespace AdvancedProgrammingProject1
 
 		public MainControllerModel()
 		{
-	
+			jumpFlag = false;
 			valueChanged = false;
 			speed = 1;
 			doc = new XmlDocument();
@@ -387,12 +398,19 @@ namespace AdvancedProgrammingProject1
 				{
 					if (!pause)
 					{
+						if (jumpFlag == true)
+						{
+							jumpFlag = false;
+							NotifyPropertyChanged("jumpFlag");
+						}
 						
 						LineCounter = LineCounter;
 						// read line and change all properties
+						
 						ReadLine();
+					
 						Thread.Sleep((int)(100 / speed));// read the data in 10Hz
-
+						
 					}
 				}
 			}).Start();
