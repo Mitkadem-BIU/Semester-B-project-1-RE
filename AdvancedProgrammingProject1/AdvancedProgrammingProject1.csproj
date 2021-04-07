@@ -94,6 +94,7 @@
     <Compile Include="Models\AttrPlotModel.cs" />
     <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\FGModel.cs" />
+    <Compile Include="ViewModels\JoystickBoardViewModel.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="Views\AttrPlot.xaml.cs">
       <DependentUpon>AttrPlot.xaml</DependentUpon>
