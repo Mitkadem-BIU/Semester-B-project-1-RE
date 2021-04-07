@@ -20,7 +20,8 @@
             <local:AttrPlot/>
         </DockPanel>
         <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="184" Margin="32.2,-16,22.6,0" Width="210">
-            <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" Margin="55,0,57.6,0" Height="181" Width="97"/>
+            <TextBlock Text="&lt;-aileron-&gt;" TextAlignment="Center" FontSize="20"/>
+            <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" Margin="35,0,29,0" Height="116" Width="146"/>
         </StackPanel>
         <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="dashboard" FontSize="20"/>
@@ -31,5 +32,37 @@
         <DockPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="extra stuff" FontSize="20"/>
         </DockPanel>
+        <TextBlock Text="&lt;-elevator-&gt;" TextAlignment="Center" FontSize="20" Grid.Column="1" Margin="183,116,26,113" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform Y="-12.377"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="&lt;-throttle-&gt;" TextAlignment="Center" FontSize="20" Grid.ColumnSpan="2" Margin="619,108,233,133" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.049"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" FontSize="20" Grid.Column="1" Margin="65,230,56,10"/>
+        <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="True" Margin="624,112,200,138" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" Minimum="-1" Maximum="1" IsEnabled="True" Grid.Column="1" Margin="65,212,56,38"/>
     </Grid>
 </Window>
