@@ -95,6 +95,7 @@
     <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\FGModel.cs" />
     <Compile Include="Models\JoystickModel.cs" />
+    <Compile Include="Models\StatisticMethods.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="ViewModels\JoystickViewModel.cs" />
     <Compile Include="Views\AttrPlot.xaml.cs">
