@@ -6,30 +6,44 @@
              xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
-    <Grid RenderTransformOrigin="0.49,0.498">
-        <TextBlock Text="&lt;-throttle-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20" Margin="112,0,0,262" Width="250" Height="57">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Text="&lt;-throttle-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
-                    <SkewTransform AngleY="-0.235"/>
                     <RotateTransform Angle="90"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Text="&lt;-aileron-&gt;" TextAlignment="Center" FontSize="20" Margin="100,115" RenderTransformOrigin="0.492,0.495" />
-        <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.47,0.49"/>
-        <TextBlock Text="&lt;-elevator-&gt;" TextAlignment="Center" FontSize="20" RenderTransformOrigin="0.246,0.737" Margin="162,216,78,150" >
+        <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="&lt;-aileron-&gt;" TextAlignment="Center" FontSize="20"/>
+        <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <TextBlock Text="&lt;-elevator-&gt;" TextAlignment="Center" FontSize="20" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform Angle="90"/>
-                    <TranslateTransform X="61.098" Y="-79.11"/>
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Margin="0,0,0,95"/>
+        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20"/>
         <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="False" Margin="71,201,220,181" RenderTransformOrigin="0.5,0.5">
             <Slider.RenderTransform>
                 <TransformGroup>

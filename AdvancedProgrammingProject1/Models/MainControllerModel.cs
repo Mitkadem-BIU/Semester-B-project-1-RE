@@ -293,10 +293,9 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("time");
 				NotifyPropertyChanged("seconds");
 				NotifyPropertyChanged("minutes");
-				//slideValue = value;
+				slideValue = value;
 				if (valueChanged == false)
 				{
-					slideValue = value;
 					NotifyPropertyChanged("slideValue");
 				}
 			}
@@ -321,6 +320,12 @@ namespace AdvancedProgrammingProject1
             JM = new JoystickModel(this);
 			DB = new DashBoardModel(this);
 		}
+
+		public void GetClient(FGModel fg)
+        {
+			Client = fg;
+        }
+
 
 		public void ReadXML(string xmlName)
 		{
@@ -409,8 +414,8 @@ namespace AdvancedProgrammingProject1
 							jumpFlag = false;
 							NotifyPropertyChanged("jumpFlag");
 						}
-						//updates the slider
-						 LineCounter = LineCounter;
+						
+						LineCounter = LineCounter;
 						// read line and change all properties
 						
 						ReadLine();
