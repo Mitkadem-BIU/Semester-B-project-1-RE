@@ -86,11 +86,10 @@ namespace AdvancedProgrammingProject1
 		}
 		public PlotModel PlotModel { get; private set; }
 		public AttrPlotModel AP { get; }
-		public FGModel Client { get; }
 		public ControlBarModel CB { get; }
-		public JoystickModel J { get; }
+		public JoystickModel JM { get; }
 		public DashBoardModel DB { get; }
-	
+
 		public float Time
 		{
 			get { return (float)LineCounter / 10; }
@@ -160,6 +159,7 @@ namespace AdvancedProgrammingProject1
 			set { port = value; }
 		}
 
+		public FGModel Client { get; set; }
 		public List<string> FlightAttrNames
 		{
 			get { return flightAttrNames; }
@@ -314,10 +314,10 @@ namespace AdvancedProgrammingProject1
 			lineCounter = 0;
 			slideValue = 0;
 			currentLine = null;
-			Client = new FGModel(this);
+			// Client = new FGModel(this);
 			AP = new AttrPlotModel(this);
 			CB = new ControlBarModel(this);
-			J = new JoystickModel(this);
+            JM = new JoystickModel(this);
 			DB = new DashBoardModel(this);
 		}
 
@@ -409,7 +409,7 @@ namespace AdvancedProgrammingProject1
 							NotifyPropertyChanged("jumpFlag");
 						}
 						
-						LineCounter = LineCounter;
+						// LineCounter = LineCounter;
 						// read line and change all properties
 						
 						ReadLine();

@@ -11,96 +11,15 @@ namespace AdvancedProgrammingProject1
 {
     public class AttrPlotModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private string attr;
-        private string pearAttr;
-        private double pearVal;
-        private Dictionary<string, LineSeries> attrLinePoints;
+
         private Dictionary<string, Dictionary<double, double>> attrData;
 
-        public MainControllerModel Model { get; }
-        public PlotModel SelfPlotModel { get; private set; }
-        public PlotModel PearsonPlotModel { get; private set; }
-        public PlotModel LinearRegPlotModel { get; private set; }
+        private Dictionary<string, LineSeries> attrLinePoints;
 
-        /* public bool AP_ValueChanged
-		{
-			get { return Model.ValueChanged; }
-			set
-			{
-				Model.ValueChanged = value;
-				if (!value)
-					TimeJump();
-			}
-		} */
+        private string pearAttr;
 
-        public bool AP_JumpFlag
-        {
-            get { return Model.JumpFlag; }
-            /* set
-            {
-				Model.JumpFlag = value;
-				if (!value)
-					TimeJump();
-            } */
-        }
-
-        public List<string> AP_FlightAttrNames
-        {
-            get { return Model.FlightAttrNames; }
-        }
-
-        public DataRow AP_Row
-        {
-            get { return Model.Row; }
-        }
-
-        public DataTable AP_CSVTable
-        {
-            get { return Model.CSVTable; }
-        }
-
-        public double AP_Time
-        {
-            get { return Model.Time; }
-        }
-
-        public string AttrToPlot
-        {
-            get { return attr; }
-            set
-            {
-                attr = value;
-                AttrChanged();
-                NotifyPropertyChanged("AttrToPlot");
-            }
-        }
-
-        public string PearsonAttrToPlot
-        {
-            get { return pearAttr; }
-            set
-            {
-                pearAttr = value;
-                NotifyPropertyChanged("PearsonAttrToPlot");
-            }
-        }
-
-        public double PearVal
-        {
-            get { return pearVal; }
-            set
-            {
-                pearVal = value;
-                NotifyPropertyChanged("PearVal");
-            }
-        }
-
-        public LineSeries LS
-        {
-            get { return SelfPlotModel.Series[0] as LineSeries; }
-        }
+        private double pearVal;
 
         public AttrPlotModel(MainControllerModel model)
         {
@@ -148,6 +67,7 @@ namespace AdvancedProgrammingProject1
             });
 
             LinearRegPlotModel = new PlotModel { };
+            
             LinearRegPlotModel.Series.Add(new LineSeries());
             LinearRegPlotModel.Axes.Add(new LinearAxis
             {
@@ -161,68 +81,72 @@ namespace AdvancedProgrammingProject1
             });
         }
 
-        public void JumpForward(double time) // add all missing rows
+        public event PropertyChangedEventHandler PropertyChanged;
+        public DataTable AP_CSVTable
         {
-            for (double iTime = time; iTime < AP_Time; iTime += 0.1)
-                foreach (string attrName in AP_FlightAttrNames)
-                {
-                    object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
-                    try
-                    {
-                        attrData[attrName].Add(iTime, Double.Parse((string)val));
-                    }
-                    catch (ArgumentException) { return; }
-                }
-
-            // take all points up to 30 seconds backwards
-            DataPoint newPoint;
-            foreach (string attrName in AP_FlightAttrNames)
-            {
-                attrLinePoints[attrName] = new LineSeries();
-                for (double iTime = Math.Max(0, AP_Time - 30); iTime < AP_Time; iTime += 0.1)
-                {
-                    object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
-                    newPoint = new DataPoint(iTime, Double.Parse((string)val));
-                    attrLinePoints[attrName].Points.Add(newPoint);
-                }
-            }
-            UpdatePlots();
+            get { return Model.CSVTable; }
         }
 
-        public void JumpBackward(double time) // remove all excess rows
+        public List<string> AP_FlightAttrNames
         {
-            foreach (double timeKey in attrData[attr].Keys)
-            {
-                if (timeKey > time)
-                {
-                    foreach (string attrName in AP_FlightAttrNames)
-                        attrData[attrName].Remove(timeKey);
-                }
-            }
+            get { return Model.FlightAttrNames; }
+        }
 
-            // take all points up to 30 seconds backwards
-            DataPoint newPoint;
-            foreach (string attrName in AP_FlightAttrNames)
-            {
-                attrLinePoints[attrName] = new LineSeries();
-                for (double iTime = Math.Max(0, AP_Time - 30); iTime < AP_Time; iTime += 0.1)
-                {
-                    object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
-                    newPoint = new DataPoint(iTime, Double.Parse((string)val));
-                    attrLinePoints[attrName].Points.Add(newPoint);
-                }
-            }
-            UpdatePlots();
-        }
-        private void AttrChanged()
+        public bool AP_JumpFlag
         {
-            SelfPlotModel.Series.Clear();
-            SelfPlotModel.Series.Add(new LineSeries());
-            PearsonPlotModel.Series.Clear();
-            PearsonPlotModel.Series.Add(new LineSeries());
-            LinearRegPlotModel.Series.Clear();
-            LinearRegPlotModel.Series.Add(new LineSeries());
+            get { return Model.JumpFlag; }
         }
+
+        public DataRow AP_Row
+        {
+            get { return Model.Row; }
+        }
+
+        public double AP_Time
+        {
+            get { return Model.Time; }
+        }
+
+        public string AttrToPlot
+        {
+            get { return attr; }
+            set
+            {
+                attr = value;
+                AttrChanged();
+                NotifyPropertyChanged("AttrToPlot");
+            }
+        }
+
+        public PlotModel LinearRegPlotModel { get; private set; }
+        public LineSeries LS
+        {
+            get { return SelfPlotModel.Series[0] as LineSeries; }
+        }
+
+        public MainControllerModel Model { get; }
+        public string PearsonAttrToPlot
+        {
+            get { return pearAttr; }
+            set
+            {
+                pearAttr = value;
+                NotifyPropertyChanged("PearsonAttrToPlot");
+            }
+        }
+
+        public PlotModel PearsonPlotModel { get; private set; }
+        public double PearVal
+        {
+            get { return pearVal; }
+            set
+            {
+                pearVal = value;
+                NotifyPropertyChanged("PearVal");
+            }
+        }
+
+        public PlotModel SelfPlotModel { get; private set; }
 
         public void NotifyPropertyChanged(string propertyName)
         {
@@ -231,43 +155,17 @@ namespace AdvancedProgrammingProject1
                 try { Row_Changed(); }
                 catch (ArgumentNullException) { }
             }
-            // TODO: Fix TimeJump
-            /* if (propertyName == "AP_JumpFlag")
-				TimeJump();
-			if (propertyName == "AP_ValueChanged")
-				AP_ValueChanged = !AP_ValueChanged; */
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public string GetMostSimilar()
+        public void AttrChanged()
         {
-            // attrData[attr]
-            Dictionary<string, double> pvals = new Dictionary<string, double>();
-            foreach (string attrName in attrData.Keys)
-            {
-                if (attrName != attr)
-                {
-                    pvals[attrName] = Math.Abs(Pearson(attrData[attr].Values.ToList(), attrData[attrName].Values.ToList()));
-                    if (Double.IsNaN(pvals[attrName]))
-                        pvals[attrName] = 0;
-                }
-            }
-            string keyMax = pvals.Aggregate((x, y) => x.Value > y.Value ? x : y).Key; // key of max value
-            PearVal = Pearson(attrData[attr].Values.ToList(), attrData[keyMax].Values.ToList());
-            return keyMax;
-        }
-
-        public void TimeJump()
-        {
-            List<double> keysList = attrData[attr].Keys.ToList();
-            for (int i = 1; i < keysList.Count(); i++)
-            {
-                if (keysList[i] - keysList[i - 1] > 0.2)
-                    JumpForward(i - 1);
-                if (keysList[i] - keysList[i - 1] < 0)
-                    JumpBackward(i);
-            }
+            SelfPlotModel.Series.Clear();
+            SelfPlotModel.Series.Add(new LineSeries());
+            PearsonPlotModel.Series.Clear();
+            PearsonPlotModel.Series.Add(new LineSeries());
+            LinearRegPlotModel.Series.Clear();
+            LinearRegPlotModel.Series.Add(new LineSeries());
         }
 
         public void Row_Changed()
@@ -284,11 +182,8 @@ namespace AdvancedProgrammingProject1
                     attrData[attrName] = new Dictionary<double, double>();
                 }
             }
-            // check if jupm occured
-            /* double jumpAt = JumpMade();
-			if (jumpAt != -1)
-				TimeJump(jumpAt); */
             TimeJump();
+            UpdateLinePoints();
 
             // add DataPoints
             foreach (string attrName in AP_FlightAttrNames)
@@ -301,6 +196,60 @@ namespace AdvancedProgrammingProject1
             }
 
             UpdatePlots();
+        }
+
+        public void TimeJump()
+        {
+            List<double> keysList = attrData[attr].Keys.ToList();
+            for (int i = 1; i < keysList.Count(); i++)
+            {
+                if (keysList[i] - keysList[i - 1] > 0.2)
+                    JumpForward(i - 1);
+                if (keysList[i] - keysList[i - 1] < 0)
+                    JumpBackward(i);
+            }
+        }
+
+        public void JumpBackward(double time) // remove all excess rows
+        {
+            foreach (double timeKey in attrData[attr].Keys)
+            {
+                if (timeKey > time)
+                {
+                    foreach (string attrName in AP_FlightAttrNames)
+                        attrData[attrName].Remove(timeKey);
+                }
+            }
+        }
+
+        public void JumpForward(double time) // add all missing rows
+        {
+            for (double iTime = time; iTime < AP_Time; iTime += 0.1)
+                foreach (string attrName in AP_FlightAttrNames)
+                {
+                    object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
+                    try
+                    {
+                        attrData[attrName].Add(iTime, Double.Parse((string)val));
+                    }
+                    catch (ArgumentException) { return; }
+                }
+        }
+
+        public void UpdateLinePoints()
+        {
+            // take all points up to 30 seconds backwards
+            DataPoint newPoint;
+            foreach (string attrName in AP_FlightAttrNames)
+            {
+                attrLinePoints[attrName] = new LineSeries();
+                for (double iTime = Math.Max(0, AP_Time - 30); iTime < AP_Time; iTime += 0.1)
+                {
+                    object val = AP_CSVTable.Rows[(int)(10 * iTime)][attrName];
+                    newPoint = new DataPoint(iTime, Double.Parse((string)val));
+                    attrLinePoints[attrName].Points.Add(newPoint);
+                }
+            }
         }
 
         public void UpdatePlots()
@@ -321,48 +270,58 @@ namespace AdvancedProgrammingProject1
             PearsonPlotModel.InvalidatePlot(true);
 
             LinearRegPlotModel.Series.Clear();
-            LinearRegPlotModel.Series.Add(LinearReg(attrData[attr].Values.ToList(), attrData[pearAttr].Values.ToList()));
+            LinearRegPlotModel.Series.Add(StatisticMethods.LinearReg(attrData[attr].Values.ToList(), attrData[pearAttr].Values.ToList()));
+            ScatterSeries oldPoints = new ScatterSeries()
+            {
+                MarkerType = MarkerType.Circle,
+                MarkerSize = 2,
+                MarkerFill = OxyColors.LightGray,
+            };
+            ScatterSeries newPoints = new ScatterSeries()
+            {
+                MarkerType = MarkerType.Circle,
+                MarkerSize = 2,
+                MarkerFill = OxyColors.IndianRed,
+            };
+            FillScatterPoints(oldPoints, newPoints);
+            LinearRegPlotModel.Series.Add(oldPoints);
+            LinearRegPlotModel.Series.Add(newPoints);
             LinearRegPlotModel.Axes[0].Title = attr;
             LinearRegPlotModel.Axes[1].Title = pearAttr;
             LinearRegPlotModel.InvalidatePlot(true);
         }
 
-        public double Variance(List<double> x)
+        public void FillScatterPoints(ScatterSeries oldPoints, ScatterSeries newPoints)
         {
-            double sqsum = 0;
-            foreach (double val in x)
+            foreach (double keyTime in attrData[attr].Keys)
             {
-                sqsum += val * val;
+                if (AP_Time - 30 > keyTime) // old point
+                    oldPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
+                else
+                    newPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
             }
-            return sqsum / x.Count() - x.Average() * x.Average();
+                
         }
-
-        public double Covariance(List<double> x, List<double> y)
+        public string GetMostSimilar()
         {
-            List<double> covarr = new List<double>();
-            for (int i = 0; i < x.Count(); i++)
-                covarr.Add((x[i] - x.Average()) * (y[i] - y.Average()));
-            return covarr.Average();
-        }
-
-        public double Pearson(List<double> x, List<double> y)
-        {
-            return Covariance(x, y) / Math.Sqrt(Variance(x) * Variance(y));
+            Dictionary<string, double> pvals = new Dictionary<string, double>();
+            foreach (string attrName in attrData.Keys)
+            {
+                if (attrName != attr)
+                {
+                    pvals[attrName] = Math.Abs(Pearson(attr, attrName));
+                    if (Double.IsNaN(pvals[attrName]))
+                        pvals[attrName] = 0;
+                }
+            }
+            string keyMax = pvals.Aggregate((x, y) => x.Value > y.Value ? x : y).Key; // key of max value
+            PearVal = Pearson(attr, keyMax);
+            return keyMax;
         }
 
         public double Pearson(string x, string y)
         {
-            return Pearson(attrData[x].Values.ToList(), attrData[y].Values.ToList());
-        }
-
-        public LineSeries LinearReg(List<double> x, List<double> y)
-        {
-            double a = Covariance(x, y) / Variance(x);
-            double b = y.Average() - a * x.Average();
-            LineSeries LS = new LineSeries();
-            for (double i = x.Min(); i < x.Max(); i++)
-                LS.Points.Add(new DataPoint(i, a * i + b));
-            return LS;
+            return StatisticMethods.Pearson(attrData[x].Values.ToList(), attrData[y].Values.ToList());
         }
     }
 }

@@ -96,6 +96,7 @@
     <Compile Include="Models\DashBoardModel.cs" />
     <Compile Include="Models\FGModel.cs" />
     <Compile Include="Models\JoystickModel.cs" />
+    <Compile Include="Models\StatisticMethods.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
     <Compile Include="ViewModels\DashBoardViewModel.cs" />
     <Compile Include="ViewModels\JoystickViewModel.cs" />
