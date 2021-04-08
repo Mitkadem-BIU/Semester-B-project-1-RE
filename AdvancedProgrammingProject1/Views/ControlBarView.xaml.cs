@@ -41,8 +41,10 @@ namespace AdvancedProgrammingProject1
             {
                 vm.VM_LineCounter = vm.VM_SlideValue;
                 vm.VM_ValueChanged = false;
+                vm.VM_JumpFlag = true;
             }
-            vm.VM_JumpFlag = true;
+            
+            vm.VM_SlideValue = vm.VM_LineCounter;
         }
 
         private void Slider_DragStarted(object sender, DragStartedEventArgs e)
@@ -52,6 +54,7 @@ namespace AdvancedProgrammingProject1
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+           // vm.VM_ValueChanged = true;
         }
 
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)

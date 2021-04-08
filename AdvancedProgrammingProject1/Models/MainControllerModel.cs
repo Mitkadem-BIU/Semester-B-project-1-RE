@@ -292,9 +292,10 @@ namespace AdvancedProgrammingProject1
 				NotifyPropertyChanged("time");
 				NotifyPropertyChanged("seconds");
 				NotifyPropertyChanged("minutes");
-				slideValue = value;
+				//slideValue = value;
 				if (valueChanged == false)
 				{
+					slideValue = value;
 					NotifyPropertyChanged("slideValue");
 				}
 			}
@@ -411,8 +412,8 @@ namespace AdvancedProgrammingProject1
 							jumpFlag = false;
 							NotifyPropertyChanged("jumpFlag");
 						}
-						
-						// LineCounter = LineCounter;
+						//updates the slider
+						 LineCounter = LineCounter;
 						// read line and change all properties
 						
 						ReadLine();
