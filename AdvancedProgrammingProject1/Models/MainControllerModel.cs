@@ -86,8 +86,10 @@ namespace AdvancedProgrammingProject1
 		}
 		public PlotModel PlotModel { get; private set; }
 		public AttrPlotModel AP { get; }
+		public FGModel Client { get; }
 		public ControlBarModel CB { get; }
 		public JoystickModel J { get; }
+		public DashBoardModel DB { get; }
 	
 		public float Time
 		{
@@ -158,7 +160,6 @@ namespace AdvancedProgrammingProject1
 			set { port = value; }
 		}
 
-		public FGModel Client { get; }
 		public List<string> FlightAttrNames
 		{
 			get { return flightAttrNames; }
@@ -317,6 +318,7 @@ namespace AdvancedProgrammingProject1
 			AP = new AttrPlotModel(this);
 			CB = new ControlBarModel(this);
 			J = new JoystickModel(this);
+			DB = new DashBoardModel(this);
 		}
 
 		public void ReadXML(string xmlName)

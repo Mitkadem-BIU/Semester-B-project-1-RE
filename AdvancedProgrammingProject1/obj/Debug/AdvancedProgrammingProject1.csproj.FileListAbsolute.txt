@@ -212,3 +212,5 @@ C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\�
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\JoystickBoardView.baml
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\JoystickBoardView.g.cs
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\JoystickBoardView.baml
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\DashBoard.g.cs
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\DashBoard.baml

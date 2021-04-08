@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdvancedProgrammingProject1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="MainWindow" Height="450" Width="1000">
     <Grid>
         <GroupBox Header="Enter Data" Margin="10" Padding="10">
             <StackPanel>
                 <WrapPanel>
                     <Button Margin="0,20" x:Name="BtnOpenXMLFile" Click="BtnUploadXMLFile_Click" Content="Upload XML"/>
-                    <TextBox Margin="20,20" Width="320" x:Name="xmlName" Text="{Binding VM_Xml, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                    <TextBox Margin="20,20" Width="700" x:Name="xmlName" Text="{Binding VM_Xml, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
                 </WrapPanel>
                 <WrapPanel>
                     <Button Margin="0,20" x:Name="BtnUploadCSVFile" Click="BtnUploadCSVFile_Click" Content="Upload CSV"/>
-                    <TextBox Margin="20,20" Width="320" x:Name="csvName" Text="{Binding VM_Csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                    <TextBox Margin="20,20" Width="700" x:Name="csvName" Text="{Binding VM_Csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                 </WrapPanel>
 
               

@@ -19,6 +19,7 @@ namespace AdvancedProgrammingProject1
         public AttrPlotViewModel APVM { get; internal set; }
         public ControlBarViewModel CBVM { get; internal set; }
         public JoystickViewModel JVM { get; internal set; }
+        public DashBoardViewModel DBVM { get; internal set; }
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
@@ -27,6 +28,7 @@ namespace AdvancedProgrammingProject1
             APVM = new AttrPlotViewModel(Model.AP);
             CBVM = new ControlBarViewModel(Model.CB);
             JVM = new JoystickViewModel(Model.J);
+            DBVM = new DashBoardViewModel(Model.DB);
             // Create main application window
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
