@@ -30,9 +30,9 @@ namespace AdvancedProgrammingProject1
             double a = Covariance(x, y) / Variance(x);
             double b = y.Average() - a * x.Average();
             LineSeries LS = new LineSeries();
-            double lowerLim = Math.Min(x.Min() * 0.9, x.Min() * 1.1);
-            double upperLim = Math.Max(x.Max() * 0.9, x.Max() * 1.1);
-            for (double i = lowerLim; i <= upperLim; i += 0.1)
+            double lowerLim = Math.Min(x.Min() * 0.8, x.Min() * 1.2);
+            double upperLim = Math.Max(x.Max() * 0.8, x.Max() * 1.2);
+            for (double i = lowerLim; i <= upperLim; i += 0.01)
                 LS.Points.Add(new DataPoint(i, a * i + b));
             return LS;
         }
