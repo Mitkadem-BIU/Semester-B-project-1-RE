@@ -271,23 +271,36 @@ namespace AdvancedProgrammingProject1
 
             LinearRegPlotModel.Series.Clear();
             LinearRegPlotModel.Series.Add(StatisticMethods.LinearReg(attrData[attr].Values.ToList(), attrData[pearAttr].Values.ToList()));
-            LinearRegPlotModel.Series.Add(GetScatterPoints());
+            ScatterSeries oldPoints = new ScatterSeries()
+            {
+                MarkerType = MarkerType.Circle,
+                MarkerSize = 2,
+                MarkerFill = OxyColors.LightGray,
+            };
+            ScatterSeries newPoints = new ScatterSeries()
+            {
+                MarkerType = MarkerType.Circle,
+                MarkerSize = 2,
+                MarkerFill = OxyColors.IndianRed,
+            };
+            FillScatterPoints(oldPoints, newPoints);
+            LinearRegPlotModel.Series.Add(oldPoints);
+            LinearRegPlotModel.Series.Add(newPoints);
             LinearRegPlotModel.Axes[0].Title = attr;
             LinearRegPlotModel.Axes[1].Title = pearAttr;
             LinearRegPlotModel.InvalidatePlot(true);
         }
 
-        public ScatterSeries GetScatterPoints()
+        public void FillScatterPoints(ScatterSeries oldPoints, ScatterSeries newPoints)
         {
-            ScatterSeries SS = new ScatterSeries()
-            {
-                MarkerType = MarkerType.Circle,
-                MarkerSize = 3,
-                MarkerFill = OxyColors.LightGray,
-            };
             foreach (double keyTime in attrData[attr].Keys)
-                SS.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
-            return SS;
+            {
+                if (AP_Time - 30 > keyTime) // old point
+                    oldPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
+                else
+                    newPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
+            }
+                
         }
         public string GetMostSimilar()
         {
