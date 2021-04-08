@@ -41,7 +41,9 @@ namespace AdvancedProgrammingProject1
 			};
 
 			if (UploadCSVFileDialog.ShowDialog() == true)
+
 				csvName.Text = UploadCSVFileDialog.FileName;
+			csvName1.Text = System.IO.Path.GetFileName(csvName.Text);
 		}
 
 	
@@ -54,6 +56,7 @@ namespace AdvancedProgrammingProject1
 
 			if (UploadXMLFileDialog.ShowDialog() == true)
 				xmlName.Text = UploadXMLFileDialog.FileName;
+			xmlName1.Text = System.IO.Path.GetFileName(xmlName.Text);
 		}
 
 		private void BtnSave_Click(object sender, RoutedEventArgs e)

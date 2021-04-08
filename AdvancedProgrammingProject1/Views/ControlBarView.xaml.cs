@@ -124,6 +124,7 @@ namespace AdvancedProgrammingProject1
 
             if (UploadCSVFileDialog.ShowDialog() == true)
                 csvName.Text = UploadCSVFileDialog.FileName;
+            csvName1.Text = System.IO.Path.GetFileName(csvName.Text);
         }
     }
 }
