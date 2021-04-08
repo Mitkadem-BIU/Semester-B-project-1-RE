@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="AdvancedProgrammingProject1.JoystickBoardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400">
+    <Grid RenderTransformOrigin="0.49,0.498">
+        <TextBlock Text="&lt;-throttle-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20" Margin="112,0,0,262" Width="250" Height="57">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.235"/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="&lt;-aileron-&gt;" TextAlignment="Center" FontSize="20" Margin="100,115" RenderTransformOrigin="0.492,0.495" />
+        <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.47,0.49"/>
+        <TextBlock Text="&lt;-elevator-&gt;" TextAlignment="Center" FontSize="20" RenderTransformOrigin="0.246,0.737" Margin="162,216,78,150" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform X="61.098" Y="-79.11"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Margin="0,0,0,95"/>
+        <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="False" Margin="71,201,220,181" RenderTransformOrigin="0.5,0.5">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" Minimum="-1" Maximum="1" IsEnabled="False" Margin="131,264,135,110"/>
+    </Grid>
+</UserControl>

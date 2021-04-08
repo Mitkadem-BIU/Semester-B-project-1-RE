@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AdvancedProgrammingProject1" xmlns:oxy="http://oxyplot.org/wpf"
+             xmlns:local="clr-namespace:AdvancedProgrammingProject1" xmlns:oxy="http://oxyplot.org/wpf" d:DataContext="{d:DesignInstance Type=local:AttrPlotViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="400">
+             d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -42,13 +42,17 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Current Attribute: " Grid.Column="0" Grid.Row="0"/>
-                <TextBlock Text="{Binding Path=VM_AttrToPlot}" Grid.Column="1" Grid.Row="0"/>
-                <TextBlock Text="Most Similar: " Grid.Column="0" Grid.Row="1"/>
-                <TextBlock Text="{Binding Path=VM_PearsonAttrToPlot}" Grid.Column="1" Grid.Row="1"/>
-                <TextBlock Text="Pearson Value: " Grid.Column="0" Grid.Row="2"/>
-                <TextBlock Text="{Binding Path=VM_PearVal}" Grid.Column="1" Grid.Row="2"/>
+                <TextBlock Text="Current Attribute: " Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+                <TextBlock Name="testBox" Text="{Binding Path=VM_AttrToPlot}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right"/>
+                <TextBlock Text="Most Similar: " Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding VM_PearsonAttrToPlot}" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right"/>
+                <TextBlock Text="Pearson Value: " Grid.Column="0" Grid.Row="5"/>
+                <TextBlock Text="{Binding Path=VM_PearVal}" Grid.Column="1" Grid.Row="5"/>
                 
             </Grid>
             

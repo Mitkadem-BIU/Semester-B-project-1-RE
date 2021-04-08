@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 using System.Diagnostics;
+using AdvancedProgrammingProject1.Views;
 
 namespace AdvancedProgrammingProject1
 

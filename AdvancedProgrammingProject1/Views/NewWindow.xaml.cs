@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace AdvancedProgrammingProject1
+namespace AdvancedProgrammingProject1.Views
 {
 	/// <summary>
 	/// Interaction logic for NewWindow.xaml
@@ -23,7 +23,7 @@ namespace AdvancedProgrammingProject1
 
 		public NewWindow(MainControllerViewModel viewModel)
 		{
-			InitializeComponent();
+            InitializeComponent();
 			vm = viewModel;
 			DataContext = vm;
 			vm.Run();
