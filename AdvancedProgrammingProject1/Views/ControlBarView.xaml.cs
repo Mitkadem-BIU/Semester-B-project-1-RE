@@ -37,8 +37,11 @@ namespace AdvancedProgrammingProject1
 
         private void Slider_DragCompleted(object sender, DragCompletedEventArgs e)
         {
-            vm.VM_LineCounter = vm.VM_SlideValue;
-            vm.VM_ValueChanged = false;
+            if (vm.VM_ValueChanged == true)
+            {
+                vm.VM_LineCounter = vm.VM_SlideValue;
+                vm.VM_ValueChanged = false;
+            }
             vm.VM_JumpFlag = true;
         }
 
