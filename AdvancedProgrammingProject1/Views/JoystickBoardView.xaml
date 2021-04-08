@@ -14,6 +14,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,37 +25,22 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="2" Grid.RowSpan="2" Text="&lt;-throttle-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20">
+        <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="&lt;-aileron-&gt;" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20"/>
+        <local:Joystick Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBlock Text="&lt;-elevator-&gt;" FontSize="20" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top">
             <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
+                <RotateTransform Angle="90" />
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="&lt;-aileron-&gt;" TextAlignment="Center" FontSize="20"/>
-        <local:Joystick HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <TextBlock Text="&lt;-elevator-&gt;" TextAlignment="Center" FontSize="20" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2">
+        
+        <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" VerticalAlignment="Top" Minimum="-1" Maximum="1" IsEnabled="False" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5"/>
+        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5"/>
+        
+        <TextBlock Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Text="&lt;-throttle-&gt;" TextAlignment="Center" HorizontalAlignment="Right" FontSize="20" IsEnabled="False">
             <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                </TransformGroup>
+                <RotateTransform Angle="90" />
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20"/>
-        <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="False" Margin="71,201,220,181" RenderTransformOrigin="0.5,0.5">
-            <Slider.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Slider.RenderTransform>
-        </Slider>
-        <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" Minimum="-1" Maximum="1" IsEnabled="False" Margin="131,264,135,110"/>
+        <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="False" Orientation="Vertical" Grid.Column="1" Grid.RowSpan="2" Grid.Row="2" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>
