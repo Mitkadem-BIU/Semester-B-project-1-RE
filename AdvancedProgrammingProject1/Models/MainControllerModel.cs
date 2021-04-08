@@ -321,6 +321,12 @@ namespace AdvancedProgrammingProject1
 			DB = new DashBoardModel(this);
 		}
 
+		public void GetClient(FGModel fg)
+        {
+			Client = fg;
+        }
+
+
 		public void ReadXML(string xmlName)
 		{
 			/*
@@ -409,7 +415,7 @@ namespace AdvancedProgrammingProject1
 							NotifyPropertyChanged("jumpFlag");
 						}
 						
-						// LineCounter = LineCounter;
+						LineCounter = LineCounter;
 						// read line and change all properties
 						
 						ReadLine();
