@@ -214,3 +214,4 @@ C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\JoystickBoardView.baml
 C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\Views\JoystickBoardView.g.cs
 C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\Views\JoystickBoardView.baml
+C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\obj\Debug\Views\DashBoard.g.cs
