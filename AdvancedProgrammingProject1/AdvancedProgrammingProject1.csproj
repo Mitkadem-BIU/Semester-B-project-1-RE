@@ -93,10 +93,12 @@
     </ApplicationDefinition>
     <Compile Include="Models\AttrPlotModel.cs" />
     <Compile Include="Models\ControlBarModel.cs" />
+    <Compile Include="Models\DashBoardModel.cs" />
     <Compile Include="Models\FGModel.cs" />
     <Compile Include="Models\JoystickModel.cs" />
     <Compile Include="Models\StatisticMethods.cs" />
     <Compile Include="ViewModels\ControlBarViewModel.cs" />
+    <Compile Include="ViewModels\DashBoardViewModel.cs" />
     <Compile Include="ViewModels\JoystickViewModel.cs" />
     <Compile Include="Views\AttrPlot.xaml.cs">
       <DependentUpon>AttrPlot.xaml</DependentUpon>
@@ -104,6 +106,9 @@
     <Compile Include="ViewModels\AttrPlotViewModel.cs" />
     <Compile Include="Views\ControlBarView.xaml.cs">
       <DependentUpon>ControlBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
@@ -120,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ControlBarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DashBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

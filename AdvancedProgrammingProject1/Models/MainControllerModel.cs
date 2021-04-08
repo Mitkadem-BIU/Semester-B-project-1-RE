@@ -88,7 +88,8 @@ namespace AdvancedProgrammingProject1
 		public AttrPlotModel AP { get; }
 		public ControlBarModel CB { get; }
 		public JoystickModel JM { get; }
-	
+		public DashBoardModel DB { get; }
+
 		public float Time
 		{
 			get { return (float)LineCounter / 10; }
@@ -317,13 +318,9 @@ namespace AdvancedProgrammingProject1
 			// Client = new FGModel(this);
 			AP = new AttrPlotModel(this);
 			CB = new ControlBarModel(this);
-			JM = new JoystickModel(this);
+            JM = new JoystickModel(this);
+			DB = new DashBoardModel(this);
 		}
-
-		public void GetClient(FGModel fg)
-        {
-			Client = fg;
-        }
 
 		public void ReadXML(string xmlName)
 		{

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AdvancedProgrammingProject1" xmlns:oxy="http://oxyplot.org/wpf" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
+        xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
         mc:Ignorable="d"
         Title="NewWindow" Height="700" Width="1000">
     <Grid>
@@ -22,8 +22,8 @@
         <DockPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <local:JoystickBoardView/>
         </DockPanel>
-        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="dashboard" FontSize="20"/>
+        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="252" Margin="10,10,10,5" Width="311">
+            <local:DashBoard/>
         </DockPanel>
         <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
             <local:ControlBarView HorizontalAlignment="Left" VerticalAlignment="Top"/>
