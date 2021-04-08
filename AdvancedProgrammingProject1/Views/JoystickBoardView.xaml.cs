@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AdvancedProgrammingProject1.Views
+namespace AdvancedProgrammingProject1
 {
     /// <summary>
     /// Interaction logic for JoystickBoardView.xaml
