@@ -53,14 +53,14 @@ namespace AdvancedProgrammingProject1
 
         private void BtnMoveWayBack_Click(object sender, RoutedEventArgs e)
         {
-            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Max(0, vm.VM_LineCounter - 500);
+            vm.VM_JumpFlag = true;
         }
 
         private void BtnMoveBack_Click(object sender, RoutedEventArgs e)
         {
-            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Max(0, vm.VM_LineCounter - 100);
+            vm.VM_JumpFlag = true;
         }
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
@@ -85,14 +85,14 @@ namespace AdvancedProgrammingProject1
 
         private void BtnMoveForward_Click(object sender, RoutedEventArgs e)
         {
-            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Min(vm.VM_CSVTable.Rows.Count, vm.VM_LineCounter + 100);
+            vm.VM_JumpFlag = true;
         }
 
         private void BtnMoveWayForward_Click(object sender, RoutedEventArgs e)
         {
-            vm.VM_JumpFlag = true;
             vm.VM_LineCounter = Math.Min(vm.VM_CSVTable.Rows.Count, vm.VM_LineCounter + 500);
+            vm.VM_JumpFlag = true;
         }
 
         // TODO: the speeds are not correct, I'm sure of it.
