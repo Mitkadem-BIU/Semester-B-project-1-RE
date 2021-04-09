@@ -19,13 +19,13 @@ namespace AdvancedProgrammingProject1
 
         public double VM_J_Aileron
         {
-            get { return Model.J_Aileron * 10; }
+            get { return Model.J_Aileron * 123; }
             set { Model.J_Aileron = value; }
         }
 
         public double VM_J_Eleveator
         {
-            get { return Model.J_Elevator * 10; }
+            get { return Model.J_Elevator * 123; }
             set { Model.J_Elevator = value; }
         }
 
@@ -35,7 +35,7 @@ namespace AdvancedProgrammingProject1
             this.Model = model;
             model.PropertyChanged +=
             delegate (Object sender, PropertyChangedEventArgs e) {
-                NotifyPropertyChanged("VM_" + e.PropertyName);
+                NotifyPropertyChanged("VM_J_" + e.PropertyName);
             };
         }
 
