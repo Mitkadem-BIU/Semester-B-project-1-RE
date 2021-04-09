@@ -417,8 +417,10 @@ namespace AdvancedProgrammingProject1
 						}
 						//updates the control bar
 						LineCounter = LineCounter;
+					
+
 						// read line and change all properties
-						
+
 						ReadLine();
 					
 						Thread.Sleep((int)(100 / speed));// read the data in 10Hz

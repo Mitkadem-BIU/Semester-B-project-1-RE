@@ -12,15 +12,15 @@ namespace AdvancedProgrammingProject1
         public event PropertyChangedEventHandler PropertyChanged;
         public MainControllerModel Model { get; }
 
-        public double J_Aileron
+        public double Aileron
         {
-            get { return Model.Aileron; }
+            get { return Model.Aileron*125 -90; }
             set { Model.Aileron = value; }
         }
 
-        public double J_Elevator
+        public double Elevator
         {
-            get { return Model.Elevator; }
+            get { return Model.Elevator*125 -90; }
             set { Model.Elevator = value; }
         }
 
@@ -29,7 +29,7 @@ namespace AdvancedProgrammingProject1
             Model = model;
             model.PropertyChanged +=
             delegate (Object sender, PropertyChangedEventArgs e) {
-                NotifyPropertyChanged("J_" + e.PropertyName);
+                NotifyPropertyChanged( e.PropertyName);
             };
         }
 

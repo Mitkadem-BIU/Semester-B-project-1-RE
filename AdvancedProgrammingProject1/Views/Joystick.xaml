@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:JoystickViewModel}"
+             xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -59,10 +59,8 @@
             </Path>
 
             <Canvas x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125">
-                <Ellipse x:Name="KnobBase"  HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Left="-90" Canvas.Top="-90">
-                    <Ellipse.RenderTransform>
-                        <TranslateTransform X="{Binding VM_J_Aileron}" Y="{Binding VM_J_Eleveator}"/>
-                    </Ellipse.RenderTransform>
+                <Ellipse x:Name="KnobBase" Height="30" Width="30"  Canvas.Left="{Binding VM_Aileron}" Canvas.Top="{Binding VM_Eleveator}" >
+                   
                     <Ellipse.Fill>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" />
@@ -72,5 +70,5 @@
                 </Ellipse>
             </Canvas>
         </Canvas>
-    </Grid>
+       </Grid>
 </UserControl>

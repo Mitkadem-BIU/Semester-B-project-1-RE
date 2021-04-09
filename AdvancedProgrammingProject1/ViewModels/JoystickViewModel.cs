@@ -15,20 +15,24 @@ namespace AdvancedProgrammingProject1
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+
+
+
+
         public JoystickModel Model { get; }
 
-        public double VM_J_Aileron
+        public double VM_Aileron
         {
-            get { return Model.J_Aileron; }
+            get { return Model.Aileron; }
             set 
-            { Model.J_Aileron = value; }
+            { Model.Aileron = value; }
         }
 
-        public double VM_J_Eleveator
+        public double VM_Eleveator
         {
-            get { return Model.J_Elevator; }
+            get { return Model.Elevator; }
             set 
-            { Model.J_Elevator = value; }
+            { Model.Elevator = value; }
         }
 
 
@@ -37,7 +41,7 @@ namespace AdvancedProgrammingProject1
             this.Model = model;
             model.PropertyChanged +=
             delegate (Object sender, PropertyChangedEventArgs e) {
-                NotifyPropertyChanged("VM_J_" + e.PropertyName);
+                NotifyPropertyChanged("VM_" + e.PropertyName);
             };
         }
 
