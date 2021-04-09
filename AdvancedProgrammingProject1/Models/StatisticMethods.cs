@@ -41,7 +41,7 @@ namespace AdvancedProgrammingProject1
         {
             List<double> covarr = new List<double>();
             for (int i = 0; i < x.Count(); i++)
-                covarr.Add((x[i] - x.Average()) * (y[i] - y.Average()));
+                covarr.Add((x[i] - x.Average()) * (y[i] - y.Average())); // look into this bug (Argument out of range exception)
             return covarr.Average();
         }
     }

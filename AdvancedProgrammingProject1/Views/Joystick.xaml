@@ -34,6 +34,7 @@
                     </RadialGradientBrush>
                 </Ellipse.Fill>
             </Ellipse>
+            <!-- triangles -->
             <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z" Fill="Black" HorizontalAlignment="Left" Height="15" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="20" Canvas.Left="40" Canvas.Top="4" />
             <Path Data="M205.75,65.625 L226.875,47.25 L248.5,65.625 z" Fill="Black" HorizontalAlignment="Left" Height="15" Stretch="Fill" UseLayoutRounding="False" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.5,0.5" Canvas.Left="40" Canvas.Top="79.2">
                 <Path.RenderTransform>
@@ -57,30 +58,16 @@
                 </Path.RenderTransform>
             </Path>
 
-            <Canvas  x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125" MouseMove="Knob_MouseMove" MouseUp="Knob_MouseLeftButtonUp" MouseLeftButtonDown="Knob_MouseLeftButtonDown">
-                <Canvas.Resources>
-
-                    <Storyboard x:Key="CenterKnob" x:Name="centerKnob" Completed="CenterKnob_Completed">
-
-                        <DoubleAnimation Storyboard.TargetName="knobPosition"
-                             Storyboard.TargetProperty="X" To="0" Duration="0:0:0.2">
-                            <DoubleAnimation.EasingFunction>
-                                <BackEase EasingMode="EaseInOut" />
-                            </DoubleAnimation.EasingFunction>
-                        </DoubleAnimation>
-                        <DoubleAnimation Storyboard.TargetName="knobPosition" Storyboard.TargetProperty="Y" To="0" Duration="0:0:0.2">
-                            <DoubleAnimation.EasingFunction>
-                                <BackEase EasingMode="EaseInOut" />
-                            </DoubleAnimation.EasingFunction>
-                        </DoubleAnimation>
-                    </Storyboard>
-                </Canvas.Resources>
+            <Canvas x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125">
 
                 <Canvas.RenderTransform>
                     <TranslateTransform x:Name="knobPosition" />
                 </Canvas.RenderTransform>
                 <!--<Ellipse x:Name="Shadow" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="86" Fill="#52131212" Canvas.Left="22" Canvas.Top="18" />-->
-                <Ellipse x:Name="KnobBase" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Top="-91" Canvas.Left="-90">
+                <Ellipse x:Name="KnobBase"  HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Top="-91" Canvas.Left="-90">
+                    <Ellipse.RenderTransform>
+                        <TranslateTransform X="{Binding VM_J_Aileron}" Y="{Binding VM_J_Eleveator}" />
+                    </Ellipse.RenderTransform>
                     <Ellipse.Fill>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" />

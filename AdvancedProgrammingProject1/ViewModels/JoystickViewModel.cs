@@ -17,17 +17,18 @@ namespace AdvancedProgrammingProject1
 
         public JoystickModel Model { get; }
 
-        public double VM_Aileron
+        public double VM_J_Aileron
         {
-            get { return Model.X_Aileron; }
-            set { Model.X_Aileron = value; }
+            get { return Model.J_Aileron * 10; }
+            set { Model.J_Aileron = value; }
         }
 
-        public double VM_Eleveator
+        public double VM_J_Eleveator
         {
-            get { return Model.Y_Elevator; }
-            set { Model.Y_Elevator = value; }
+            get { return Model.J_Elevator * 10; }
+            set { Model.J_Elevator = value; }
         }
+
 
         public JoystickViewModel(JoystickModel model)
         {
