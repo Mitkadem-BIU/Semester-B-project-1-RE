@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
         mc:Ignorable="d"
-        Title="NewWindow" Height="700" Width="1000">
+        Title="NewWindow" Height="1000" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -22,14 +22,11 @@
         <DockPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <local:JoystickBoardView/>
         </DockPanel>
-        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="252" Margin="10,10,10,5" Width="311">
+        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="21,38,22,48" Height="301" >
             <local:DashBoard/>
         </DockPanel>
-        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" >
             <local:ControlBarView HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        </DockPanel>
-        <DockPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="extra stuff" FontSize="20"/>
         </DockPanel>
     </Grid>
 </Window>
