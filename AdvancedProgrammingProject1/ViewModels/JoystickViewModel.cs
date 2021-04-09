@@ -25,14 +25,14 @@ namespace AdvancedProgrammingProject1
         {
             get { return Model.Aileron; }
             set 
-            { Model.J_Aileron = value; }
+            { Model.Aileron = value; }
         }
 
-        public double VM_J_Eleveator
+        public double VM_Eleveator
         {
             get { return Model.Elevator; }
             set 
-            { Model.J_Elevator = value; }
+            { Model.Elevator = value; }
         }
 
 
