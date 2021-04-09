@@ -99,12 +99,12 @@ namespace AdvancedProgrammingProject1
 		public double VM_Aileron
 		{
 			get { return model.Aileron; }
-			set { model.Aileron = value; }
+			set { model.Aileron = 123 * value; }
 		}
 		public double VM_Elevator
 		{
 			get { return model.Elevator; }
-			set { model.Elevator = value; }
+			set { model.Elevator = 123 * value; }
 		}
 		public DataRow VM_Row
 		{

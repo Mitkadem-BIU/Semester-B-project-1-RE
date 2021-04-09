@@ -15,13 +15,13 @@ namespace AdvancedProgrammingProject1
         public double J_Aileron
         {
             get { return Model.Aileron; }
-            set { Model.Aileron = value; }
+            set { Model.Aileron = value * 123; }
         }
 
         public double J_Elevator
         {
             get { return Model.Elevator; }
-            set { Model.Elevator = value; }
+            set { Model.Elevator = value * 123; }
         }
 
         public JoystickModel(MainControllerModel model)

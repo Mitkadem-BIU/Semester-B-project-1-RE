@@ -260,7 +260,7 @@ namespace AdvancedProgrammingProject1
 			get { return aileron; }
 			set
 			{
-				aileron = value;
+				aileron = value * 123;
 				NotifyPropertyChanged("aileron");
 			}
 		}
@@ -269,7 +269,7 @@ namespace AdvancedProgrammingProject1
 			get { return elevator; }
 			set
 			{
-				elevator = value;
+				elevator = value * 123;
 				NotifyPropertyChanged("elevator");
 			}
 		}

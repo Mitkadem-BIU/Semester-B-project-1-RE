@@ -58,11 +58,8 @@
                 </Path.RenderTransform>
             </Path>
 
-            <Canvas x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="125" Canvas.Top="125">
-                <Ellipse x:Name="KnobBase"  HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Left="-90" Canvas.Top="-90">
-                    <Ellipse.RenderTransform>
-                        <TranslateTransform X="{Binding VM_J_Aileron}" Y="{Binding VM_J_Eleveator}"/>
-                    </Ellipse.RenderTransform>
+            <Canvas x:Name="Knob" VerticalAlignment="Top" HorizontalAlignment="Left" Width="0" Height="0" RenderTransformOrigin="0.5,0.5" Canvas.Left="{Binding VM_J_Aileron, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="{Binding VM_J_Elevator, UpdateSourceTrigger=PropertyChanged}">
+                <Ellipse x:Name="KnobBase"  HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.5,0.5" Canvas.Left="35" Canvas.Top="35">
                     <Ellipse.Fill>
                         <RadialGradientBrush>
                             <GradientStop Color="Red" />
