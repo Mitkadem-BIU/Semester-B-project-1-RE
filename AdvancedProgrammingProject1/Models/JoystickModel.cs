@@ -20,7 +20,13 @@ namespace AdvancedProgrammingProject1
 
         public double Elevator
         {
-            get { return Model.Elevator*125 -90; }
+            get
+            {
+               
+                    return -(Model.Elevator * 125) - 90;
+                
+             
+            }
             set { Model.Elevator = value; }
         }
 
