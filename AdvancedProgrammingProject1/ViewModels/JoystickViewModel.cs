@@ -28,7 +28,7 @@ namespace AdvancedProgrammingProject1
             { Model.Aileron = value; }
         }
 
-        public double VM_Eleveator
+        public double VM_Elevator
         {
             get { return Model.Elevator; }
             set 
