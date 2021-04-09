@@ -17,17 +17,5 @@ namespace AdvancedProgrammingProject1
             InitializeComponent();
             DataContext = vm;
         }
-        //private void CenterKnob_Completed(object sender, EventArgs e)
-        //{
-        //}
-        //private void Knob_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        //{
-        //}
-        //private void Knob_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //}
-        //private void Knob_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        //{
-        //}
     }
 }
