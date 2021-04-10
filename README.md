@@ -7,7 +7,7 @@
 
 3.
 
-4.
+4. Installation instructions and initial running: 
 
 5. link to documentation about the main classes: <add link here>
 
