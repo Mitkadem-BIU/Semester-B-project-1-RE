@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="AdvancedProgrammingProject1.Views.AnomalyDetection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdvancedProgrammingProject1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Margin="10,5" Grid.Column="0" Grid.Row="0" x:Name="BtnUploadCSVFile" Click="BtnUploadCSVFile_Click" Content="Upload Flight CSV" FontSize="10"/>
+        <TextBox Margin="0,0" Grid.Column="1" Grid.Row="0" Width="0" x:Name="csvName" Text="{Binding VM_Csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+        <TextBox Margin="0,5" Grid.Column="1" Grid.Row="0" x:Name="csvName1"  IsReadOnly="True"/>
+        <Button Margin="5,5" Grid.Column="0" Grid.Row="1" x:Name="BtnUploadPlugin" Click="BtnUploadPlugin_Click" Content="Upload Algorithm Plugin" FontSize="10"/>
+        <TextBox Margin="0,5" Grid.Column="1" Grid.Row="1" x:Name="algoName" Text="{Binding VM_AlgoName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+    </Grid>
+</UserControl>

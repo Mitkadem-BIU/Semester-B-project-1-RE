@@ -34,5 +34,6 @@ namespace AdvancedProgrammingProject1.Views
 			base.OnClosed(e);
 			Application.Current.Shutdown();
 		}
+
     }
 }

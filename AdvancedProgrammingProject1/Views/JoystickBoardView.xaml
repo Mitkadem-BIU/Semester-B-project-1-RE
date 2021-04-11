@@ -31,7 +31,7 @@
                 <BitmapImage UriSource="images/elevator.png" Rotation="Rotate90" />
             </Image.Source>
         </Image>
-        <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Orientation="Vertical">
+        <StackPanel Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Orientation="Vertical">
             <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" Minimum="-1" Maximum="1" IsEnabled="False"/>
             <Image Source="images/rudder.png"/>
         </StackPanel>

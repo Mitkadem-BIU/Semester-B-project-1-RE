@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
+        xmlns:local="clr-namespace:AdvancedProgrammingProject1" xmlns:localV="clr-namespace:AdvancedProgrammingProject1.Views" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
         mc:Ignorable="d"
         Title="NewWindow" Height="1000" Width="1000">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -19,14 +19,17 @@
         <DockPanel Grid.RowSpan="2" Grid.Column="0">
             <local:AttrPlot/>
         </DockPanel>
-        <DockPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <DockPanel Grid.Row="0" Grid.Column="2">
             <local:JoystickBoardView/>
         </DockPanel>
-        <DockPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="21,38,22,48" Height="301" >
+        <DockPanel Grid.Row="1" Grid.Column="1" >
             <local:DashBoard/>
         </DockPanel>
-        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" >
-            <local:ControlBarView HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" >
+            <local:ControlBarView/>
+        </DockPanel>
+        <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" >
+            <localV:AnomalyDetection/>
         </DockPanel>
     </Grid>
 </Window>

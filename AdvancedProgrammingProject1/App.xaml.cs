@@ -17,6 +17,7 @@ namespace AdvancedProgrammingProject1
         public MainControllerModel Model { get; internal set; }
         public MainControllerViewModel MainVM { get; internal set; }
         public AttrPlotViewModel APVM { get; internal set; }
+        public AnomalyDetectionViewModel ADVM { get; internal set; }
         public ControlBarViewModel CBVM { get; internal set; }
         public JoystickViewModel JVM { get; internal set; }
         public FGModel FG { get; internal set; }
@@ -29,6 +30,7 @@ namespace AdvancedProgrammingProject1
             Model.GetClient(FG);
             MainVM = new MainControllerViewModel(Model);
             APVM = new AttrPlotViewModel(Model.AP);
+            ADVM = new AnomalyDetectionViewModel(Model.AD);
             CBVM = new ControlBarViewModel(Model.CB);
             JVM = new JoystickViewModel(Model.JM);
             DBVM = new DashBoardViewModel(Model.DB);

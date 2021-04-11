@@ -83,8 +83,6 @@ namespace AdvancedProgrammingProject1
             set { Model.ValueChanged = value; }
         }
 
-
-
         public ControlBarModel(MainControllerModel model)
         {
             Model = model;
@@ -93,7 +91,6 @@ namespace AdvancedProgrammingProject1
                 NotifyPropertyChanged(e.PropertyName);
             };
         }
-
 
         public void NotifyPropertyChanged(string propertyName)
         {

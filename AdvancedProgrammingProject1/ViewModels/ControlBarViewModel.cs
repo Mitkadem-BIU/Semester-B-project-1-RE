@@ -68,11 +68,6 @@ namespace AdvancedProgrammingProject1
             get { return Model.Seconds; }
             set { Model.Seconds = value; }
         }
-        public string VM_Csv
-        {
-            get { return Model.Csv; }
-            set { Model.Csv = value; }
-        }
 
         public bool VM_JumpFlag
         {

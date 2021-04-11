@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="800">
+             d:DesignHeight="100" d:DesignWidth="700">
     
     <UserControl.Resources>
         <Image x:Key="play" Source="images/play.png"/>
@@ -20,33 +20,55 @@
     </UserControl.Resources>
 
     <Grid>
-        <Border Background="#FFCFCFCF" Margin="6,0,0,0"/>
-        <StackPanel Margin="25.6,0,49,50" Orientation="Horizontal">
-            <Button Background="Gray" Content="{StaticResource moveWayBackward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnMoveWayBack_Click"/>
-            <Button Background="Gray" Content="{StaticResource moveBack}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveBack_Click"/>
-            <Button Background="Gray" Content="{StaticResource play}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPlay_Click"/>
-            <Button Background="Gray" Content="{StaticResource pause}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPause_Click"/>
-            <Button Background="Gray" Content="{StaticResource stop}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnStop_Click"/>
-            <Button Background="Gray" Content="{StaticResource moveForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveForward_Click"/>
-            <Button Background="Gray" Content="{StaticResource moveWayForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveWayForward_Click"/>
-            <Button Background="Gray" Content="{StaticResource decreaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="30,10,0,0" Click="BtnDecreaseSpeed_Click"/>
-            <TextBox Background="Gray" Margin="5,10" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <Button Background="Gray" Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="4,10,0,0" Click="BtnIncreaseSpeed_Click"/>
-            <TextBox Background="Gray"  Margin="40,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeMinutes" Text="{Binding VM_Minutes, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <TextBlock Background="#FFCFCFCF"  Margin="0,0,0,0" Width="5" TextAlignment="Center" Height="30">:</TextBlock>
-            <TextBox Background="Gray"  Margin="0,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeSeconds" Text="{Binding VM_Seconds, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <WrapPanel>
-                <Button Margin="0,10" x:Name="BtnUploadCSVFile" Click="BtnUploadCSVFile_Click" Content="Upload CSV"/>
-                <TextBox Margin="0,0" Width="0" x:Name="csvName" Text="{Binding VM_Csv, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-                <TextBox Margin="0,20" Width="100" x:Name="csvName1"  IsReadOnly="True"/>
-            </WrapPanel>
+        <Border Background="#FFCFCFCF"/>
+        <Grid Height="70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="1.6*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.15*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Background="Gray" Content="{StaticResource moveWayBackward}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Click="BtnMoveWayBack_Click"/>
+            <Button Background="Gray" Content="{StaticResource moveBack}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Click="BtnMoveBack_Click"/>
+            <Button Background="Gray" Content="{StaticResource play}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="3" Click="BtnPlay_Click"/>
+            <Button Background="Gray" Content="{StaticResource pause}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="4" Click="BtnPause_Click"/>
+            <Button Background="Gray" Content="{StaticResource stop}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="5" Click="BtnStop_Click"/>
+            <Button Background="Gray" Content="{StaticResource moveForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="6" Click="BtnMoveForward_Click"/>
+            <Button Background="Gray" Content="{StaticResource moveWayForward}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="7" Click="BtnMoveWayForward_Click"/>
+            <Button Background="Gray" Content="{StaticResource decreaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="8" Click="BtnDecreaseSpeed_Click"/>
+            <TextBox Background="Gray" Margin="4,0" TextAlignment="Center" x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" Grid.Column="9" IsReadOnly="True"/>
+            <Button Background="Gray" Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="10" Click="BtnIncreaseSpeed_Click"/>
+            <TextBox Background="Gray" TextAlignment="Center" Grid.Column="12" x:Name="timeMinutes" Text="{Binding VM_Minutes, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+            <TextBlock Background="#FFCFCFCF" TextAlignment="Center" Grid.Column="13">:</TextBlock>
+            <TextBox Background="Gray" TextAlignment="Center" Grid.Column="14" x:Name="timeSeconds" Text="{Binding VM_Seconds, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
 
-        </StackPanel>
-        <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal">
-            <Slider Value="{Binding VM_SlideValue, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" 
-    ValueChanged="Slider_ValueChanged"
-    Thumb.DragStarted="Slider_DragStarted"
-    Thumb.DragCompleted="Slider_DragCompleted"/>
-        </StackPanel>
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="20" Grid.Row="1" Orientation="Horizontal">
+                <Slider Value="{Binding VM_SlideValue, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" 
+                    ValueChanged="Slider_ValueChanged"
+                    Thumb.DragStarted="Slider_DragStarted"
+                    Thumb.DragCompleted="Slider_DragCompleted"/>
+            </StackPanel>
+        </Grid>
+        <!-- <StackPanel Orientation="Horizontal">
+
+
+        </StackPanel> -->
+
     </Grid>
 </UserControl>

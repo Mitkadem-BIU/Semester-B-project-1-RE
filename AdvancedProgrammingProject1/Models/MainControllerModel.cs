@@ -22,6 +22,7 @@ namespace AdvancedProgrammingProject1
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		string csvName;
+		string algoName;
 		string learnCsvName; // the anomaly detector should get it
 		string xmlName;
 		bool stop;
@@ -85,6 +86,12 @@ namespace AdvancedProgrammingProject1
 			}
 		}
 
+		public string AlgoName
+		{
+			get { return algoName; }
+			set { algoName = value; }
+		}
+
 		public double Speed
 		{
 			get { return speed; }
@@ -95,6 +102,7 @@ namespace AdvancedProgrammingProject1
 		public ControlBarModel CB { get; }
 		public JoystickModel JM { get; }
 		public DashBoardModel DB { get; }
+		public AnomalyDetectionModel AD { get; }
 
 		public float Time
 		{
@@ -337,6 +345,7 @@ namespace AdvancedProgrammingProject1
 			CB = new ControlBarModel(this);
             JM = new JoystickModel(this);
 			DB = new DashBoardModel(this);
+			AD = new AnomalyDetectionModel(this);
 		}
 
 		public void GetClient(FGModel fg)
