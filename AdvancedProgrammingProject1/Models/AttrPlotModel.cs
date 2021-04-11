@@ -270,31 +270,52 @@ namespace AdvancedProgrammingProject1
             PearsonPlotModel.InvalidatePlot(true);
 
             LinearRegPlotModel.Series.Clear();
-            LinearRegPlotModel.Series.Add(StatisticMethods.LinearReg(attrData[attr].Values.ToList(), attrData[pearAttr].Values.ToList()));
-            ScatterSeries oldPoints = new ScatterSeries()
+            if (AP_Time < 0.1)
             {
-                MarkerType = MarkerType.Circle,
-                MarkerSize = 2,
-                MarkerFill = OxyColors.LightGray,
-            };
-            ScatterSeries newPoints = new ScatterSeries()
+                LinearRegPlotModel.Series.Add(new LineSeries());
+            } else
             {
-                MarkerType = MarkerType.Circle,
-                MarkerSize = 2,
-                MarkerFill = OxyColors.IndianRed,
-            };
-            FillScatterPoints(oldPoints, newPoints);
-            LinearRegPlotModel.Series.Add(oldPoints);
-            LinearRegPlotModel.Series.Add(newPoints);
+                LinearRegPlotModel.Series.Add(StatisticMethods.LinearReg(UptoNow(attr), UptoNow(pearAttr)));
+                ScatterSeries oldPoints = new ScatterSeries()
+                {
+                    MarkerType = MarkerType.Circle,
+                    MarkerSize = 2,
+                    MarkerFill = OxyColors.LightGray,
+                };
+                ScatterSeries newPoints = new ScatterSeries()
+                {
+                    MarkerType = MarkerType.Circle,
+                    MarkerSize = 2,
+                    MarkerFill = OxyColors.IndianRed,
+                };
+                FillScatterPoints(oldPoints, newPoints);
+                LinearRegPlotModel.Series.Add(oldPoints);
+                LinearRegPlotModel.Series.Add(newPoints);
+
+            }
             LinearRegPlotModel.Axes[0].Title = attr;
             LinearRegPlotModel.Axes[1].Title = pearAttr;
             LinearRegPlotModel.InvalidatePlot(true);
+        }
+
+        public List<double> UptoNow(string attrName)
+        {
+            List<double> upt = new List<double>();
+            foreach (double keyTime in attrData[attrName].Keys)
+            {
+                if (keyTime > AP_Time)
+                    break;
+                upt.Add(attrData[attrName][keyTime]);
+            }
+            return upt;
         }
 
         public void FillScatterPoints(ScatterSeries oldPoints, ScatterSeries newPoints)
         {
             foreach (double keyTime in attrData[attr].Keys)
             {
+                if (keyTime > AP_Time)
+                    break;
                 if (AP_Time - 30 > keyTime) // old point
                     oldPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
                 else

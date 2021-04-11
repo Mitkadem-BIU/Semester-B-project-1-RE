@@ -21,6 +21,12 @@ namespace AdvancedProgrammingProject1
 			set { model.Csv = value; }
 		}
 
+		public string VM_LearnCsv
+		{
+			get { return model.LearnCsv; }
+			set { model.LearnCsv = value; }
+		}
+
 		public string VM_Xml
 		{
 			get { return model.Xml; }
@@ -43,6 +49,10 @@ namespace AdvancedProgrammingProject1
 		{
 			get { return model.Stop; }
 			set { model.Stop = value; }
+		}
+		public bool VM_IsConnected
+		{
+			get { return model.IsConnected; }
 		}
 
 		public double VM_Altimeter
@@ -118,9 +128,9 @@ namespace AdvancedProgrammingProject1
 			set { model.LineCounter = value; }
 		}
 
-		public void Run()
+        public void Run()
 		{
-			model.Client.Connect(VM_IP, VM_Port);
+			// Connect();
 			model.Run();
 		}
 
@@ -133,7 +143,12 @@ namespace AdvancedProgrammingProject1
 			};
 		}
 
-		public void NotifyPropertyChanged(string propertyName)
+        public void Connect()
+        {
+			model.Client.Connect(VM_IP, VM_Port);
+		}
+
+        public void NotifyPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}

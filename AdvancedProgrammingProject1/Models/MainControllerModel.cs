@@ -22,6 +22,7 @@ namespace AdvancedProgrammingProject1
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 		string csvName;
+		string learnCsvName; // the anomaly detector should get it
 		string xmlName;
 		bool stop;
 		string ip;
@@ -48,6 +49,11 @@ namespace AdvancedProgrammingProject1
 		int slideValue;
 		bool valueChanged;
 		bool jumpFlag;
+
+		public bool IsConnected
+        {
+			get { return Client.isConnected; }
+        }
 		public bool JumpFlag
 		{
 			get { return jumpFlag; }
@@ -109,6 +115,17 @@ namespace AdvancedProgrammingProject1
 			{
 				csvName = value;
 				ReadCSV(csvName);
+			}
+		}
+
+		public string LearnCsv
+		{
+			get { return learnCsvName; }
+			set
+			{
+				learnCsvName = value;
+				// ReadCSV(csvName);
+				NotifyPropertyChanged("valueChanged");
 			}
 		}
 
@@ -366,6 +383,7 @@ namespace AdvancedProgrammingProject1
 				catch (DuplicateNameException)
 				{
 					csvTable.Columns[i].ColumnName = flightAttrNames[i] + "_1";
+					flightAttrNames[i] = flightAttrNames[i] + "_1";
 				}
 			}
 		}

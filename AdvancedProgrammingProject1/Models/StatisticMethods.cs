@@ -44,5 +44,15 @@ namespace AdvancedProgrammingProject1
                 covarr.Add((x[i] - x.Average()) * (y[i] - y.Average())); // look into this bug (Argument out of range exception)
             return covarr.Average();
         }
+
+        internal static object LinearReg(object p, List<double> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static Series LinearReg(object p1, object p2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
