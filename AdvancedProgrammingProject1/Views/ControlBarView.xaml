@@ -18,10 +18,10 @@
         <Image x:Key="increaseSpeed" Source="images/increasespeed.png"/>
         <Image x:Key="decreaseSpeed" Source="images/decreasespeed.png"/>
     </UserControl.Resources>
-    
+
     <Grid>
-        <Border Background="Gray" Margin="6,0,0,0"/>
-        <StackPanel  Margin="25.6,0,49,50" Orientation="Horizontal" Grid.Column="2">
+        <Border Background="#FFCFCFCF" Margin="6,0,0,0"/>
+        <StackPanel Margin="25.6,0,49,50" Orientation="Horizontal">
             <Button Background="Gray" Content="{StaticResource moveWayBackward}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="20,10,0,0" Click="BtnMoveWayBack_Click"/>
             <Button Background="Gray" Content="{StaticResource moveBack}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnMoveBack_Click"/>
             <Button Background="Gray" Content="{StaticResource play}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="10,10,0,0" Click="BtnPlay_Click"/>
@@ -33,7 +33,7 @@
             <TextBox Background="Gray" Margin="5,10" Width="40" TextAlignment="Center" Height="30"  x:Name="speed" Text="{Binding VM_Speed, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
             <Button Background="Gray" Content="{StaticResource increaseSpeed}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" Margin="4,10,0,0" Click="BtnIncreaseSpeed_Click"/>
             <TextBox Background="Gray"  Margin="40,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeMinutes" Text="{Binding VM_Minutes, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-            <TextBlock Background="Gray"  Margin="0,0,0,0" Width="5" TextAlignment="Center" Height="30">:</TextBlock>
+            <TextBlock Background="#FFCFCFCF"  Margin="0,0,0,0" Width="5" TextAlignment="Center" Height="30">:</TextBlock>
             <TextBox Background="Gray"  Margin="0,0,0,0" Width="40" TextAlignment="Center" Height="30"  x:Name="timeSeconds" Text="{Binding VM_Seconds, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
             <WrapPanel>
                 <Button Margin="0,10" x:Name="BtnUploadCSVFile" Click="BtnUploadCSVFile_Click" Content="Upload CSV"/>
@@ -42,7 +42,7 @@
             </WrapPanel>
 
         </StackPanel>
-        <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal" Grid.Column="2">
+        <StackPanel Margin="25.6,50,49,0" Orientation="Horizontal">
             <Slider Value="{Binding VM_SlideValue, UpdateSourceTrigger=PropertyChanged}" x:Name="slide"  Minimum="0"  IsEnabled="True" Margin="0,20,0,0" 
     ValueChanged="Slider_ValueChanged"
     Thumb.DragStarted="Slider_DragStarted"

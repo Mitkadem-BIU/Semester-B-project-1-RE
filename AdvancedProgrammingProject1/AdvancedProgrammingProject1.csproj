@@ -186,6 +186,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Views\images\aileron.png" />
+    <Resource Include="Views\images\elevator.png" />
     <Resource Include="Views\images\play.png" />
   </ItemGroup>
   <ItemGroup>
@@ -194,7 +196,9 @@
     <Resource Include="Views\images\forward.png" />
     <Resource Include="Views\images\increasespeed.png" />
     <Resource Include="Views\images\pause.png" />
+    <Resource Include="Views\images\rudder.png" />
     <Resource Include="Views\images\stop.png" />
+    <Resource Include="Views\images\throttle.png" />
     <Resource Include="Views\images\waybackward.png" />
     <Resource Include="Views\images\wayforward.png" />
   </ItemGroup>

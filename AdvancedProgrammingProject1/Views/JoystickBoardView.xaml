@@ -5,11 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=local:MainControllerViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="450">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -25,22 +24,25 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Text="&lt;-aileron-&gt;" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20" Margin="31,0,19,20"/>
-        <local:Joystick Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="3" />
-        <TextBlock Text="&lt;-elevator-&gt;" FontSize="20" Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="34,60,-34,0" Grid.RowSpan="2">
-            <TextBlock.RenderTransform>
-                <RotateTransform Angle="90" />
-            </TextBlock.RenderTransform>
-        </TextBlock>
+        <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Source="images/aileron.png"/>
+        <local:Joystick Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+        <Image Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Center">
+            <Image.Source>
+                <BitmapImage UriSource="images/elevator.png" Rotation="Rotate90" />
+            </Image.Source>
+        </Image>
+        <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Orientation="Vertical">
+            <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" Minimum="-1" Maximum="1" IsEnabled="False"/>
+            <Image Source="images/rudder.png"/>
+        </StackPanel>
 
-        <Slider Value="{Binding VM_Rudder, UpdateSourceTrigger=PropertyChanged}" x:Name="slideRudder" VerticalAlignment="Top" Minimum="-1" Maximum="1" IsEnabled="False" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Margin="0,49,0,0"/>
-        <TextBlock Text="&lt;-rudder-&gt;" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="20" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Margin="31,0,19,48" RenderTransformOrigin="0.37,1.333" Grid.RowSpan="2"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="2" Text="&lt;-throttle-&gt;" TextAlignment="Center" HorizontalAlignment="Right" FontSize="20" IsEnabled="False" Grid.ColumnSpan="3" Margin="0,8,34,23">
-            <TextBlock.RenderTransform>
-                <RotateTransform Angle="90" />
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="False" Orientation="Vertical" Grid.Column="2" Grid.RowSpan="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+        <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Image.Source>
+                <BitmapImage UriSource="images/throttle.png" Rotation="Rotate90" />
+            </Image.Source>
+        </Image>
+
+        <Slider Value="{Binding VM_Throttle, UpdateSourceTrigger=PropertyChanged}" x:Name="slideThrottle" Minimum="0" Maximum="1" IsEnabled="False" Orientation="Vertical" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,10,0"/>
     </Grid>
 </UserControl>
