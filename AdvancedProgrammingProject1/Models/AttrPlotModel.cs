@@ -79,6 +79,7 @@ namespace AdvancedProgrammingProject1
                 Position = AxisPosition.Left,
                 IsZoomEnabled = false,
             });
+            // attr = AP_FlightAttrNames[0];
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -152,8 +153,7 @@ namespace AdvancedProgrammingProject1
         {
             if (propertyName == "AP_Row")
             {
-                try { Row_Changed(); }
-                catch (ArgumentNullException) { }
+                Row_Changed();
             }
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -173,13 +173,24 @@ namespace AdvancedProgrammingProject1
             DataPoint newPoint;
             double minTime;
             try { minTime = attrLinePoints[attr].Points[0].X; }
-            catch (KeyNotFoundException)
+            /* catch (ArgumentNullException)
             {
-                // initialize
-                foreach (string attrName in AP_FlightAttrNames)
+                // attr = AP_FlightAttrNames[0];
+                minTime = attrLinePoints[AP_FlightAttrNames[0]].Points[0].X;
+            } */
+            catch (Exception exp)
+            {
+                if (exp is ArgumentNullException || exp is KeyNotFoundException)
                 {
-                    attrLinePoints[attrName] = new LineSeries();
-                    attrData[attrName] = new Dictionary<double, double>();
+                    // initialize
+                    foreach (string attrName in AP_FlightAttrNames)
+                    {
+                        attrLinePoints[attrName] = new LineSeries();
+                        attrData[attrName] = new Dictionary<double, double>();
+                    }
+                } else
+                {
+                    throw;
                 }
             }
             TimeJump();
@@ -200,7 +211,14 @@ namespace AdvancedProgrammingProject1
 
         public void TimeJump()
         {
-            List<double> keysList = attrData[attr].Keys.ToList();
+            List<double> keysList;
+            try
+            {
+                keysList = attrData[attr].Keys.ToList();
+            } catch (ArgumentNullException)
+            {
+                keysList = attrData[AP_FlightAttrNames[0]].Keys.ToList();
+            }
             for (int i = 1; i < keysList.Count(); i++)
             {
                 if (keysList[i] - keysList[i - 1] > 0.2)
@@ -254,6 +272,8 @@ namespace AdvancedProgrammingProject1
 
         public void UpdatePlots()
         {
+            if (string.IsNullOrEmpty(attr))
+                return;
             double minTime = attrLinePoints[attr].Points[0].X; // ***
             SelfPlotModel.Axes[0].Minimum = Math.Max(minTime, AP_Time - 30);
             SelfPlotModel.Axes[0].Maximum = Math.Max(30, AP_Time);
@@ -270,7 +290,7 @@ namespace AdvancedProgrammingProject1
             PearsonPlotModel.InvalidatePlot(true);
 
             LinearRegPlotModel.Series.Clear();
-            if (AP_Time < 0.1)
+            if (AP_Time < 0.5)
             {
                 LinearRegPlotModel.Series.Add(new LineSeries());
             } else
@@ -303,9 +323,8 @@ namespace AdvancedProgrammingProject1
             List<double> upt = new List<double>();
             foreach (double keyTime in attrData[attrName].Keys)
             {
-                if (keyTime > AP_Time)
-                    break;
-                upt.Add(attrData[attrName][keyTime]);
+                if (keyTime <= AP_Time)
+                    upt.Add(attrData[attrName][keyTime]);
             }
             return upt;
         }
@@ -314,11 +333,9 @@ namespace AdvancedProgrammingProject1
         {
             foreach (double keyTime in attrData[attr].Keys)
             {
-                if (keyTime > AP_Time)
-                    break;
                 if (AP_Time - 30 > keyTime) // old point
                     oldPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
-                else
+                else if (AP_Time >= keyTime) // new but not future
                     newPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
             }
                 
