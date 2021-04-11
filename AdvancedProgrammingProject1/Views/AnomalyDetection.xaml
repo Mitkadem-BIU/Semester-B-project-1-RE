@@ -20,5 +20,6 @@
         <TextBox Margin="0,5" Grid.Column="1" Grid.Row="0" x:Name="csvName1"  IsReadOnly="True"/>
         <Button Margin="5,5" Grid.Column="0" Grid.Row="1" x:Name="BtnUploadPlugin" Click="BtnUploadPlugin_Click" Content="Load Algorithm Plugin" FontSize="10"/>
         <TextBox Margin="0,5" Grid.Column="1" Grid.Row="1" x:Name="algoName" Text="{Binding VM_AlgoName, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+        <TextBox Margin="0,5" Grid.Column="1" Grid.Row="1" x:Name="algoName1"  IsReadOnly="True"/>
     </Grid>
 </UserControl>

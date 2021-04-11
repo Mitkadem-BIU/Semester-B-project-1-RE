@@ -44,7 +44,14 @@ namespace AdvancedProgrammingProject1.Views
 
         private void BtnUploadPlugin_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog UploadDLLFileDialog = new OpenFileDialog
+            {
+                Filter = "DLL files (*.dll)|*.dll|All files (*.*)|*.*"
+            };
 
+            if (UploadDLLFileDialog.ShowDialog() == true)
+                algoName.Text = UploadDLLFileDialog.FileName;
+            algoName1.Text = System.IO.Path.GetFileName(csvName.Text);
         }
     }
 }
