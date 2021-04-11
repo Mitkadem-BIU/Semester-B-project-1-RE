@@ -1,15 +1,17 @@
 # Semester-B-project-1-RE
+### Readme File
 
-1. This program's project is 
+1. This program's project is made to simulating a short segment of an airplane flight, showing its control bar in sync with the location of the plane. In addition to that, multiple graphs that show corellations between variables like time, speed, elevator, ruttle ,etc.
 
-2. The project files are divided into three folders: models, view models and views. that was done in order to represent the files in the same order of the flow of information of the program.
+2. The project files are divided into three folders: models, view models and views. That was done in order to represent the files in the same order of the flow of information of the program. Main CS files are MainControllerModel... 
    
+3. Pre-aquired programs to be unstalled before initial running: FlightGear.exe
 
-3.
+4. Installation instructions and initial running: 
 
-4.
-
-5. link to documentation about the main classes: <add link here>
+5. link to documentation about the main classes: <add links here>
+* MainControllerModel : 
+* ControlBarController : 
 
 6. **link to the 5~ minutes video:**
 <add link here>
