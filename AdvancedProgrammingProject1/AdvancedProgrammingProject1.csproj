@@ -95,6 +95,7 @@
     <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\DashBoardModel.cs" />
     <Compile Include="Models\FGModel.cs" />
+    <Compile Include="Models\IAlgorithm.cs" />
     <Compile Include="Models\JoystickModel.cs" />
     <Compile Include="Models\StatisticMethods.cs" />
     <Compile Include="Models\AnomalyDetectionModel.cs" />
