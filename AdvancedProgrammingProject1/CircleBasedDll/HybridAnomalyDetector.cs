@@ -18,7 +18,7 @@ namespace CircleBasedDll
 
         public List<AnomalyReport> Detect(TimeSeries ts)
         {
-            List<AnomalyReport> anomaly_reports = SimpleAnomalyDetector.Detect(ts);
+            List<AnomalyReport> anomaly_reports = new List<AnomalyReport>();
             List<CorrelatedFeatures> cf = SimpleAnomalyDetector.GetNormalModel();
             for (int i = 0; i < cf.Count; i++)
             {
