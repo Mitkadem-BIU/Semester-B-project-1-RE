@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircleBasedDll">
+      <HintPath>plugins\CircleBasedDll.dll</HintPath>
+    </Reference>
     <Reference Include="CsvHelper, Version=26.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
       <HintPath>..\packages\CsvHelper.26.1.0\lib\net47\CsvHelper.dll</HintPath>
     </Reference>
@@ -219,6 +222,7 @@
     <Resource Include="Views\images\wayforward.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="plugins\CircleBasedDll.dll" />
     <Content Include="plugins\RegretionBasedDll.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
