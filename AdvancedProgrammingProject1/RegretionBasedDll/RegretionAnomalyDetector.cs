@@ -5,12 +5,12 @@ using System.Text;
 
 namespace RegretionBasedDll
 {
-    public class SimpleAnomalyDetector
+    public class RegretionAnomlayDetector
     {
         public double dynamicThreshold = 0.9;
         List<CorrelatedFeatures> cf;
-        public SimpleAnomalyDetector() { }
-        ~SimpleAnomalyDetector() { cf.Clear(); }
+        public RegretionAnomlayDetector() { }
+        ~RegretionAnomlayDetector() { cf.Clear(); }
 
         public double[] ListToArray(List<List<double>> v, double n)
         {
