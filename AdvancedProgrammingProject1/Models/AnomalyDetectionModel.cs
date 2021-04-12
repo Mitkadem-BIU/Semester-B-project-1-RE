@@ -46,8 +46,10 @@ namespace AdvancedProgrammingProject1
         public void LoadDLL()
         {
             Assembly asm = Assembly.LoadFrom(AlgoName);
-
-            /* Type t = asm.GetType("NAMESPACE.CLASS");
+            // Type t = asm.GetType("NAMESPACE.AnomalyDetector");
+            // dynamic det = Activator.CreateInstance(t);
+            
+            /* 
             MethodInfo method = t.GetMethod("MethodName"); */
             // object result = method.Invoke(null, new object[] { param1, param2, ... });
 

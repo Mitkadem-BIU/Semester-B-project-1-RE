@@ -9,7 +9,7 @@ using System;
 using OxyPlot;
 using OxyPlot.Series;
 using OxyPlot.Axes;
-using RegretionBasedDll;
+// using RegretionBasedDll;
 
 namespace AdvancedProgrammingProject1
 {
@@ -21,7 +21,7 @@ namespace AdvancedProgrammingProject1
 	 */
 	public class MainControllerModel : INotifyPropertyChanged
 	{
-        SimpleAnomalyDetector sad=new SimpleAnomalyDetector(); //needs to be fixed but it's a start
+        // SimpleAnomalyDetector sad = new SimpleAnomalyDetector(); //needs to be fixed but it's a start
 		public event PropertyChangedEventHandler PropertyChanged;
 		string csvName;
 		string algoName;
