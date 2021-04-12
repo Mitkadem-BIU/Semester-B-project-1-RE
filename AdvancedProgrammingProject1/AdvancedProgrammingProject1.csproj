@@ -60,7 +60,7 @@
     <Reference Include="ReachFramework" />
     <Reference Include="RegretionBasedDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>plugins\RegretionBasedDll.dll</HintPath>
+      <HintPath>RegretionBasedDll\bin\Debug\netcoreapp3.1\RegretionBasedDll.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
