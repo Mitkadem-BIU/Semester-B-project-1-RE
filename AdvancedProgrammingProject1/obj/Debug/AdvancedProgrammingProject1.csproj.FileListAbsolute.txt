@@ -223,3 +223,5 @@ C:\Users\dudid\OneDrive\שולחן העבודה\p\AdvancedProgrammingProject1\ob
 C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\AdvancedProgrammingProject1.csprojAssemblyReference.cache
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\AnomalyDetection.g.cs
 C:\Users\buein\source\repos\Semester-B-project-1-RE\AdvancedProgrammingProject1\obj\Debug\Views\AnomalyDetection.baml
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\AnomalyDetection.g.cs
+C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\obj\Debug\Views\AnomalyDetection.baml
