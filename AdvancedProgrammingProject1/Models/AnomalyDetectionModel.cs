@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -25,7 +26,7 @@ namespace AdvancedProgrammingProject1
             set
             {
                 Model.AlgoName = value;
-                LoadDLL(/*Model.AlgoName*/);
+                LoadDLL();
             }
         }
 
@@ -43,15 +44,22 @@ namespace AdvancedProgrammingProject1
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void LoadDLL(/*string AlgoName*/)
+        public void LoadDLL()
         {
             //this is the way to dynamically load a dll file and using its methods
-            string dllFile = @"C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\RegretionBasedDll\bin\Debug\netcoreapp3.1\RegretionBasedDll.dll";
-            var assembly = Assembly.LoadFile(dllFile);
+            //string dllFile = @"C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\RegretionBasedDll\bin\Debug\netcoreapp3.1\RegretionBasedDll.dll";
+            /*var assembly = Assembly.LoadFile(*//*dllFile*//*AlgoName);
             var type = assembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
             dynamic obj = Activator.CreateInstance(type);
             var method = type.GetMethod("LearnAndDetect");
-            var result = method.Invoke(obj, new object[] { Model.CSVTable });
+            var result = method.Invoke(obj, new object[] { Model.CSVTable });*/
+            
+            var dllFile = new FileInfo(AlgoName);
+            Assembly dllAssembly = Assembly.LoadFile(dllFile.FullName);
+            Object dllInstance = (Object)dllAssembly.CreateInstance("AnomalyDetectionDll.RegretionAnomalyDetector");
+           /* dll = dllInstance;
+            object[] argslearn = new object[] { (object)trainLines };
+            maxCorralatedFreatures = (List<Tuple<int, int>>)dll.GetType().GetMethod("learnNormal").Invoke(dll, argslearn);*/
         }
     }
 }
