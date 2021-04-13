@@ -8,12 +8,12 @@ using System.Data;
 
 namespace RegretionBasedDll
 {
-    public class RegretionAnomlayDetector
+    public class RegretionAnomalyDetector
     {
         public static double dynamicThreshold = 0.9;
         public static List<CorrelatedFeatures> cf=new List<CorrelatedFeatures>();
-        public RegretionAnomlayDetector() { }
-        ~RegretionAnomlayDetector() { cf.Clear(); }
+        public RegretionAnomalyDetector() { }
+        ~RegretionAnomalyDetector() { cf.Clear(); }
 
         public static double[] ListToArray(List<List<double>> v, double n)
         {
