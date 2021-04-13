@@ -25,7 +25,7 @@ namespace AdvancedProgrammingProject1
             set
             {
                 Model.AlgoName = value;
-                LoadDLL();
+                LoadDLL(Model.AlgoName);
             }
         }
 
@@ -43,21 +43,15 @@ namespace AdvancedProgrammingProject1
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void LoadDLL()
+        public void LoadDLL(string AlgoName)
         {
-            Assembly asm = Assembly.LoadFrom(AlgoName);
-
-            /* Type t = asm.GetType("NAMESPACE.CLASS");
-            MethodInfo method = t.GetMethod("MethodName"); */
-            // object result = method.Invoke(null, new object[] { param1, param2, ... });
-
-            // DoSomeMagicUsingTheAssemblyToConvertObjectToCorrectType(asm);
-            // ... myObject = DoSomeMagicUsingTheAssemblyToConvertObjectToCorrectType(asm);
-
-
-            // Output the result using application:
-            // MessageBox.Show(myObject.DoGreeting());
+            //this is the way to dynamically load a dll file and using its methods
+            string dllFile = @"C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\RegretionBasedDll\bin\Debug\netcoreapp3.1\RegretionBasedDll.dll";
+            var assembly = Assembly.LoadFile(dllFile);
+            var type = assembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
+            var obj = Activator.CreateInstance(type);
+            var method = type.GetMethod("LearnAndDetect");
+            var result = method.Invoke(obj, new object[] { Model.CSVTable });
         }
-
     }
 }

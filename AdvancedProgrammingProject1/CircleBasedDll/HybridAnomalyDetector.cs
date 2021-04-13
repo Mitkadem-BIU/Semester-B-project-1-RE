@@ -2,6 +2,7 @@
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -57,8 +58,9 @@ namespace CircleBasedDll
             return anomaly_reports;
         }*/
 
-        public static List<AnomalyReport> LearnAndDetect(TimeSeries ts)
+        public static List<AnomalyReport> LearnAndDetect(DataTable csvTable)
         {
+            TimeSeries ts = new TimeSeries(csvTable);
             SimpleAnomalyDetector.LearnNormal(ts);
             List<AnomalyReport> anomaly_reports = new List<AnomalyReport>();
             List<CorrelatedFeatures> cf = SimpleAnomalyDetector.GetNormalModel();

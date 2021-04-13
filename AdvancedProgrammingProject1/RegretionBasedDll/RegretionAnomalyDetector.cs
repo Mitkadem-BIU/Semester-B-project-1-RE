@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace RegretionBasedDll
 {
@@ -108,8 +109,9 @@ namespace RegretionBasedDll
         return anomaly_reports;
         }*/
 
-        public static List<AnomalyReport> LearnAndDetect(TimeSeries ts)
+        public static List<AnomalyReport> LearnAndDetect(DataTable csvTable)
         {
+            TimeSeries ts = new TimeSeries(csvTable);
             for (int i = 0; i < ts.GetTable()[0].Count; i++)
             {
                 string feature_a, feature_b;
@@ -136,7 +138,7 @@ namespace RegretionBasedDll
                         }
                         feature_a = ts.GetFeatures()[ts.GetFeatures().Keys.ElementAt(i)];
                         feature_b = ts.GetFeatures()[ts.GetFeatures().Keys.ElementAt(j)];
-                        cf.Add(new CorrelatedFeatures(feature_a, feature_b, x.Max(),x.Min(),y.Max(),y.Min(), features_pearson, features_dev_max, features_line, null, false));
+                        cf.Add(new CorrelatedFeatures(feature_a, feature_b, x.Max(),x.Min(), features_pearson, features_dev_max, features_line, null, false));
                     }
                     /*else if (Math.Abs(features_pearson) > 0.5 && Math.Abs(features_pearson) < dynamicThreshold)
                     {

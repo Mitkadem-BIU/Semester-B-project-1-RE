@@ -10,8 +10,8 @@ namespace RegretionBasedDll
 {
     public class TimeSeries
     {
-        List<List<double>> table;
-        Dictionary<int, string> features;
+        List<List<double>> table=new List<List<double>>();
+        Dictionary<int, string> features=new Dictionary<int, string>();
 
         public TimeSeries(DataTable csvTable)
         {
