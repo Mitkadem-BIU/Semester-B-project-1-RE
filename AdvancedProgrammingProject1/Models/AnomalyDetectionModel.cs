@@ -179,7 +179,7 @@ namespace AdvancedProgrammingProject1
             Assembly dllAssembly = Assembly.LoadFile(dllFile.FullName);
            // string fileName = System.IO.Path.GetFileName(dllFile.Name);
 
-            var type = dllAssembly.GetType(@"RegressionLineAlgorithm.RegLine");
+            var type = dllAssembly.GetType("RegressionLineAlgorithm.RegLine");
             dynamic obj = Activator.CreateInstance(type);
             var learn = type.GetMethod("Learn");
             learn.Invoke(obj, new object[] { Model.LearnCsvTable });
