@@ -42,7 +42,7 @@ namespace AdvancedProgrammingProject1
             set { Model.Speed = value; }
         }
 
-        public float VM_Time
+        public double VM_Time
         {
             get { return Model.Time; }
             set { Model.Time = value; }

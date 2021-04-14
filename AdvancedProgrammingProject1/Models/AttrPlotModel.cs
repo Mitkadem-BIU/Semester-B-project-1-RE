@@ -12,15 +12,45 @@ namespace AdvancedProgrammingProject1
     public class AttrPlotModel : INotifyPropertyChanged
     {
         private string attr;
-
-        private Dictionary<string, Dictionary<double, double>> attrData;
-
-        private Dictionary<string, LineSeries> attrLinePoints;
-
         private string pearAttr;
-
         private double pearVal;
 
+        private Dictionary<string, Dictionary<double, double>> attrData;
+        private Dictionary<string, LineSeries> attrLinePoints;
+
+        private ScatterSeries oldPoints;
+        private ScatterSeries newPoints;
+
+        public Dictionary<double, double> AttrData
+        {
+            get
+            {
+                try
+                {
+                    return attrData[attr];
+                } catch (ArgumentNullException)
+                {
+                    return new Dictionary<double, double>();
+                }
+                
+            }
+        }
+
+        public Dictionary<double, double> PearData
+        {
+            get
+            {
+                try
+                {
+                    return attrData[pearAttr];
+                }
+                catch (ArgumentNullException)
+                {
+                    return new Dictionary<double, double>();
+                }
+
+            }
+        }
         public AttrPlotModel(MainControllerModel model)
         {
             Model = model;
@@ -106,6 +136,7 @@ namespace AdvancedProgrammingProject1
         public double AP_Time
         {
             get { return Model.Time; }
+            set { Model.Time = value; }
         }
 
         public string AttrToPlot
@@ -153,7 +184,7 @@ namespace AdvancedProgrammingProject1
         {
             if (propertyName == "AP_Row")
             {
-                Row_Changed();
+                RowChanged();
             }
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -168,7 +199,7 @@ namespace AdvancedProgrammingProject1
             LinearRegPlotModel.Series.Add(new LineSeries());
         }
 
-        public void Row_Changed()
+        public void RowChanged()
         {
             DataPoint newPoint;
             double minTime;
@@ -230,14 +261,21 @@ namespace AdvancedProgrammingProject1
 
         public void JumpBackward(double time) // remove all excess rows
         {
-            foreach (double timeKey in attrData[attr].Keys)
+            try
             {
-                if (timeKey > time)
+                foreach (double timeKey in attrData[attr].Keys)
                 {
-                    foreach (string attrName in AP_FlightAttrNames)
-                        attrData[attrName].Remove(timeKey);
+                    if (timeKey > time)
+                    {
+                        foreach (string attrName in AP_FlightAttrNames)
+                            attrData[attrName].Remove(timeKey);
+                    }
                 }
+            } catch (InvalidOperationException)
+            {
+
             }
+
         }
 
         public void JumpForward(double time) // add all missing rows
@@ -296,19 +334,19 @@ namespace AdvancedProgrammingProject1
             } else
             {
                 LinearRegPlotModel.Series.Add(StatisticMethods.LinearReg(UptoNow(attr), UptoNow(pearAttr)));
-                ScatterSeries oldPoints = new ScatterSeries()
+                oldPoints = new ScatterSeries()
                 {
                     MarkerType = MarkerType.Circle,
                     MarkerSize = 2,
                     MarkerFill = OxyColors.LightGray,
                 };
-                ScatterSeries newPoints = new ScatterSeries()
+                newPoints = new ScatterSeries()
                 {
                     MarkerType = MarkerType.Circle,
                     MarkerSize = 2,
                     MarkerFill = OxyColors.IndianRed,
                 };
-                FillScatterPoints(oldPoints, newPoints);
+                FillScatterPoints();
                 LinearRegPlotModel.Series.Add(oldPoints);
                 LinearRegPlotModel.Series.Add(newPoints);
 
@@ -329,7 +367,7 @@ namespace AdvancedProgrammingProject1
             return upt;
         }
 
-        public void FillScatterPoints(ScatterSeries oldPoints, ScatterSeries newPoints)
+        public void FillScatterPoints()
         {
             foreach (double keyTime in attrData[attr].Keys)
             {
@@ -338,7 +376,6 @@ namespace AdvancedProgrammingProject1
                 else if (AP_Time >= keyTime) // new but not future
                     newPoints.Points.Add(new ScatterPoint(attrData[attr][keyTime], attrData[pearAttr][keyTime]));
             }
-                
         }
         public string GetMostSimilar()
         {

@@ -44,7 +44,7 @@ namespace AdvancedProgrammingProject1
             get { return Model.SlideValue; }
             set { Model.SlideValue = value; }
         }
-        public float Time
+        public double Time
         {
             get { return Model.Time; }
             set { Model.Time = value; }

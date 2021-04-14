@@ -104,12 +104,10 @@ namespace AdvancedProgrammingProject1
 		public DashBoardModel DB { get; }
 		public AnomalyDetectionModel AD { get; }
 
-		public float Time
+		public double Time
 		{
 			get { return (float)LineCounter / 10; }
-			set { LineCounter = (int)(value * 10);
-		
-			}
+			set { LineCounter = (int)(value * 10);}
 		}
 		public DataTable CSVTable
 		{
@@ -345,7 +343,7 @@ namespace AdvancedProgrammingProject1
 			CB = new ControlBarModel(this);
             JM = new JoystickModel(this);
 			DB = new DashBoardModel(this);
-			AD = new AnomalyDetectionModel(this);
+			AD = new AnomalyDetectionModel(this, AP);
 		}
 
 		public void GetClient(FGModel fg)

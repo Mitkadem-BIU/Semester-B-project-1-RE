@@ -81,9 +81,6 @@ namespace AdvancedProgrammingProject1
 
         private void BtnStop_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: since you close up the program, you should first close up all resources
-            // I suggest you alert the MainConroller when this window is being pressed
-            // and it will be in charge of closing up the program.
             vm.VM_Stop = true;
             var myWindow = Window.GetWindow(this);
             myWindow.Close(); 

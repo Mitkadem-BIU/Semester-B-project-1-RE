@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OxyPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,22 @@ namespace AdvancedProgrammingProject1
 
         public AnomalyDetectionModel Model { get; }
 
+        public double VM_AP_Time
+        {
+            get { return Model.AP_Time; }
+            set { Model.AP_Time = value; }
+        }
+
+        public string VM_AttrToPlot
+        {
+            get { return Model.AttrToPlot; }
+        }
+
+        public string VM_PearsonAttrToPlot
+        {
+            get { return Model.PearsonAttrToPlot; }
+        }
+
         public string VM_Csv
         {
             get { return Model.Csv; }
@@ -23,6 +40,11 @@ namespace AdvancedProgrammingProject1
         {
             get { return Model.AlgoName; }
             set { Model.AlgoName = value; }
+        }
+
+        public PlotModel VM_AnomalyPlotModel
+        {
+            get { return Model.AnomalyPlotModel; }
         }
 
         public AnomalyDetectionViewModel(AnomalyDetectionModel model)

@@ -1,0 +1,25 @@
+﻿<Window x:Class="AdvancedProgrammingProject1.Views.AnomalyResultsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdvancedProgrammingProject1.Views" xmlns:oxy="http://oxyplot.org/wpf" xmlns:advancedprogrammingproject1="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=advancedprogrammingproject1:AnomalyDetectionViewModel}"
+        mc:Ignorable="d"
+        Title="AnomalyResultsWindow" Height="450" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListBox Name="lbTimesList" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lbTimesList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Completion}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <DockPanel Grid.Row="1">
+            <oxy:PlotView Model="{Binding VM_AnomalyPlotModel}"/>
+        </DockPanel>
+    </Grid>
+</Window>

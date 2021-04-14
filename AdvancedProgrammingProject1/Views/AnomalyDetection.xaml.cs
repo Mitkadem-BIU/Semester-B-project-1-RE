@@ -22,12 +22,14 @@ namespace AdvancedProgrammingProject1.Views
     public partial class AnomalyDetection : UserControl
     {
         AnomalyDetectionViewModel vm;
+        AnomalyResultsWindow arw;
 
         public AnomalyDetection()
         {
             vm = (Application.Current as App).ADVM;
             InitializeComponent();
             DataContext = vm;
+            arw = null;
         }
 
         private void BtnUploadCSVFile_Click(object sender, RoutedEventArgs e)
@@ -52,6 +54,12 @@ namespace AdvancedProgrammingProject1.Views
             if (UploadDLLFileDialog.ShowDialog() == true)
                 algoName.Text = UploadDLLFileDialog.FileName;
             algoName1.Text = System.IO.Path.GetFileName(algoName.Text);
+
+            if (arw == null)
+            {
+                arw = new AnomalyResultsWindow();
+                arw.Show();
+            }
         }
     }
 }

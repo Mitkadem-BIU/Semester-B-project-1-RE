@@ -127,6 +127,9 @@
       <SubType>Code</SubType>
       <DependentUpon>AnomalyDetection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AnomalyResultsWindow.xaml.cs">
+      <DependentUpon>AnomalyResultsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AttrPlot.xaml.cs">
       <DependentUpon>AttrPlot.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
     </Compile>
     <Compile Include="ViewModels\MainControllerViewModel.cs" />
     <Page Include="Views\AnomalyDetection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AnomalyResultsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
