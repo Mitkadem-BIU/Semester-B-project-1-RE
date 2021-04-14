@@ -27,11 +27,11 @@ We used two C# Libraries whose dependencies we had to manualy add:
 First, you have to install FlightGear from the link above.
 Open the FlightGear app. It should look like this:
 
-<img src="https://user-images.githubusercontent.com/62245924/114727207-af584000-9d46-11eb-8eb8-76a6bbae4136.png" width="300" height="400">
+<img src="https://user-images.githubusercontent.com/62245924/114727207-af584000-9d46-11eb-8eb8-76a6bbae4136.png" width="400" height="500">
 
 Press the Setting button on the left and scroll down to Additional Settings:
 
-<img src="https://user-images.githubusercontent.com/62245924/114727406-da429400-9d46-11eb-9c5e-d2479f258e2f.png" width="300" height="400">
+<img src="https://user-images.githubusercontent.com/62245924/114727406-da429400-9d46-11eb-9c5e-d2479f258e2f.png" width="400" height="500">
 
 Most of the settings are replacable since we rely on them in our program. Some of them however can be replaced according to your wish:
 `--generic=socket,in,10,<ip to listen to>,<port to listen to>,tcp,playback_small
@@ -56,10 +56,10 @@ If everything works, the following window should open:
 <img src="https://user-images.githubusercontent.com/62245924/114730630-b7fe4580-9d49-11eb-9de7-5517cc5adf52.png" width="500" height="400">
 
 You can pick different attributes from the list and see them and the one who's most similar. You can also go back and forth in time and change the speed. In the right you can see a graphical review of specific attributes. Of course, you can see this entire time the course of the flighing of the plane, in the FlightGear app (which should stay on!).
-On the buttom-right, you can load different anomaly file or load an anomaly detector dll. We provide 2 dlls with basic ablities but you can add some more as you wish. Notice the have to fit the `IAlgorithm` interface and also, the name of the namespace should be ? and the name of the class should be the name of the file.
+On the buttom-right, you can load different anomaly file or load an anomaly detector dll. We provide 2 dlls with basic ablities but you can add some more as you wish. Notice you have to fit the `IAlgorithm` interface and also, the name of the namespace should be ? and the name of the class should be the name of the file.
 
 #### 5) Further Documentation
-Link to documentation about the main classes: Here is the link: (add link!)
+Link to documentation about the main classes: https://lucid.app/lucidchart/invitations/accept/inv_61087e73-214e-485b-8a3f-a172e1a73110?viewport_loc=-3211%2C-550%2C5490%2C2359%2C0_0 access with these details: Full name: Tomer Aharoni, gmail: tagopd@gmail.com, password: 1234567890
 
 #### 6) Showing Video
-link to the 5~ minutes video
+Link to the 5~ minutes video: https://youtu.be/rZVfAhkdcaE
