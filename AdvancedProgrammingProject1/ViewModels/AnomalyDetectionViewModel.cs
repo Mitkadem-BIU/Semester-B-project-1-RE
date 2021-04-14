@@ -14,6 +14,11 @@ namespace AdvancedProgrammingProject1
 
         public AnomalyDetectionModel Model { get; }
 
+        public List<AnomalyReport> VM_AlgoResults
+        {
+            get { return Model.AlgoResults; }
+            set { Model.AlgoResults = value; }
+        }
         public double VM_AP_Time
         {
             get { return Model.AP_Time; }
@@ -23,6 +28,24 @@ namespace AdvancedProgrammingProject1
         public string VM_AttrToPlot
         {
             get { return Model.AttrToPlot; }
+        }
+
+        public string VM_AnomalPear
+        {
+            get { return Model.AnomalPear; }
+            set
+            {
+                Model.AnomalPear = value;
+            }
+        }
+
+        public string VM_AnomalAttr
+        {
+            get { return Model.AnomalAttr; }
+            set
+            {
+                Model.AnomalAttr = value;
+            }
         }
 
         public string VM_PearsonAttrToPlot

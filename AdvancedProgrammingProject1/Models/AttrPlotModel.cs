@@ -31,6 +31,10 @@ namespace AdvancedProgrammingProject1
             }
         }
 
+        public Dictionary<string, Dictionary<double, double>> FullAttrData
+        {
+            get { return attrData; }
+        }
         public Dictionary<double, double> AttrData
         {
             get

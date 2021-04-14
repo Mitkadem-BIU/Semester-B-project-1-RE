@@ -12,9 +12,12 @@ namespace AnomalyDetectionDll
 {
     public class RegretionAnomalyDetector
     {
-        public static double dynamicThreshold = 0;
-        public static List<CorrelatedFeatures> cf=new List<CorrelatedFeatures>();
-        public RegretionAnomalyDetector() { }
+        public static double dynamicThreshold = 0.3;
+        public static List<CorrelatedFeatures> cf = new List<CorrelatedFeatures>();
+        public RegretionAnomalyDetector()
+        {
+            // Console.WriteLine("constructor");
+        }
         public static double[] ListToArray(List<List<double>> v, double n)
         {
             double[] array = new double[v.Count];
@@ -69,6 +72,15 @@ namespace AnomalyDetectionDll
                     }
                 }
             }
+        }
+        public static List<long> DetectTime(DataTable csvTable)
+        {
+            List<AnomalyReport> anomalyReports = Detect(csvTable);
+            List<long> times = new List<long>();
+            foreach (var ar in anomalyReports)
+                times.Add(ar.TimeStep);
+
+            return times;
         }
 
         public static List<AnomalyReport> Detect(DataTable csvTable)

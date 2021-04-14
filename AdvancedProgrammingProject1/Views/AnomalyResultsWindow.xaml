@@ -5,21 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdvancedProgrammingProject1.Views" xmlns:oxy="http://oxyplot.org/wpf" xmlns:advancedprogrammingproject1="clr-namespace:AdvancedProgrammingProject1" d:DataContext="{d:DesignInstance Type=advancedprogrammingproject1:AnomalyDetectionViewModel}"
         mc:Ignorable="d"
-        Title="AnomalyResultsWindow" Height="450" Width="400">
+        Title="AnomalyResultsWindow" Height="300" Width="500">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
-        <ListBox Name="lbTimesList" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lbTimesList_SelectionChanged">
+        <ListBox Name="lbTimesList" Grid.Row="1" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lbTimesList_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Completion}" />
+                    <TextBlock Text="{Binding Title}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <DockPanel Grid.Row="1">
+        <DockPanel Grid.Column="1" Grid.Row="1">
             <oxy:PlotView Model="{Binding VM_AnomalyPlotModel}"/>
         </DockPanel>
-    </Grid>
+        <TextBlock Text="Anomaly Times" Grid.Column="0" Grid.Row="0" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Gray"/>
+        <TextBlock Text="Visual Representation" Grid.Column="1" Grid.Row="0" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Gray"/>
+     </Grid>
 </Window>

@@ -21,9 +21,9 @@ namespace AnomalyDetectionDll
             double sum = 0;
             for (int i = 0; i < size; i++)
             {
-                sum += Math.Pow(x[i] - Avg(x, size), 2);
+                sum += x[i] * x[i];
             }
-            return sum / size;
+            return sum / size - Avg(x, size) * Avg(x, size);
         }
 
         public static double Cov(double[] x, double[] y, int size)

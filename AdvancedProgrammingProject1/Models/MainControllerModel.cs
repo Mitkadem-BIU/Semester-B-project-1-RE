@@ -31,6 +31,7 @@ namespace AdvancedProgrammingProject1
 		XmlDocument doc;
 		List<string> flightAttrNames;
 		DataTable csvTable;
+		DataTable learnCsvTable;
 		int lineCounter;
 		DataRow currentLine;
 		bool pause;
@@ -50,6 +51,12 @@ namespace AdvancedProgrammingProject1
 		int slideValue;
 		bool valueChanged;
 		bool jumpFlag;
+		Dictionary<string, List<double>> columns;
+
+		public Dictionary<string, List<double>> Columns
+        {
+			get { return columns; }
+        }
 
 		public bool IsConnected
         {
@@ -114,6 +121,11 @@ namespace AdvancedProgrammingProject1
 			get { return csvTable; }
 			set { csvTable = value; }
 		}
+		public DataTable LearnCsvTable
+		{
+			get { return learnCsvTable; }
+			set { learnCsvTable = value; }
+		}
 		public string Csv
 		{
 			get { return csvName; }
@@ -130,7 +142,7 @@ namespace AdvancedProgrammingProject1
 			set
 			{
 				learnCsvName = value;
-				// ReadCSV(csvName);
+				ReadLearnCSV(csvName);
 				NotifyPropertyChanged("valueChanged");
 			}
 		}
@@ -380,7 +392,7 @@ namespace AdvancedProgrammingProject1
 				csvTable = new DataTable();
 				csvTable.Load(csvReader);
 			}
-
+			columns = new Dictionary<string, List<double>>();
 			for (int i = 0; i < csvTable.Columns.Count; i++)
 			{
 				try
@@ -390,6 +402,44 @@ namespace AdvancedProgrammingProject1
 				catch (DuplicateNameException)
 				{
 					csvTable.Columns[i].ColumnName = flightAttrNames[i] + "_1";
+					flightAttrNames[i] = flightAttrNames[i] + "_1";
+				}
+				columns[flightAttrNames[i]] = GetColumn(flightAttrNames[i]);
+			}
+		}
+
+		public List<double> GetColumn(string attrGet)
+        {
+			int index = CSVTable.Columns.IndexOf(attrGet);
+			List<double> l = new List<double>();
+			// CSVTable.Rows[]
+			List<double> ids = new List<double>(CSVTable.Rows.Count);
+			foreach (DataRow row in CSVTable.Rows)
+				ids.Add(Double.Parse((string)row[index]));
+			return ids;
+        }
+
+		public void ReadLearnCSV(string csvName)
+		{
+			/*
+			 * read CSV file to some kind of time series,
+			 * you can probably use what we did last semester.
+			 */
+			using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead(learnCsvName)), false))
+			{
+				learnCsvTable = new DataTable();
+				learnCsvTable.Load(csvReader);
+			}
+
+			for (int i = 0; i < learnCsvTable.Columns.Count; i++)
+			{
+				try
+				{
+					learnCsvTable.Columns[i].ColumnName = flightAttrNames[i];
+				}
+				catch (DuplicateNameException)
+				{
+					learnCsvTable.Columns[i].ColumnName = flightAttrNames[i] + "_1";
 					flightAttrNames[i] = flightAttrNames[i] + "_1";
 				}
 			}

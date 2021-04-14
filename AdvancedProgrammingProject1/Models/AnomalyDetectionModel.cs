@@ -4,6 +4,7 @@ using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -20,22 +21,51 @@ namespace AdvancedProgrammingProject1
         public PlotModel AnomalyPlotModel { get; private set; }
         private ScatterSeries normalPoints;
         private ScatterSeries anomalyPoints;
-
-        public string AttrToPlot
+        public DataTable Table
         {
-            get { return AttrModel.AttrToPlot; }
+            get { return Model.CSVTable; }
         }
-
+        string anomalAttr;
+        string anomalPear;
+        List<int> errTimes;
+        List<AnomalyReport> algoResults;
+        Dictionary<string, LineSeries> attrLines;
+        public List<AnomalyReport> AlgoResults
+        {
+            get { return algoResults; }
+            set { algoResults = value; }
+        }
+        public string AnomalPear
+        {
+            get { return anomalPear; }
+            set
+            {
+                anomalPear = value;
+                UpdatePlot();
+            }
+        }
+        public string AnomalAttr
+        {
+            get { return anomalAttr; }
+            set
+            {
+                anomalAttr = value;
+            }
+        }
         public double AP_Time
         {
             get { return AttrModel.AP_Time; }
             set { AttrModel.AP_Time = value; }
         }
 
+        public string AttrToPlot
+        {
+            get { return AttrModel.AttrToPlot; }
+        }
+
         public string PearsonAttrToPlot
         {
             get { return AttrModel.PearsonAttrToPlot; }
-            // set { AttrModel}
         }
 
         public string Csv
@@ -68,7 +98,8 @@ namespace AdvancedProgrammingProject1
             delegate (Object sender, PropertyChangedEventArgs e) {
                 NotifyPropertyChanged(e.PropertyName);
             };
-
+            algoResults = new List<AnomalyReport>();
+            errTimes = new List<int>();
             AnomalyPlotModel = new PlotModel { };
 
             AnomalyPlotModel.Series.Add(new LineSeries()); // here we should add the LineSeries Coming from the Algorithm
@@ -91,6 +122,8 @@ namespace AdvancedProgrammingProject1
             //{
             //    RowChanged();
             //}
+            // if (propertyName == "AttrToPlot")
+            //    UpdatePlot();
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
@@ -108,41 +141,65 @@ namespace AdvancedProgrammingProject1
                 MarkerSize = 2,
                 MarkerFill = OxyColors.IndianRed,
             };
-            foreach (double keyTime in AttrModel.AttrData.Keys)
+            if (anomalAttr != null)
             {
-                if (Model.Time - 30 > keyTime) // change this to anomaly points. should include all times
-                    anomalyPoints.Points.Add(new ScatterPoint(AttrModel.AttrData[keyTime], AttrModel.PearData[keyTime]));
-                else if (Model.Time >= keyTime)
-                    normalPoints.Points.Add(new ScatterPoint(AttrModel.AttrData[keyTime], AttrModel.PearData[keyTime]));
+                
+                for (int i = 0; i < Model.Columns[anomalAttr].Count; i++)
+                {
+                    if (errTimes.Contains(i))
+                        anomalyPoints.Points.Add(new ScatterPoint(Model.Columns[anomalAttr][i], Model.Columns[anomalPear][i]));
+                    else
+                        normalPoints.Points.Add(new ScatterPoint(Model.Columns[anomalAttr][i], Model.Columns[anomalPear][i]));
+                }
             }
+
+            /* foreach (double keyTime in AttrModel.AttrData.Keys)
+            {
+                if (AnomalAttr != null)
+                {
+                    if (Model.Time - 30 > keyTime) // change this to anomaly points. should include all times
+                        
+                    else if (Model.Time >= keyTime)
+                        
+                }
+            } */
+            AnomalyPlotModel.Series.Clear();
             AnomalyPlotModel.Series.Add(normalPoints);
             AnomalyPlotModel.Series.Add(anomalyPoints);
+            try
+            {
+                AnomalyPlotModel.Series.Add(attrLines[$"{AnomalAttr} - {AnomalPear}"]);
+            } catch (KeyNotFoundException) { }
             AnomalyPlotModel.InvalidatePlot(true);
         }
 
         public void LoadDLL()
         {
-            var dllFile = new FileInfo(AlgoName);
+            var dllFile = new System.IO.FileInfo(AlgoName);
             Assembly dllAssembly = Assembly.LoadFile(dllFile.FullName);
-            var type = dllAssembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
+           // string fileName = System.IO.Path.GetFileName(dllFile.Name);
+
+            var type = dllAssembly.GetType(@"RegressionLineAlgorithm.RegLine");
             dynamic obj = Activator.CreateInstance(type);
+            var learn = type.GetMethod("Learn");
+            learn.Invoke(obj, new object[] { Model.LearnCsvTable });
+            var detect = type.GetMethod("DetectTime");
+            var anomaly = detect.Invoke(obj, new object[] { Model.CSVTable });
+            // AnomalyTimes((List<long>)anomaly);
+            algoResults.Clear();
+            errTimes.Clear();
+            int last = -1;
+            foreach (var item in (List<Tuple<long, string, string>>)anomaly)
+            {
+                algoResults.Add(new AnomalyReport(item.Item2, item.Item3, (double)item.Item1 / 10));
+                if ((int)item.Item1 != last)
+                    errTimes.Add((int)item.Item1);
+                last = (int)item.Item1;
+            }
 
-            //this is the way to dynamically load a dll file and using its methods
-            //string dllFile = @"C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\RegretionBasedDll\bin\Debug\netcoreapp3.1\RegretionBasedDll.dll";
-            /*var assembly = Assembly.LoadFile(*//*dllFile*//*AlgoName);
-            var type = assembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
-            dynamic obj = Activator.CreateInstance(type);
-            var method = type.GetMethod("LearnAndDetect");
-            var result = method.Invoke(obj, new object[] { Model.CSVTable });*/
-
-
-            // var method = type.GetMethod("LearnAndDetect");
-            // var result = method.Invoke(obj, new object[] { Model.CSVTable });
-
-            // Object dllInstance = (Object)dllAssembly.CreateInstance("AnomalyDetectionDll.RegretionAnomalyDetector");
-            /* dll = dllInstance;
-             object[] argslearn = new object[] { (object)trainLines };
-             maxCorralatedFreatures = (List<Tuple<int, int>>)dll.GetType().GetMethod("learnNormal").Invoke(dll, argslearn);*/
+            var valsToLines = type.GetMethod("ValuesToLine");
+            var lines = valsToLines.Invoke(obj, new object[] { });
+            attrLines = (Dictionary<string, LineSeries>)lines;
         }
     }
 }

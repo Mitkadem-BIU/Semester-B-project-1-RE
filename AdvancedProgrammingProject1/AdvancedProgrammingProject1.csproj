@@ -111,6 +111,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\AnomalyReport.cs" />
     <Compile Include="Models\AttrPlotModel.cs" />
     <Compile Include="Models\ControlBarModel.cs" />
     <Compile Include="Models\DashBoardModel.cs" />

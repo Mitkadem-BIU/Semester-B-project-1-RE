@@ -22,5 +22,10 @@ namespace AnomalyDetectionDll
 
         public string GetDescription() { return this.description; }
         public long GetTimeStep() { return this.timestep; }
+
+        public long TimeStep
+        {
+            get { return timestep; }
+        }
     }
 }
