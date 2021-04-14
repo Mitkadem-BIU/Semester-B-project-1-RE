@@ -12,7 +12,7 @@ namespace AnomalyDetectionDll
 {
     public class RegretionAnomalyDetector
     {
-        public static double dynamicThreshold = 0;
+        public static double dynamicThreshold = 0.3;
         public static List<CorrelatedFeatures> cf=new List<CorrelatedFeatures>();
         public RegretionAnomalyDetector() { }
         public static double[] ListToArray(List<List<double>> v, double n)
@@ -69,7 +69,6 @@ namespace AnomalyDetectionDll
                     }
                 }
             }
-            Console.WriteLine(cf.Count);
             TimeSeries ts2 = new TimeSeries(csvTable2);
             List<AnomalyReport> anomaly_reports = new List<AnomalyReport>();
             for (int i = 0; i < cf.Count; i++)
@@ -80,9 +79,7 @@ namespace AnomalyDetectionDll
                     {
                         for (int k = j + 1; k < ts2.GetFeatures().Count; k++)
                         {
-                        Console.WriteLine(ts2.GetFeatures()[ts2.GetFeatures().Keys.ElementAt(j)]);
-                        Console.WriteLine(ts2.GetFeatures()[ts2.GetFeatures().Keys.ElementAt(k)]);
-                        if (feature_a == ts2.GetFeatures()[ts2.GetFeatures().Keys.ElementAt(j)] && feature_b == ts2.GetFeatures()[ts2.GetFeatures().Keys.ElementAt(k)])
+                            if (feature_a == ts2.GetFeatures()[ts2.GetFeatures().Keys.ElementAt(j)] && feature_b == ts2.GetFeatures()[ts2.GetFeatures().Keys.ElementAt(k)])
                             {
                                 double[] x = ListToArray(ts2.GetTable(), j);
                                 double[] y = ListToArray(ts2.GetTable(), k);
@@ -90,7 +87,7 @@ namespace AnomalyDetectionDll
                                 {
                                     Point pl = new Point(x[l]/*GetAnArrayOfPoints(x, y, ts2)[l].GetX()*/, y[l]/*GetAnArrayOfPoints(x, y, ts2)[l].GetY()*/);
                                     double checkedDev = anomaly_detection_util.Dev(pl, cf[i].GetLin_Reg());
-                                    if (cf[i].GetThreshold() * 1.1 < checkedDev)
+                                    if (cf[i].GetThreshold() < checkedDev)
                                     {
                                         anomaly_reports.Add(new AnomalyReport((feature_a + "-" + feature_b), l + 1));
                                     }
@@ -99,7 +96,6 @@ namespace AnomalyDetectionDll
                         }
                     }
             }
-            anomaly_reports.Add(new AnomalyReport("aileron-elevator",100));
             return anomaly_reports;
         }
 
