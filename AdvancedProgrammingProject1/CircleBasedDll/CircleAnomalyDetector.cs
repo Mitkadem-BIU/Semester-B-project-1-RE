@@ -8,7 +8,7 @@ namespace AnomalyDetectionDll
 {
     public class CircleAnomalyDetector
     {
-        static double dynamicThreshold = 0;
+        static double dynamicThreshold = 0.2;
         static List<CorrelatedFeatures> cf = new List<CorrelatedFeatures>();
         public static double[] ListToArray(List<List<double>> v, double n)
         {
@@ -53,8 +53,7 @@ namespace AnomalyDetectionDll
                     double[] x = ListToArray(ts.GetTable(), i);
                     double[] y = ListToArray(ts.GetTable(), j);
                     features_pearson = anomaly_detection_util.Pearson(x, y, ts.GetTable().Count);
-                    /*if (Math.Abs(features_pearson) > 0.5 && Math.Abs(features_pearson) < dynamicThreshold)*/
-                    if(Math.Abs(features_pearson) >= dynamicThreshold)
+                    if (Math.Abs(features_pearson) > 0 && Math.Abs(features_pearson) <= dynamicThreshold)
                     {
                         features_line = anomaly_detection_util.Linear_reg(GetAnArrayOfPoints(x, y, ts), ts.GetTable().Count);
                         feature_a = ts.GetFeatures()[ts.GetFeatures().Keys.ElementAt(i)];
