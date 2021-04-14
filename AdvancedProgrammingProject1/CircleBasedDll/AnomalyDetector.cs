@@ -19,5 +19,8 @@ namespace AnomalyDetectionDll
             this.description = "";
             this.timestep = 0;
         }
+
+        public string GetDescription() { return this.description; }
+        public long GetTimeStep() { return this.timestep; }
     }
 }

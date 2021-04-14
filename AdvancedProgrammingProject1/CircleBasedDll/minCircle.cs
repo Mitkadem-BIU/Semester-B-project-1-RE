@@ -22,7 +22,6 @@ namespace AnomalyDetectionDll
         var1 += pointB.GetX() * (pointC.GetY() - pointA.GetY());
         var1 += pointA.GetX() * (pointB.GetY() - pointC.GetY());
         double[] arr = { (pointA.GetX() * pointA.GetX() + pointA.GetY() * pointA.GetY()), (pointB.GetX() * pointB.GetX() + pointB.GetY() * pointB.GetY()), (pointC.GetX() * pointC.GetX() + pointC.GetY() * pointC.GetY()) };
-        double var2 = arr[0] * (pointB.GetX() * pointC.GetY() - pointC.GetX() * pointB.GetY()) + arr[1] * (pointC.GetX() * pointA.GetY() - pointA.GetX() * pointC.GetY()) + arr[2] * (pointA.GetX() * pointB.GetY() - pointA.GetY() * pointB.GetX());
         double coordinateXSum = (arr[0] * (pointB.GetY() - pointC.GetY()) + arr[1] * (pointC.GetY() - pointA.GetY()) + arr[2] * (pointA.GetY() - pointB.GetY())) / 2;
         double coordinateYSum = (arr[0] * (pointC.GetX() - pointB.GetX()) + arr[1] * (pointA.GetX() - pointC.GetX()) + arr[2] * (pointB.GetX() - pointA.GetX())) / 2;
         return new Point(coordinateXSum / var1, coordinateYSum / var1);
@@ -102,8 +101,9 @@ namespace AnomalyDetectionDll
         {
             return CreateTrivialMinCircle(secondryPoints);
         }
+        int index=0;
         Random rand = new Random();
-        int index = rand.Next() % n;
+        index = rand.Next() % n;
         Point point = mainPoints[index];
 
         Swap(mainPoints[index], mainPoints[n - 1]);
@@ -127,14 +127,14 @@ namespace AnomalyDetectionDll
 
     public static Circle FindMinCircle(Point[] points, int size)
     {
-        List<Point> vectorOfPoints = new List<Point>();
+        List<Point> listOfPoints = new List<Point>();
         int index = 0;
         while (index < size)
         {
-            vectorOfPoints.Add(points[index]);
+            listOfPoints.Add(points[index]);
             index++;
         }
-        return MinCircle(vectorOfPoints);
+        return MinCircle(listOfPoints);
     }
     }
 }
