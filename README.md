@@ -28,9 +28,11 @@ First, you have to install FlightGear from the link above.
 Open the FlightGear app. It should look like this:
 
 ![image](https://user-images.githubusercontent.com/62245924/114727207-af584000-9d46-11eb-8eb8-76a6bbae4136.png)
+
 Press the Setting button on the left and scroll down to Additional Settings:
 
 ![image](https://user-images.githubusercontent.com/62245924/114727406-da429400-9d46-11eb-9c5e-d2479f258e2f.png)
+
 Most of the settings are replacable since we rely on them in our program. Some of them however can be replaced according to your wish:
 `--generic=socket,in,10,<ip to listen to>,<port to listen to>,tcp,playback_small
 --fdm=null`
@@ -42,6 +44,7 @@ Open the project and add the needed dependency mentioned above.
 Run pressing the Start button in Visual Studio. the following window would open:
 
 ![image](https://user-images.githubusercontent.com/62245924/114729684-e29bce80-9d48-11eb-83e4-6cfd5f5a7b4d.png)
+
 Fill it with the following data:
 * XML file: the same `playback_small.xml` setting file which was supported in the FlightGear settings
 * Learning CSV File: file to be sent to the detection algorithm. The data in this file would not be shown
@@ -51,6 +54,7 @@ Note that the CSV files sould be accepted **without column names**. It would not
 If everything works, the following window should open:
 
 ![image](https://user-images.githubusercontent.com/62245924/114730630-b7fe4580-9d49-11eb-9de7-5517cc5adf52.png)
+
 You can pick different attributes from the list and see them and the one who's most similar. You can also go back and forth in time and change the speed. In the right you can see a graphical review of specific attributes. Of course, you can see this entire time the course of the flighing of the plane, in the FlightGear app (which should stay on!).
 On the buttom-right, you can load different anomaly file or load an anomaly detector dll. We provide 2 dlls with basic ablities but you can add some more as you wish. Notice the have to fit the `IAlgorithm` interface and also, the name of the namespace should be ? and the name of the class should be the name of the file.
 
