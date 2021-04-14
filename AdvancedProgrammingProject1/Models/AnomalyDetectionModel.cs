@@ -122,6 +122,11 @@ namespace AdvancedProgrammingProject1
 
         public void LoadDLL()
         {
+            var dllFile = new FileInfo(AlgoName);
+            Assembly dllAssembly = Assembly.LoadFile(dllFile.FullName);
+            var type = dllAssembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
+            dynamic obj = Activator.CreateInstance(type);
+
             //this is the way to dynamically load a dll file and using its methods
             //string dllFile = @"C:\Users\User\Desktop\מסמכי אוניברסיטה\שנה ב- סמסטר ב\תכנות מתקדם 2\AdvancedProgrammingProject1\AdvancedProgrammingProject1\RegretionBasedDll\bin\Debug\netcoreapp3.1\RegretionBasedDll.dll";
             /*var assembly = Assembly.LoadFile(*//*dllFile*//*AlgoName);
@@ -129,11 +134,8 @@ namespace AdvancedProgrammingProject1
             dynamic obj = Activator.CreateInstance(type);
             var method = type.GetMethod("LearnAndDetect");
             var result = method.Invoke(obj, new object[] { Model.CSVTable });*/
-            
-            var dllFile = new FileInfo(AlgoName);
-            Assembly dllAssembly = Assembly.LoadFile(dllFile.FullName);
-            var type = dllAssembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
-            dynamic obj = Activator.CreateInstance(type);
+
+
             // var method = type.GetMethod("LearnAndDetect");
             // var result = method.Invoke(obj, new object[] { Model.CSVTable });
 
