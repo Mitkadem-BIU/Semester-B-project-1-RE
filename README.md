@@ -43,7 +43,7 @@ Open the project and add the needed dependency mentioned above.
 ##### Run the App
 Run pressing the Start button in Visual Studio. the following window would open:
 
-<img src="https://user-images.githubusercontent.com/62245924/114729684-e29bce80-9d48-11eb-83e4-6cfd5f5a7b4d.png" width="300" height="400">
+<img src="https://user-images.githubusercontent.com/62245924/114729684-e29bce80-9d48-11eb-83e4-6cfd5f5a7b4d.png" width="500" height="400">
 
 Fill it with the following data:
 * XML file: the same `playback_small.xml` setting file which was supported in the FlightGear settings
