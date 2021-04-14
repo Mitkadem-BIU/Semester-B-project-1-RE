@@ -1,38 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AdvancedProgrammingProject1.App" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAkAAAAAAAAAAAAAAAAAAAAAgABIAAAAEgEAAAABAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AdvancedProgrammingProject1.AnomalyDetectionModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAQAAAIAAAAAAAAAAgAAAEAAAAAgAAAAAAAA=</HashCode>
       <FileName>Models\AnomalyDetectionModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.AttrPlotModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.AttrPlotModel" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>QAAAAIBBoIDAAaAQEDECgBAAgAICAEMAAAgAACAAgAA=</HashCode>
       <FileName>Models\AttrPlotModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.ControlBarModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.ControlBarModel" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgCAAAAAEAAIAAQAAAAAABwEAAMAAAIAgBAAAAAQA=</HashCode>
       <FileName>Models\ControlBarModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.DashBoardModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.DashBoardModel" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAEQAAAAAAAAIAAACAAgAAAgEAABAAAAAhAACAAAAA=</HashCode>
       <FileName>Models\DashBoardModel.cs</FileName>
@@ -40,7 +46,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.FGModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="12.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAgAAAIAAAAAAQIBAgAAAAABAAAAAAAEABAA=</HashCode>
       <FileName>Models\FGModel.cs</FileName>
@@ -48,37 +54,41 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.Anomaly" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IAlgorithm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AdvancedProgrammingProject1.JoystickModel" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Position X="7.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAgAAIAAAAAAAAAAgAAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Models\JoystickModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.MainControllerModel" BaseTypeListCollapsed="true">
-    <Position X="5" Y="5.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.MainControllerModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>IBBlSCEAAUkgAIBIRCCIwEQh6cAoN0gFMCRhADFA5VY=</HashCode>
       <FileName>Models\MainControllerModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.StatisticMethods" Collapsed="true">
-    <Position X="4" Y="4.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.StatisticMethods">
+    <Position X="7.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Models\StatisticMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AdvancedProgrammingProject1.AnomalyDetectionViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAgAAAAIAAAAAAAAAAgAAAAAAAAAgAAAAAAAg=</HashCode>
       <FileName>ViewModels\AnomalyDetectionViewModel.cs</FileName>
@@ -86,7 +96,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.AttrPlotViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+    <Position X="9.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAEAAAAAEQAIABAAgAAAAAgAAAAAAAAAggAEAAAAA=</HashCode>
       <FileName>ViewModels\AttrPlotViewModel.cs</FileName>
@@ -94,7 +104,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.ControlBarViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+    <Position X="5.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAGAEAAAAKAgAAAQAAIAgAIAAAAAAggAAgAAAAA=</HashCode>
       <FileName>ViewModels\ControlBarViewModel.cs</FileName>
@@ -102,23 +112,26 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.DashBoardViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="2.5" Width="1.5" />
+    <Position X="11" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAIIAAAAAAAAAAkQgAAAABAAgAAAACIAA=</HashCode>
       <FileName>ViewModels\DashBoardViewModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.JoystickViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="3.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.JoystickViewModel" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAgAAAAAABBAgAAAAAAAA=</HashCode>
       <FileName>ViewModels\JoystickViewModel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.MainControllerViewModel" BaseTypeListCollapsed="true">
-    <Position X="8" Y="5.5" Width="2" />
+  <Class Name="AdvancedProgrammingProject1.MainControllerViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>ECAAAAEAggAQYIAEgAAAAJAAkQgAAAABBAgAAAAKICI=</HashCode>
       <FileName>ViewModels\MainControllerViewModel.cs</FileName>
@@ -128,23 +141,16 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.AttrPlot" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.AttrPlot" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\AttrPlot.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.AttrItem" Collapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Views\AttrPlot.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="AdvancedProgrammingProject1.ControlBarView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAIAAAAAkCBAAEAAAAAABACAJAAAAAAAAQAAAAAA=</HashCode>
       <FileName>Views\ControlBarView.xaml.cs</FileName>
@@ -152,7 +158,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.DashBoard" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\DashBoard.xaml.cs</FileName>
@@ -160,7 +166,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.Joystick" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="5.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Joystick.xaml.cs</FileName>
@@ -168,15 +174,15 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.JoystickBoardView" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="2.5" Width="1.5" />
+    <Position X="7.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\JoystickBoardView.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQRAAAAAAgAAAAAAAACAAEAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Views\MainWindow.xaml.cs</FileName>
@@ -184,27 +190,27 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="AdvancedProgrammingProject1.Properties.Resources" Collapsed="true">
-    <Position X="2.75" Y="6" Width="1.5" />
+    <Position X="5.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="AdvancedProgrammingProject1.Properties.Settings" Collapsed="true">
-    <Position X="2.25" Y="4.5" Width="1.5" />
+    <Position X="11.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="AdvancedProgrammingProject1.Views.AnomalyDetection" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAgAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\AnomalyDetection.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="AdvancedProgrammingProject1.Views.NewWindow" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="3.5" Width="1.5" />
+  <Class Name="AdvancedProgrammingProject1.Views.NewWindow" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\NewWindow.xaml.cs</FileName>
@@ -212,7 +218,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Interface Name="AdvancedProgrammingProject1.IAlgorithm" Collapsed="true">
-    <Position X="0.5" Y="7.25" Width="1.5" />
+    <Position X="5.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Models\IAlgorithm.cs</FileName>

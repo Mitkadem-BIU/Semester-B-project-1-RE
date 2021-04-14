@@ -29,26 +29,20 @@ namespace AdvancedProgrammingProject1
 			InitializeComponent();
 			DataContext = vm;
 
-			List<AttrItem> items = new List<AttrItem>();
+			List<string> items = new List<string>();
 			foreach (var item in vm.VM_FlightAttrNames)
-				items.Add(new AttrItem() { Title = item, Completion = 15 });
+				items.Add(item);
 			lbAttrList.ItemsSource = items;
 		}
 
 		private void LbAttrList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			vm.VM_AttrToPlot = (lbAttrList.SelectedItem as AttrItem).Title;
+			vm.VM_AttrToPlot = (lbAttrList.SelectedItem as string);
 			vm.VM_SelfPlotModel.Axes[1].Title = vm.VM_AttrToPlot;
 
 			// fix this
 			testBox.Text = vm.VM_AttrToPlot;
 
 		}
-	}
-
-	public class AttrItem
-	{
-		public string Title { get; set; }
-		public int Completion { get; set; }
 	}
 }
