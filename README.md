@@ -59,7 +59,7 @@ You can pick different attributes from the list and see them and the one who's m
 On the buttom-right, you can load different anomaly file or load an anomaly detector dll. We provide 2 dlls with basic ablities but you can add some more as you wish. Notice you have to fit the `IAlgorithm` interface and also, the name of the namespace should be ? and the name of the class should be the name of the file.
 
 #### 5) Further Documentation
-Link to documentation about the main classes: Here is the link: (add link!)
+Link to documentation about the main classes: Here is the link: https://lucid.app/lucidchart/invitations/accept/inv_61087e73-214e-485b-8a3f-a172e1a73110?viewport_loc=-3211%2C-550%2C5490%2C2359%2C0_0
 
 #### 6) Showing Video
 Link to the 5~ minutes video: https://youtu.be/rZVfAhkdcaE
