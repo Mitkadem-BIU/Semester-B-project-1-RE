@@ -56,7 +56,8 @@ If everything works, the following window should open:
 <img src="https://user-images.githubusercontent.com/62245924/114730630-b7fe4580-9d49-11eb-9de7-5517cc5adf52.png" width="500" height="400">
 
 You can pick different attributes from the list and see them and the one who's most similar. You can also go back and forth in time and change the speed. In the right you can see a graphical review of specific attributes. Of course, you can see this entire time the course of the flighing of the plane, in the FlightGear app (which should stay on!).
-On the buttom-right, you can load different anomaly file or load an anomaly detector dll. We provide 2 dlls with basic ablities but you can add some more as you wish. Notice you have to fit the `IAlgorithm` interface and also, the name of the namespace should be ? and the name of the class should be the name of the file.
+On the buttom-right, you can load different anomaly file or load an anomaly detector dll. We provide 2 dlls with basic ablities but you can add some more as you wish. Notice you have to fit the `IAlgorithm` interface and also, the name of the namespace should be `RegressionLineAlgorithm` and the name of the class should be `RegLine`.
+**Note** the app is not perfect, especially the detection algorithm. Some bugs may occur during using, and the algorithm might slow the program or stuck it for a few seconds. Also, our simple algorithm raises a lot of false alarms.
 
 #### 5) Further Documentation
 Link to documentation about the main classes: https://lucid.app/lucidchart/invitations/accept/inv_61087e73-214e-485b-8a3f-a172e1a73110?viewport_loc=-3211%2C-550%2C5490%2C2359%2C0_0 access with these details: Full name: Tomer Aharoni, gmail: tagopd@gmail.com, password: 1234567890
