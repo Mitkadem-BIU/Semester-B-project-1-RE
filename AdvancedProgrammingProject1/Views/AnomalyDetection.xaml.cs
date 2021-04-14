@@ -51,7 +51,7 @@ namespace AdvancedProgrammingProject1.Views
 
             if (UploadDLLFileDialog.ShowDialog() == true)
                 algoName.Text = UploadDLLFileDialog.FileName;
-            algoName1.Text = System.IO.Path.GetFileName(csvName.Text);
+            algoName1.Text = System.IO.Path.GetFileName(algoName.Text);
         }
     }
 }

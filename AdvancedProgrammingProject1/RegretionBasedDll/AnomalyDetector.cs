@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RegretionBasedDll
+namespace AnomalyDetectionDll
 {
     public class AnomalyReport
     {
