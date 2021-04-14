@@ -10,8 +10,6 @@
 4. Installation instructions and initial running: 
 
 5. link to documentation about the main classes: <add links here>
-* MainControllerModel : 
-* ControlBarController : 
 
 6. **link to the 5~ minutes video:**
 <add link here>
