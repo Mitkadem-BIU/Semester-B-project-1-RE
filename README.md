@@ -62,4 +62,4 @@ On the buttom-right, you can load different anomaly file or load an anomaly dete
 Link to documentation about the main classes: Here is the link: (add link!)
 
 #### 6) Showing Video
-link to the 5~ minutes video
+link to the 5~ minutes video: https://youtu.be/rZVfAhkdcaE
