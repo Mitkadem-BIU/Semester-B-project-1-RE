@@ -22,14 +22,15 @@ namespace AnomalyDetectionDll
                 {
                     if (i == 0)
                     {
-                        features.Add(j, (string)csvTable.Rows[0][j]);
+                        features.Add(j, csvTable.Columns[j].ColumnName);
                     }
                     else
                     {
                         line.Add(Double.Parse((string)csvTable.Rows[i][j]));
                     }
                 }
-                table.Add(line);
+                if(i!=0)
+                    table.Add(line);
             }
 		}
 
