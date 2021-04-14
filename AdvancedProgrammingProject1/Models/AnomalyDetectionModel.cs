@@ -35,6 +35,7 @@ namespace AdvancedProgrammingProject1
         public string PearsonAttrToPlot
         {
             get { return AttrModel.PearsonAttrToPlot; }
+            // set { AttrModel}
         }
 
         public string Csv

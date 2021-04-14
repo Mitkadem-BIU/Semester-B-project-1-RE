@@ -21,6 +21,16 @@ namespace AdvancedProgrammingProject1
         private ScatterSeries oldPoints;
         private ScatterSeries newPoints;
 
+        public string AlgoName
+        {
+            get { return Model.AlgoName; }
+            set
+            {
+                Model.AlgoName = value;
+                NotifyPropertyChanged("AlgoName");
+            }
+        }
+
         public Dictionary<double, double> AttrData
         {
             get

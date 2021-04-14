@@ -24,7 +24,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <Label Content="Dash Board"  Grid.Row="0" Margin="0" FontSize="40" FontWeight="Bold" Grid.ColumnSpan="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontStretch="Normal" Foreground="Gray"/>
+        <Label Content="Dash Board"  Grid.Row="0" Margin="0" FontSize="36" FontWeight="Bold" Grid.ColumnSpan="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontStretch="Normal" Foreground="Gray"/>
 
         <Label Content="Air Speed" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center"   FontStretch="Normal" Foreground="#747e96"/>
         <Label Content="Altitude" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Center"   FontStretch="Normal"  Foreground="#747e96"/>

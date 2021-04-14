@@ -27,6 +27,7 @@ namespace AdvancedProgrammingProject1
 
         public string VM_PearsonAttrToPlot
         {
+            // set { Model.PearsonAttrToPlot = value; }
             get { return Model.PearsonAttrToPlot; }
         }
 

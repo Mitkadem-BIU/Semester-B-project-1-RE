@@ -8,15 +8,16 @@
              d:DesignHeight="600" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
             <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+        <DockPanel Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
             <oxy:PlotView Model="{Binding VM_LinearRegPlotModel}"/>
         </DockPanel>
         <DockPanel Grid.Column="1" Grid.Row="0">
@@ -25,7 +26,7 @@
         <DockPanel Grid.Column="2" Grid.Row="0">
             <oxy:PlotView Model="{Binding VM_PearsonPlotModel}"/>
         </DockPanel>
-        <StackPanel Grid.Column="0" Grid.RowSpan="2">
+        <StackPanel Grid.Column="0" Grid.Row="0">
             <ListBox Name="lbAttrList" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300" SelectionChanged="LbAttrList_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -33,6 +34,8 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" >
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -46,16 +49,20 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Current Attribute: " Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
-                <TextBlock Name="testBox" Text="{Binding Path=VM_AttrToPlot}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right"/>
-                <TextBlock Text="Most Similar: " Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Left"/>
-                <TextBlock Text="{Binding VM_PearsonAttrToPlot}" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right"/>
-                <TextBlock Text="Pearson Value: " Grid.Column="0" Grid.Row="5"/>
-                <TextBlock Text="{Binding Path=VM_PearVal}" Grid.Column="1" Grid.Row="5"/>
-                
+                <TextBlock Text="Info Panel" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="Gray"/>
+                <TextBlock Text="Current Attribute: " Grid.Row="3" VerticalAlignment="Center" FontSize="10" Foreground="#747e96"/>
+                <TextBlock Text="{Binding Path=VM_AttrToPlot}" Margin="1,2.333,1,0" Grid.Row="3" Grid.Column="1" Height="20" FontSize="10" Foreground="#FF95D4FF" VerticalAlignment="Top"/>
+                <TextBlock Text="Most Similar: " Grid.Row="4" VerticalAlignment="Center" FontSize="10" Foreground="#747e96"/>
+                <TextBlock Text="{Binding Path=VM_PearsonAttrToPlot}" Margin="1,2" Grid.Row="4" Grid.Column="1" Height="20" FontSize="10" Foreground="#FF95D4FF"/>
+                <TextBlock Text="Pearson Value: " Grid.Row="5" VerticalAlignment="Center" FontSize="10" Foreground="#747e96"/>
+                <TextBlock  Text="{Binding Path=VM_PearVal}" Grid.Column="1" Grid.Row="5" Height="20" FontSize="10" Foreground="#FF95D4FF"/>
+                <TextBlock Text="Running Algorithm: " Grid.Row="6" VerticalAlignment="Center" FontSize="10" Foreground="#747e96"/>
+                <TextBlock Text="{Binding Path=VM_AlgoName}" Grid.Column="1" Grid.Row="6" Height="20" FontSize="10" Foreground="#FF95D4FF"/>
             </Grid>
-            
         </StackPanel>
+
+
     </Grid>
 </UserControl>

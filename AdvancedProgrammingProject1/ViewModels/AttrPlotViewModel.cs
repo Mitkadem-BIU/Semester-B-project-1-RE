@@ -25,10 +25,15 @@ namespace AdvancedProgrammingProject1
 		{
 			get { return Model.PearsonAttrToPlot; }
 		}
-
+		public string VM_AlgoName
+		{
+			get { return Model.AlgoName; }
+			set { Model.AlgoName = value; }
+		}
 		public double VM_PearVal
 		{
 			get { return Model.PearVal; }
+			set { Model.PearVal = value; }
 		}
 		public LineSeries VM_LS
 		{

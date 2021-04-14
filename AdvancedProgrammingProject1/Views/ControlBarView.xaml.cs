@@ -101,14 +101,14 @@ namespace AdvancedProgrammingProject1
         // TODO: the speeds are not correct, I'm sure of it.
         private void BtnIncreaseSpeed_Click(object sender, RoutedEventArgs e)
         {
-            if (100 / vm.VM_Speed > 40) // minimal speed: 100 / 40 != 1/4
+            if (vm.VM_Speed < 4)
                 vm.VM_Speed *= 2;
             speed.Text = vm.VM_Speed.ToString();
         }
 
         private void BtnDecreaseSpeed_Click(object sender, RoutedEventArgs e)
         {
-            if (100 / vm.VM_Speed < 250) // maximal speed: 100 / 250 != 4
+            if (vm.VM_Speed > 0.25)
                 vm.VM_Speed /= 2;
             speed.Text = vm.VM_Speed.ToString();
         }
