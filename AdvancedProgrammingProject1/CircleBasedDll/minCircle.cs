@@ -101,12 +101,11 @@ namespace AnomalyDetectionDll
         {
             return CreateTrivialMinCircle(secondryPoints);
         }
-        int index=0;
-        Random rand = new Random();
-        index = rand.Next() % n;
-        Point point = mainPoints[index];
+        /*Random rand = new Random();
+        int index = rand.Next() % n;*/
+        Point point = mainPoints[0];
 
-        Swap(mainPoints[index], mainPoints[n - 1]);
+        Swap(mainPoints[0], mainPoints[n - 1]);
 
         Circle d = Helper(mainPoints, secondryPoints, n - 1);
 
