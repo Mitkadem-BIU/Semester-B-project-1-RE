@@ -21,7 +21,6 @@ namespace AnomalyDetectionDll
             TimeSeries ts = new TimeSeries(csvTable);
             List<AnomalyReport> anomaly_reports = new List<AnomalyReport>();
             List<CorrelatedFeatures> cf = CircleAnomalyDetector.GetNormalModel();
-            Console.WriteLine(cf.Count);
             for (int i = 0; i < cf.Count; i++)
             {
                     string feature_a = cf[i].GetFeature1();

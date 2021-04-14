@@ -132,7 +132,7 @@ namespace AdvancedProgrammingProject1
             
             var dllFile = new FileInfo(AlgoName);
             Assembly dllAssembly = Assembly.LoadFile(dllFile.FullName);
-            var type = dllAssembly.GetType("RegretionBasedDll.RegretionAnomalyDetector");
+            var type = dllAssembly.GetType("AnomalyDetectionDll.RegretionAnomalyDetector");
             dynamic obj = Activator.CreateInstance(type);
             // var method = type.GetMethod("LearnAndDetect");
             // var result = method.Invoke(obj, new object[] { Model.CSVTable });
