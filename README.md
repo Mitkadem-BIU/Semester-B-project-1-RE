@@ -27,7 +27,7 @@ We used two C# Libraries whose dependencies we had to manualy add:
 First, you have to install FlightGear from the link above.
 Open the FlightGear app. It should look like this:
 
-<img src=(https://user-images.githubusercontent.com/62245924/114727207-af584000-9d46-11eb-8eb8-76a6bbae4136.png) width="100" height="100">
+<img src=(https://user-images.githubusercontent.com/62245924/114727207-af584000-9d46-11eb-8eb8-76a6bbae4136.png) width="250" height="250">
 
 Press the Setting button on the left and scroll down to Additional Settings:
 
